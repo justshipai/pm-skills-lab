@@ -1,0 +1,1 @@
+Producing an AI feature spec that includes an explicit evaluation plan, failure-mode guardrails, and a graceful fallback — not just a generic feature spec with user stories.

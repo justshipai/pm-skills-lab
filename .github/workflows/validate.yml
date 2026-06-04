@@ -1,0 +1,33 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate skill structure
+        run: python3 scripts/validate.py
+
+      - name: Check plugins are in sync with skills/
+        run: |
+          python3 scripts/build-plugins.py
+          if [ -n "$(git status --porcelain plugins .claude-plugin)" ]; then
+            echo "::error::plugins/ or marketplace.json is out of date."
+            echo "Run 'python3 scripts/build-plugins.py' and commit the result."
+            git --no-pager diff -- plugins .claude-plugin
+            exit 1
+          fi
+
+# Note: structural validation runs in CI. The with-skill vs. without-skill
+# eval (the merge gate) is run by a maintainer with the Tessl CLI before merge,
+# since it needs model access and credentials. See CONTRIBUTING.md.

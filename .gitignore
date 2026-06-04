@@ -1,0 +1,11 @@
+# Tessl eval artifacts
+/evals/
+.tessl/
+*.eval.json
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+__pycache__/
+*.pyc

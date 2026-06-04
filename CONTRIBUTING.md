@@ -1,0 +1,109 @@
+# Contributing to pm-skills-lab
+
+Thanks for helping build the evaluated commons of PM skills. The one rule that makes this repo different from every other PM skills library:
+
+> **A skill only merges if an eval proves it makes the agent better.**
+
+No exceptions, no "trust me." If you can't show the lift, it's not ready — and that's fine, open a draft PR and we'll help.
+
+## The bar (what every skill PR must include)
+
+Each skill is a self-contained folder under `skills/<category>/<skill-name>/`:
+
+```
+skills/<category>/<skill-name>/
+├── SKILL.md      # required — the skill itself
+├── EXAMPLE.md    # required — one real input → the resulting output
+└── evals/
+    └── scenario-1/
+        ├── task.md         # required — the brief shown to the agent
+        ├── criteria.json   # required — the scoring rubric
+        └── capability.txt  # required — which capability this scenario tests
+```
+
+1. **`SKILL.md`** — YAML frontmatter with `name` and a sharp, trigger-friendly `description` (two sentences max; this is what makes the skill auto-fire). Detailed instructions in the body. Cite the framework(s) it encodes. Keep the body focused; push long references into separate files loaded on demand.
+2. **`EXAMPLE.md`** — a genuine, non-toy input and the output the skill produces. This is the fastest way for a human to judge the skill.
+3. **`evals/scenario-*/`** — at least one scenario in [Tessl's format](https://docs.tessl.io/improving-your-skills/evaluate-skill-quality-using-scenarios):
+   - `task.md` — the task brief an agent would receive (no mention of the skill).
+   - `criteria.json` — a rubric of weighted, checkable criteria (see schema below).
+   - `capability.txt` — one line naming the capability under test.
+
+## The merge gate: with-skill vs. without-skill
+
+This is the whole point. We evaluate by running the scenario **twice** — once with your skill injected, once without — and scoring both against `criteria.json`.
+
+- **Pass:** the with-skill run scores meaningfully higher than the baseline. The skill earns its place.
+- **Fail:** the skill makes no difference (the base model already does this well) or makes it worse. Sharpen the skill or pick a harder scenario.
+
+Run it locally with the Tessl CLI:
+
+```sh
+# one-time
+tessl install tessl-labs/tessl-skill-eval-scenarios
+
+# generate scenarios from your skill (or write them by hand)
+tessl scenario generate skills/<category>/<skill-name> --count=3
+
+# run the eval (with vs. without the skill)
+tessl eval run skills/<category>/<skill-name>
+```
+
+You don't have to use Tessl — any harness that does the with/without comparison is fine — but the scenario files must be present so a maintainer can reproduce the result.
+
+## `criteria.json` schema
+
+```json
+{
+  "criteria": [
+    {
+      "id": "covers-fallbacks",
+      "description": "Output specifies a graceful fallback for the model's primary failure mode.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "measurable-success",
+      "description": "Success metrics include at least one quality, one cost, and one latency target.",
+      "weight": 2,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}
+```
+
+- `weight` — relative importance (positive integer).
+- `required` — if `true`, the scenario fails when this criterion is missed, regardless of total score.
+- `pass_threshold` — fraction of the weighted score needed to pass.
+
+## Quickstart
+
+```sh
+# scaffold a new skill folder with all required files stubbed
+./scripts/new-skill.sh ai-product ai-prd
+
+# fill in SKILL.md, EXAMPLE.md, and evals/scenario-1/*
+# then validate structure before you push
+python3 scripts/validate.py skills/ai-product/ai-prd
+```
+
+Look at [`skills/ai-product/ai-feature-spec`](./skills/ai-product/ai-feature-spec/) — it's the fully-worked reference skill. Copy its shape.
+
+## House style for skills
+
+- **Opinionated beats generic.** A skill that pushes back, asks the one clarifying question, and refuses to produce slop is more valuable than one that fills a template. Encode judgment, not just structure.
+- **Short description, detailed body.** The `description` burns context on every turn; the body only loads when the skill fires.
+- **Name the framework.** If a skill operationalizes Cagan's risk framing or Torres' OST, say so and stay faithful to it.
+- **One skill, one job.** If it's doing three things, it's three skills.
+
+## Review process
+
+- CI runs `scripts/validate.py` on changed skills (frontmatter present, all required files present, JSON well-formed).
+- A maintainer reproduces the eval and confirms the with/without lift.
+- Two maintainer approvals merge it; the skill gets the **verified** badge in the catalog.
+
+## Scope
+
+In scope: any skill that helps a product manager do real PM work. Out of scope: skills that are just brand promotion, that require a paid product to function, or that can't be evaluated.
+
+By contributing you agree your work is released under the repo's [MIT license](./LICENSE).

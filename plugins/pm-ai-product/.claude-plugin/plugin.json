@@ -1,0 +1,5 @@
+{
+  "name": "pm-ai-product",
+  "version": "0.1.0",
+  "description": "Skills for building AI products: specs, evals, guardrails, rollout, pricing."
+}

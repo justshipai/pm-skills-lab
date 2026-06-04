@@ -1,0 +1,53 @@
+{
+  "criteria": [
+    {
+      "id": "evaluation-plan",
+      "description": "Specifies how feature quality will be measured before/after ship — e.g. a golden/test set, a rubric, offline and/or online quality signals. A vague 'we'll monitor it' does not count.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "graceful-fallback",
+      "description": "Defines what the user experiences when the model is low-confidence, out of scope, or fails — and it is not just a generic error message or a dead end.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "failure-modes-guardrails",
+      "description": "Enumerates AI-specific failure modes (e.g. hallucinated/incorrect action items, missed items, wrong owner/date) and pairs each with a detection or mitigation.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "non-ai-baseline",
+      "description": "Questions or justifies why AI is the right approach versus a simpler/deterministic baseline.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "uncertainty-and-reversibility",
+      "description": "Addresses confidence/legibility and lets the user verify, edit, or undo the AI output (human-in-the-loop), rather than treating output as final.",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "cost-latency",
+      "description": "Treats cost and/or latency as an explicit product constraint with a target or budget, not an afterthought.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "success-metrics-multi-dimensional",
+      "description": "Success metrics span more than one dimension — e.g. at least a quality measure plus an adoption/outcome measure, ideally with a guardrail metric that must not regress.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "staged-rollout",
+      "description": "Proposes a staged rollout (e.g. shadow/canary/GA) with a gate or kill switch, rather than a single launch.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

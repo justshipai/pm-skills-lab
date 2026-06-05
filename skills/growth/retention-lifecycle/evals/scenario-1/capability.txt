@@ -1,0 +1,1 @@
+Designing a behavior-triggered lifecycle program mapped to lifecycle stages that targets the actual drop-off (post-bank-connect disengagement), gives each message one job routed to the value moment, guards against over-messaging, and measures incremental retention with a holdout — rather than a generic weekly newsletter and time-based re-engagement blasts.

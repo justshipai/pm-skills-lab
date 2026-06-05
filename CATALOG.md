@@ -159,14 +159,14 @@ The full roadmap — ~160 skills across 14 categories. `[x]` = authored & eval-r
 - [ ] `press-release-faq` — Working-backwards PR + FAQ
 - [ ] `pricing-packaging` — Pricing & packaging design
 
-## Growth (0 / 7)
+## Growth (5 / 7)
 
-- [ ] `growth-loop` — Growth loop / flywheel design
-- [ ] `activation-finder` — Aha-moment / activation
+- [x] `growth-loop` — Growth loop / flywheel design
+- [x] `activation-finder` — Aha-moment / activation
+- [x] `retention-lifecycle` — Lifecycle (email/notification) strategy
+- [x] `referral-mechanic` — Referral / virality design
+- [x] `growth-experiment-backlog` — Growth experiment backlog
 - [ ] `funnel-optimization` — Funnel optimization plan
-- [ ] `retention-lifecycle` — Lifecycle (email/notification) strategy
-- [ ] `referral-mechanic` — Referral / virality design
-- [ ] `growth-experiment-backlog` — Growth experiment backlog
 - [ ] `plg-motion` — PLG motion design
 
 ## Communication & stakeholder (6 / 12)

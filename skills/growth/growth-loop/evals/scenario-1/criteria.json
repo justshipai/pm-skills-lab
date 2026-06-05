@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "closed-loop-not-channels",
+      "description": "Designs a closed, self-reinforcing loop where product output feeds back as input to acquire/activate the next user — not a list of marketing channels or a linear funnel.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "loop-runs-through-product",
+      "description": "The loop runs through actual product usage (e.g. shared routes attract new runners), making it defensible, rather than bolted-on campaigns.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "compounding-condition",
+      "description": "States the condition under which the loop compounds (k>1, LTV>CAC, content yield) and honestly assesses whether it holds.",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "constraint",
+      "description": "Identifies the rate-limiting step/constraint to optimize first rather than optimizing everything at once.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "cycle-time-or-secondary",
+      "description": "Considers loop cycle time and/or distinguishes the primary loop from secondary loops/channels.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

@@ -1,0 +1,1 @@
+Turning growth ideas into a prioritized experiment backlog: each framed as a falsifiable hypothesis (if X then metric Y because Z) tagged to a funnel/loop stage, ICE-scored, weighted by learning value and the actual constraint (here: day-1 churn → activation/retention), sequenced into a run order, with success bars and decisions — rather than a brainstormed tactic list.

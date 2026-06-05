@@ -1,0 +1,39 @@
+{
+  "skill": "skills/growth/growth-experiment-backlog",
+  "run_at": "2026-06-05 16:31 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.727,
+      "treatment_score": 1.0,
+      "lift": 0.273,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "hypotheses-not-tasks": {
+          "verdict": "pass",
+          "why": "Every experiment is explicitly framed as 'If X then metric Y because Z' \u2014 the table column header even labels this and each row follows the format consistently."
+        },
+        "stage-and-metric": {
+          "verdict": "pass",
+          "why": "Each experiment has a dedicated Stage column (Activation, Retention, Acquisition, Referral) and the specific metric to move is stated in both the hypothesis and the detailed success-metric tables for top experiments."
+        },
+        "ice-scored-and-sequenced": {
+          "verdict": "pass",
+          "why": "All seven experiments have explicit Impact/Confidence/Ease scores with calculated ICE product scores, and a clear sprint-based run order with rationale for sequencing decisions is provided."
+        },
+        "targets-constraint": {
+          "verdict": "pass",
+          "why": "The output explicitly names Day-1 churn/activation as the constraint in the opening section, places activation/retention experiments #1\u20133 at the top of the ICE ranking and sprint order, and explicitly defers/deprioritizes the web version (#7, ICE 48) and influencer campaigns (#6, ICE 80) with clear reasoning that they burn budget against a leaky funnel."
+        },
+        "learning-value-and-decision": {
+          "verdict": "pass",
+          "why": "A Learning Value column is included for all experiments with qualitative framing, and the top 3 experiments each have explicit win bars (with significance thresholds and sample sizes), 'if win' escalation paths, and 'if lose' diagnostic decisions that define what to do next."
+        }
+      }
+    }
+  ]
+}

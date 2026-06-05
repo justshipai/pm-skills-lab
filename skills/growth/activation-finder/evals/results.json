@@ -1,0 +1,39 @@
+{
+  "skill": "skills/growth/activation-finder",
+  "run_at": "2026-06-05 16:25 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.7,
+      "treatment_score": 1.0,
+      "lift": 0.3,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "data-driven-best-predictor": {
+          "verdict": "pass",
+          "why": "Explicitly selects 'invited \u22651 teammate who joined' at 78% vs 35% baseline, presents the full comparison table, and calls it 'not a close call' with a +43pp gap."
+        },
+        "rejects-vanity": {
+          "verdict": "pass",
+          "why": "Explicitly dismisses 'created an account' as 'baseline \u2014 no signal beyond signup' and notes all other behaviors including uploading/commenting can be solo sessions delivering no collaboration value."
+        },
+        "magic-number-threshold": {
+          "verdict": "pass",
+          "why": "Defines a specific threshold: '\u22651 teammate invite accepted within 7 days of signup' with a clear time window, and even suggests tightening to 72 hours pending further data analysis."
+        },
+        "correlation-causation-experiment": {
+          "verdict": "pass",
+          "why": "Dedicates a full section to the confound (motivated/team-mandated users), then proposes a concrete A/B experiment with treatment/control design, randomization unit, primary metric (day-60 retention), secondary metrics, and interpretation of both positive and null results."
+        },
+        "use-as-target": {
+          "verdict": "pass",
+          "why": "Recommends it as the onboarding activation target, notes the ~20% current rate with headroom, provides concrete day-by-day onboarding interventions, and includes a guardrail (teammate must join, not just be invited) with gaming detection signals."
+        }
+      }
+    }
+  ]
+}

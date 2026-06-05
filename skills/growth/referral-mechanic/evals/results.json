@@ -1,0 +1,39 @@
+{
+  "skill": "skills/growth/referral-mechanic",
+  "run_at": "2026-06-05 16:27 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.85,
+      "treatment_score": 1.0,
+      "lift": 0.15,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "k-factor-math": {
+          "verdict": "pass",
+          "why": "Explicitly estimates invites/user (2.5) and conversion rate (12%), computes k=0.30 with clear arithmetic, runs a sensitivity check showing even optimistic scenarios stay sub-1, and derives the acquisition multiplier via geometric series convergence. Rigorous and grounded."
+        },
+        "honest-viral-verdict": {
+          "verdict": "pass",
+          "why": "Directly tells leadership this is a CAC-reducer not a viral engine, shows k\u22651 is unrealistic for a paid B2C productivity tool, quantifies the blended CAC reduction ($25\u2192$17.50), and explicitly warns against designing or framing it as a viral loop. No echo of the 'go viral' framing."
+        },
+        "incentive-vs-unit-economics": {
+          "verdict": "pass",
+          "why": "Sizes the two-sided reward ($8+$8=$16 total cost) against CAC ($25) and LTV ($90), showing referral CAC beats existing CAC by $9. Explicitly flags the CMO's signup-trigger flaw, recommends activation/first-paid-month trigger, explains why credit beats cash, and proposes a power-referrer variant. Comprehensive unit-economics reasoning."
+        },
+        "share-trigger": {
+          "verdict": "pass",
+          "why": "Identifies specific delight moments (streak milestone, task completion, weekly summary), explains why signup is wrong, specifies one-tap share with pre-filled copy, prioritizes high-converting peer channels (iMessage/WhatsApp), and describes persistent-but-non-annoying cadence."
+        },
+        "fraud-guardrails": {
+          "verdict": "pass",
+          "why": "Covers self-referral (device ID + payment method check), fake account farms (payment required before reward), public link posting (volume monitoring), reward stacking (annual cap, link expiry), chargeback fraud, and includes a clear kill criterion (90 days, 200 cycles, referral CAC vs. next-best channel)."
+        }
+      }
+    }
+  ]
+}

@@ -4,7 +4,7 @@ Every skill ships with a scenario eval. The harness (`scripts/run_evals.py`) run
 
 **Status key:** ✅ **verified** = the skill passes the rubric *and* beats the baseline. ➖ **no measurable lift** = the skill passes, but a strong base model already aces this scenario unaided — not a failure, just a task where one-shot lift can't show the skill's value (consistency across varied inputs). ❌ **not verified** = the with-skill output didn't pass the rubric.
 
-**33 verified · 13 no-lift (strong baseline) · 0 not verified · 46/46 run.**
+**38 verified · 13 no-lift (strong baseline) · 0 not verified · 51/51 run.**
 
 | Skill | Status | Baseline | With skill | Last run |
 |---|---|---|---|---|
@@ -40,6 +40,11 @@ Every skill ships with a scenario eval. The harness (`scripts/run_evals.py`) run
 | `interview-script` | ✅ verified | 0.682 | 1.0 | 2026-06-05 11:32 UTC |
 | `interview-synthesizer` | ✅ verified | 0.727 | 1.0 | 2026-06-05 11:34 UTC |
 | `opportunity-solution-tree` | ✅ verified | 0.318 | 1.0 | 2026-06-05 11:36 UTC |
+| `activation-finder` | ✅ verified | 0.7 | 1.0 | 2026-06-05 16:25 UTC |
+| `growth-experiment-backlog` | ✅ verified | 0.727 | 1.0 | 2026-06-05 16:31 UTC |
+| `growth-loop` | ✅ verified | 0.85 | 1.0 | 2026-06-05 16:23 UTC |
+| `referral-mechanic` | ✅ verified | 0.85 | 1.0 | 2026-06-05 16:27 UTC |
+| `retention-lifecycle` | ✅ verified | 0.8 | 1.0 | 2026-06-05 16:29 UTC |
 | `competitive-battlecard` | ✅ verified | 0.95 | 1.0 | 2026-06-05 14:18 UTC |
 | `competitor-teardown` | ✅ verified | 0.95 | 1.0 | 2026-06-05 14:16 UTC |
 | `market-sizing` | ✅ verified | 0.9 | 1.0 | 2026-06-05 14:12 UTC |

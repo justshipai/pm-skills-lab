@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "hypotheses-not-tasks",
+      "description": "Frames each idea as a falsifiable hypothesis (if X then metric Y, because Z) rather than a list of tactics to do.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "stage-and-metric",
+      "description": "Tags each experiment to a funnel/loop stage and the specific metric it should move.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "ice-scored-and-sequenced",
+      "description": "Scores experiments (ICE or similar) and produces a run order, rather than an unprioritized list.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "targets-constraint",
+      "description": "Prioritizes the actual constraint (day-1 churn → activation/first-session/retention) over off-constraint acquisition ideas (web version, influencer campaigns), rather than treating all ideas equally.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "learning-value-and-decision",
+      "description": "Weights learning value / de-risking and/or defines success bars and the win/lose decision for top experiments.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

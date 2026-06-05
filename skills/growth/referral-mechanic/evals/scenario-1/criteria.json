@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "k-factor-math",
+      "description": "Grounds the design in the viral math — estimates k (invites/user × conversion) and reasons from it, rather than assuming virality.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "honest-viral-verdict",
+      "description": "Honestly assesses whether the program can be viral (k≥1) or is realistically a CAC-reducer (k<1), pushing back on the 'go viral' framing rather than echoing it.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "incentive-vs-unit-economics",
+      "description": "Sizes the incentive against CAC/LTV (a free month ≈ $8 cost; CAC $25; LTV $90) and prefers two-sided, ideally paid on activation/payment rather than raw signup.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "share-trigger",
+      "description": "Specifies when/how the referral is requested (a value/delight moment, one-tap) to drive invites per user.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "fraud-guardrails",
+      "description": "Includes abuse/fraud guardrails (self-referral, fake signups farming the free month) and a success metric / kill criterion.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

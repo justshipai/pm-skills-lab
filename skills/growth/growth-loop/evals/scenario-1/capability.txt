@@ -1,0 +1,1 @@
+Designing a closed, self-reinforcing growth loop (output of product usage feeds back to acquire/activate the next user) running through the product, naming the loop type, checking the compounding condition, and identifying the rate-limiting constraint — rather than answering with a list of marketing channels/tactics or a linear funnel.

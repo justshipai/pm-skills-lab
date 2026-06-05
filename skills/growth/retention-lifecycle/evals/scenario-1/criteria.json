@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "targets-real-dropoff",
+      "description": "Targets the actual drop-off point (disengagement after connecting a bank account / first weeks) from the lifecycle, rather than a generic newsletter for everyone.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "behavior-triggered-stages",
+      "description": "Designs behavior-triggered messages mapped to lifecycle stages (onboarding/habit/at-risk/dormant), not time-based blasts to all users.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "one-job-routed-to-value",
+      "description": "Each message has one job/CTA that routes the user to the product's value action (e.g. set a budget / review spending), not just 'we miss you / log in'.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "frequency-guardrails",
+      "description": "Includes frequency/fatigue guardrails (caps, suppression, opt-outs) rather than unconstrained sending.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "holdout-measurement",
+      "description": "Measures incremental retention lift with a holdout/control rather than open/click rates, and a rule to kill non-lifting messages.",
+      "weight": 2,
+      "required": true
+    }
+  ],
+  "pass_threshold": 0.7
+}

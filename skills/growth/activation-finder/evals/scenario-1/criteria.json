@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "data-driven-best-predictor",
+      "description": "Selects the activation behavior by which one most correlates with retention in the data (invited a teammate who joined, 78% vs 35% baseline), not a vanity action or intuition.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "rejects-vanity",
+      "description": "Explicitly dismisses vanity behaviors (created account/project) that barely beat baseline.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "magic-number-threshold",
+      "description": "Defines a magic-number threshold with a time window (e.g. invite ≥1 teammate who joins within week 1), not just 'do X'.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "correlation-causation-experiment",
+      "description": "Warns that the correlation may not be causal and proposes an experiment (drive the behavior for a random group vs holdout, measure retention lift) before betting on it.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "use-as-target",
+      "description": "Recommends using it as the onboarding/activation target (with the ~20% today → headroom) and a guardrail against gaming it without real value.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

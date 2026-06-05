@@ -1,0 +1,39 @@
+{
+  "skill": "skills/market/porters-five-forces",
+  "run_at": "2026-06-05 14:20 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": false,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 1.0,
+      "treatment_score": 1.0,
+      "lift": 0.0,
+      "treatment_passed": true,
+      "earns_place": false,
+      "treatment_verdicts": {
+        "all-five-forces": {
+          "verdict": "pass",
+          "why": "All five forces are explicitly analyzed with dedicated sections: competitive rivalry, threat of new entrants, supplier power, buyer power, and threat of substitutes. Each goes beyond listing competitors to analyze structural dynamics."
+        },
+        "rated-with-reasoning": {
+          "verdict": "pass",
+          "why": "Every force receives a clear High/Medium rating with explicit structural drivers. Reasoning is detailed \u2014 e.g., buyer power HIGH due to zero switching costs and promo-hopping; rivalry HIGH due to fixed costs + slow growth + high exit barriers."
+        },
+        "substitutes-identified": {
+          "verdict": "pass",
+          "why": "A dedicated table identifies real substitutes solving the need differently: traditional grocery, grocery delivery, prepared meal delivery, restaurant delivery, meal planning apps, and frozen/rotisserie options \u2014 not just direct meal-kit rivals."
+        },
+        "overall-read": {
+          "verdict": "pass",
+          "why": "A clear summary table rates all five forces, identifies the market as structurally unattractive, and pinpoints where margins are destroyed \u2014 specifically the buyer power + rivalry combination that forces perpetual discounting and CAC spend. Cites Blue Apron and HelloFresh data."
+        },
+        "implications": {
+          "verdict": "pass",
+          "why": "Strong strategic implications section explicitly recommends against standard market entry, identifies three alternative strategic angles (niche verticals, lock-in mechanisms, supply-side partnerships), and provides guardrails if proceeding. Ends with a clear recommended stance."
+        }
+      }
+    }
+  ]
+}

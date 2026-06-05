@@ -1,0 +1,39 @@
+{
+  "skill": "skills/market/market-sizing",
+  "run_at": "2026-06-05 14:12 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.9,
+      "treatment_score": 1.0,
+      "lift": 0.1,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "tam-sam-som": {
+          "verdict": "pass",
+          "why": "Clearly distinguishes TAM (~$10B-$13B broad market), SAM (~$280M-$380M strength-training app subscribers), and SOM ($7M Yr1 / $20-30M Yr3 ARR) with separate definitions and derivations for each."
+        },
+        "two-methods": {
+          "verdict": "pass",
+          "why": "Executes a genuine top-down estimate (starting from IHRSA gym membership data \u00d7 paid-app attach rate \u00d7 price) and a separate bottom-up estimate (building from US adult population \u00d7 exercise rate \u00d7 strength-primary \u00d7 gym-going \u00d7 pain-point filter \u00d7 price), presented as independent cross-checks with a reconciliation section."
+        },
+        "explicit-assumptions": {
+          "verdict": "pass",
+          "why": "States all key inputs with sourcing: 64M gym members (IHRSA), 45% strength-primary (CDC BRFSS), 18% paid-app attach (Sensor Tower), 60% strength-specific split, $120/yr price point rationale, 30% regular exercisers (CDC), 35% unstructured (ACE survey), 55% prefer app over PT. Each multiplier is explained."
+        },
+        "som-winnable": {
+          "verdict": "pass",
+          "why": "SOM is grounded in competitor benchmarks (Ladder ~100K users after 3 years), specific GTM spend ($3-5M), realistic subscriber ramp (60K Yr1, 200K Yr3), and framed as 2-8% of SAM rather than a generic '1% of TAM' hand-wave."
+        },
+        "reconcile-or-sensitivity": {
+          "verdict": "pass",
+          "why": "Explicitly reconciles top-down ($300M-$420M) and bottom-up ($250M-$350M), explains the ~20% gap and why bottom-up is more conservative, and provides a full sensitivity table identifying price point as the dominant swing factor with bear/base/bull scenarios."
+        }
+      }
+    }
+  ]
+}

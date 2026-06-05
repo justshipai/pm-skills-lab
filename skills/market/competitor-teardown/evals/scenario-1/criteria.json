@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "strategy-not-inventory",
+      "description": "Explains the competitor's strategy — who they target, how they position, how they make money — rather than just listing their features.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "honest-strengths-and-structural-weaknesses",
+      "description": "Gives an honest read of real strengths AND structural (not cosmetic) weaknesses, rather than wishful or one-sided.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "where-win-lose",
+      "description": "Identifies where the competitor wins and where they lose (segments/use cases), with conditions.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "implications-for-us",
+      "description": "Ends with concrete strategic implications and moves for us (avoid / attack / copy / ignore), not just description.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "evidence-and-gaps",
+      "description": "Bases claims on observable signals and flags inferences / what to verify.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

@@ -1,0 +1,39 @@
+{
+  "skill": "skills/market/positioning-statement",
+  "run_at": "2026-06-05 14:13 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": false,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 1.0,
+      "treatment_score": 1.0,
+      "lift": 0.0,
+      "treatment_passed": true,
+      "earns_place": false,
+      "treatment_verdicts": {
+        "competitive-alternatives": {
+          "verdict": "pass",
+          "why": "Explicitly tables six named alternatives including status-quo spreadsheets/email, do-nothing/honor system, and ERP-native modules, with clear explanation of who uses each and why the status quo is the primary competitive frame for a small challenger."
+        },
+        "attributes-to-value": {
+          "verdict": "pass",
+          "why": "Lists six candidate differentiating attributes and maps each one to a concrete customer benefit ('so what') in a dedicated table, culminating in a unifying value theme. The translation is specific, not generic (e.g., 'stops being a manual copy-paste job,' 'stop chasing people for receipts at month end')."
+        },
+        "best-fit-segment": {
+          "verdict": "pass",
+          "why": "Names a specific segment (5\u201375 employee SMBs with no dedicated finance team, specific accounting stacks, outgrowing spreadsheets) with five tightening criteria and named verticals (construction, home services, agencies). Explicitly warns against 'any small business' over-broadening."
+        },
+        "market-category": {
+          "verdict": "pass",
+          "why": "Deliberately selects 'small-business expense management' and articulates exactly why competing in 'corporate spend management' (Ramp/Brex) or 'expense reporting software' (Expensify) frames would disadvantage the product. The reasoning connects category choice to competitive positioning directly."
+        },
+        "statement": {
+          "verdict": "pass",
+          "why": "Produces a complete positioning statement in standard for/who/is/that/unlike/because structure, integrating segment, category, value, and competitive alternatives into one crisp block."
+        }
+      }
+    }
+  ]
+}

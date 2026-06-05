@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "all-five-forces",
+      "description": "Analyzes all five forces — competitive rivalry, threat of new entrants, supplier power, buyer power, and threat of substitutes — not just listing competitors.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "rated-with-reasoning",
+      "description": "Rates each force (high/medium/low pressure) and gives the structural driver/reason behind the rating.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "substitutes-identified",
+      "description": "Identifies real substitutes that solve the need differently (e.g. groceries, restaurants/takeout, cooking from scratch) rather than only direct meal-kit rivals.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "overall-read",
+      "description": "Gives an overall read of structural attractiveness and where the profit/margin pressure concentrates.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "implications",
+      "description": "Ends with strategic implications — which forces threaten margins and what to do (or whether to enter), not just description.",
+      "weight": 2,
+      "required": true
+    }
+  ],
+  "pass_threshold": 0.7
+}

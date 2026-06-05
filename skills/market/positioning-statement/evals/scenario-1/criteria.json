@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "competitive-alternatives",
+      "description": "Frames positioning relative to the competitive alternatives — including the status-quo / do-nothing / DIY option — rather than in a vacuum.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "attributes-to-value",
+      "description": "Identifies unique attributes AND translates them into customer value (the 'so what'), not just listing features.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "best-fit-segment",
+      "description": "Names the specific best-fit segment who cares most about the value, rather than positioning 'for everyone'.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "market-category",
+      "description": "Chooses a market category / frame of reference deliberately so the product's strengths look decisive.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "statement",
+      "description": "Produces a crisp positioning statement assembled from the components.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

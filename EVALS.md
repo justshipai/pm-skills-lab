@@ -4,7 +4,7 @@ Every skill ships with a scenario eval. The harness (`scripts/run_evals.py`) run
 
 **Status key:** ✅ **verified** = the skill passes the rubric *and* beats the baseline. ➖ **no measurable lift** = the skill passes, but a strong base model already aces this scenario unaided — not a failure, just a task where one-shot lift can't show the skill's value (consistency across varied inputs). ❌ **not verified** = the with-skill output didn't pass the rubric.
 
-**23 verified · 6 no-lift (strong baseline) · 0 not verified · 29/29 run.**
+**26 verified · 8 no-lift (strong baseline) · 0 not verified · 34/34 run.**
 
 | Skill | Status | Baseline | With skill | Last run |
 |---|---|---|---|---|
@@ -28,6 +28,11 @@ Every skill ships with a scenario eval. The harness (`scripts/run_evals.py`) run
 | `interview-script` | ✅ verified | 0.682 | 1.0 | 2026-06-05 11:32 UTC |
 | `interview-synthesizer` | ✅ verified | 0.727 | 1.0 | 2026-06-05 11:34 UTC |
 | `opportunity-solution-tree` | ✅ verified | 0.318 | 1.0 | 2026-06-05 11:36 UTC |
+| `competitive-battlecard` | ✅ verified | 0.95 | 1.0 | 2026-06-05 14:18 UTC |
+| `competitor-teardown` | ✅ verified | 0.95 | 1.0 | 2026-06-05 14:16 UTC |
+| `market-sizing` | ✅ verified | 0.9 | 1.0 | 2026-06-05 14:12 UTC |
+| `porters-five-forces` | ➖ no measurable lift (strong baseline) | 1.0 | 1.0 | 2026-06-05 14:20 UTC |
+| `positioning-statement` | ➖ no measurable lift (strong baseline) | 1.0 | 1.0 | 2026-06-05 14:13 UTC |
 | `okr-drafting` | ✅ verified | 0.542 | 0.875 | 2026-06-05 11:01 UTC |
 | `rice-scorer` | ✅ verified | 0.25 | 1.0 | 2026-06-05 11:02 UTC |
 | `roadmap-builder` | ✅ verified | 0.55 | 1.0 | 2026-06-05 11:03 UTC |

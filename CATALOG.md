@@ -49,14 +49,15 @@ The full roadmap — ~160 skills across 14 categories. `[x]` = authored & eval-r
 - [ ] `usability-test-plan` — Usability test plan + script
 - [ ] `insight-nuggetizer` — Atomic, taggable insights
 
-## Market & competitive (0 / 11)
+## Market & competitive (5 / 12)
 
-- [ ] `competitor-teardown` — Competitor profile/teardown
-- [ ] `battlecard` — Sales-ready competitive battlecard
+- [x] `competitor-teardown` — Competitor profile/teardown
+- [x] `competitive-battlecard` — Sales-ready competitive battlecard
+- [x] `market-sizing` — TAM/SAM/SOM (top-down + bottom-up)
+- [x] `porters-five-forces` — Five Forces analysis
+- [x] `positioning-statement` — Dunford positioning (alternatives → value → category)
 - [ ] `feature-comparison-matrix` — Feature comparison matrix
-- [ ] `market-sizing` — TAM/SAM/SOM (top-down + bottom-up)
 - [ ] `pestle-scan` — Macro landscape (PESTLE)
-- [ ] `porters-five-forces` — Five Forces analysis
 - [ ] `positioning-map` — 2×2 perceptual map
 - [ ] `dhm-profile` — Gibson Biddle DHM profile
 - [ ] `competitor-pricing-teardown` — Competitor pricing & packaging

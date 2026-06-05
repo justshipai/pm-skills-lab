@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "how-to-win-and-differentiators",
+      "description": "Leads with how to win against this competitor and our differentiators that matter to the buyer — a sales tool, not a neutral comparison.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "honest-strengths",
+      "description": "Acknowledges the competitor's genuine strengths and reframes them, rather than pretending they're bad.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "exploitable-weaknesses",
+      "description": "Names buyer-felt, exploitable weaknesses (not cosmetic) the rep can surface in a deal.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "objection-handling-or-landmines",
+      "description": "Provides objection handling responses and/or discovery 'landmine' questions that surface the competitor's gaps.",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "when-to-walk",
+      "description": "Honestly states when we win vs. when to walk away, rather than implying we win every deal.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

@@ -1,0 +1,39 @@
+{
+  "skill": "skills/market/competitive-battlecard",
+  "run_at": "2026-06-05 14:18 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.95,
+      "treatment_score": 1.0,
+      "lift": 0.05,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "how-to-win-and-differentiators": {
+          "verdict": "pass",
+          "why": "Opens with a clear one-line win thesis, lists specific differentiators framed for the buyer (external participant parity, fast deployment, dedicated roadmap, visible ROI, no lock-in), and is explicitly positioned as a sales tool throughout."
+        },
+        "honest-strengths": {
+          "verdict": "pass",
+          "why": "Dedicates a full table to genuine competitor strengths (bundle pricing, single-vendor simplicity, native integration, brand trust) and reframes each with the real cost to the buyer rather than dismissing them."
+        },
+        "exploitable-weaknesses": {
+          "verdict": "pass",
+          "why": "Five named, buyer-felt weaknesses with operational specificity: external participant degradation, quality on unmanaged networks, roadmap latency, low actual adoption with a concrete benchmark (30-40%), and licensing lock-in. These are deal-usable, not cosmetic."
+        },
+        "objection-handling-or-landmines": {
+          "verdict": "pass",
+          "why": "Six discovery landmine questions with intent annotations, plus a full objection-handling table covering six common objections with specific, non-generic responses including a pilot close and cost-reframing."
+        },
+        "when-to-walk": {
+          "verdict": "pass",
+          "why": "Explicitly names five walk-away conditions (IT/procurement-only buyer, no external calls, mid-license cycle, box-checking mandate, decision already made) alongside clear win conditions, with honest guidance like 'protect your team's time.'"
+        }
+      }
+    }
+  ]
+}

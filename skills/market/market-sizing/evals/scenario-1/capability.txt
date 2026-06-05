@@ -1,0 +1,1 @@
+Producing a TAM/SAM/SOM market sizing computed both top-down and bottom-up with every assumption stated, the two approaches reconciled, SOM grounded in winnable share (not '1% of TAM'), and a sensitivity/range — rather than a single confident unsupported number.

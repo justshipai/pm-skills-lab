@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "tam-sam-som",
+      "description": "Distinguishes TAM, SAM, and SOM rather than giving one undifferentiated market number.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "two-methods",
+      "description": "Estimates the market BOTH top-down and bottom-up (not just one), as independent cross-checks.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "explicit-assumptions",
+      "description": "States the assumptions/inputs behind the numbers (population, % who fit, price, frequency) rather than hiding multipliers.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "som-winnable",
+      "description": "Grounds SOM in realistically winnable share given competition/GTM/time, not 'we'll get 1% of a huge TAM'.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "reconcile-or-sensitivity",
+      "description": "Reconciles the two estimates and/or gives a range plus the assumptions it's most sensitive to, instead of false precision.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

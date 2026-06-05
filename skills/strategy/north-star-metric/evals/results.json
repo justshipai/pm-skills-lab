@@ -1,0 +1,39 @@
+{
+  "skill": "skills/strategy/north-star-metric",
+  "run_at": "2026-06-05 13:32 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.95,
+      "treatment_score": 1.0,
+      "lift": 0.05,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "value-capturing-nsm": {
+          "verdict": "pass",
+          "why": "Proposes 'Weekly Active Readers' defined as users completing \u22653 full article reads per week, with 'completed read' defined by scroll depth/time threshold. This is a value-moment rate (quality-weighted engagement), not a cumulative vanity metric."
+        },
+        "rejects-vanity-and-revenue": {
+          "verdict": "pass",
+          "why": "Explicitly explains MAU is too coarse and a user can open once in 30 days and count (vanity), and that ad revenue is a lagging output/consequence the team can't directly move \u2014 it's downstream of the NSM. The 'Screen' section also reinforces both rejections."
+        },
+        "input-metric-tree": {
+          "verdict": "pass",
+          "why": "Decomposes NSM into four named input metrics (Reach, Activation rate, Reads-per-active-user, Week-over-week retention), shows how they combine mathematically, identifies team ownership for each, and explains diagnostic use."
+        },
+        "guardrails": {
+          "verdict": "pass",
+          "why": "Provides four explicit guardrail metrics: ad experience score, source credibility flags, app store rating, and ad revenue per weekly active reader, each with clear rationale for why it must not regress."
+        },
+        "gameability-check": {
+          "verdict": "pass",
+          "why": "Directly addresses gameability: scroll+time threshold closes the app-open inflation exploit, source credibility guardrail closes the 'viral junk content' exploit, and the 'Screen' table has a dedicated 'Gameable without helping users?' row with specific analysis."
+        }
+      }
+    }
+  ]
+}

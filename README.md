@@ -12,7 +12,7 @@ Most PM skill libraries are *"trust me, here's a markdown file."* You can't tell
 
 **pm-skills-lab takes the opposite stance: every skill ships with a scenario eval and an in-repo harness that runs the task _with and without_ the skill, then grades both against a rubric.** A skill earns the **verified** mark only when the with-skill run beats the no-skill baseline. Results are published in [`EVALS.md`](./EVALS.md) — so "it works" is a number you can check, not a claim you have to trust. Running evals needs only an LLM API key; no external eval service required.
 
-> **Status:** 19 skills authored. 15 have been run through the harness — **12 verified, 3 no-measurable-lift (strong baseline), 0 failed**; the 4 newest (discovery) are eval-ready and awaiting their run. Live status and per-criterion detail are in [`EVALS.md`](./EVALS.md). Running the evals also surfaced (and fixed) a real measurement bug along the way — which is exactly what evals are for.
+> **Status:** 24 skills authored across 6 categories. 15 have been run through the harness so far — **12 verified, 3 no-measurable-lift (strong baseline), 0 failed**; the 9 newest (discovery + strategy) are eval-ready and awaiting their run. Live status and per-criterion detail are in [`EVALS.md`](./EVALS.md). Running the evals also surfaced (and fixed) a real measurement bug along the way — which is exactly what evals are for.
 
 This is a **curated, maintained library** — the skills here are authored and held to the eval bar, so you can install the set and trust it. Contributions are welcome (see below) and held to the same bar, but the core is a deliberately-built collection, not a free-for-all.
 
@@ -95,7 +95,7 @@ The full roadmap lives in [`CATALOG.md`](./CATALOG.md) — ~160 skills across 14
 | AI-product PM *(launch wedge)* | 21 | 10 |
 | Discovery & customer research | 20 | 4 |
 | Market & competitive | 11 | 0 |
-| Strategy & vision | 14 | 0 |
+| Strategy & vision | 14 | 5 |
 | Prioritization & planning | 15 | 3 |
 | Specs & definition | 15 | 1 |
 | Design & UX | 8 | 0 |

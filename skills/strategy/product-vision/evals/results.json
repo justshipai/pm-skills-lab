@@ -1,0 +1,39 @@
+{
+  "skill": "skills/strategy/product-vision",
+  "run_at": "2026-06-05 13:31 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.75,
+      "treatment_score": 1.0,
+      "lift": 0.25,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "customer-world": {
+          "verdict": "pass",
+          "why": "The vision is entirely framed around the customer's lived experience \u2014 the drawer of abandoned courses, the commute becoming the session, the waiter understanding them, the in-law laughing at their joke. Company revenue or market position never appears."
+        },
+        "concrete-not-buzzwords": {
+          "verdict": "pass",
+          "why": "Specific, vivid details throughout: '28, 45, 62', 'ten minutes before sleep are the sessions', 'the in-law laughed at their joke', 'a guilt notification at 9 p.m. and a streak they broke'. No buzzwords like seamless or AI-powered. A competitor could not paste their name in without the specifics feeling wrong."
+        },
+        "aspirational-believable": {
+          "verdict": "pass",
+          "why": "The aspiration is real but grounded \u2014 not 'everyone speaks every language' but 'one person handles one real conversation.' The mechanism (micro-sessions woven into life) is plausible, not fantastical."
+        },
+        "not-feature-list": {
+          "verdict": "pass",
+          "why": "The core vision statement and customer-change sections are clearly future-state narrative, not a roadmap. The tradeoffs table names directional principles, not shipped features, and is explicitly framed as what the vision rules in/out rather than a spec."
+        },
+        "guides-tradeoffs": {
+          "verdict": "pass",
+          "why": "The tradeoffs table is explicit and sharp: streaks out, forgiveness-first UX in; structured curriculum out, real-life moment exercises in; XP out, conversational milestones in. Decisions would be easy to make against this."
+        }
+      }
+    }
+  ]
+}

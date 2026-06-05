@@ -1,0 +1,1 @@
+Producing an Amazon-style working-backwards PR/FAQ: a plain-language, customer-centered mock launch press release (with a real customer benefit and quote) plus a hard FAQ that confronts why-customers-care, why-us, risks, non-goals, and business model — ending with an honest build/reshape/drop verdict — rather than a feature description.

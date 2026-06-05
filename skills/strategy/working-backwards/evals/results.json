@@ -1,0 +1,39 @@
+{
+  "skill": "skills/strategy/working-backwards",
+  "run_at": "2026-06-05 13:34 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": false,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 1.0,
+      "treatment_score": 1.0,
+      "lift": 0.0,
+      "treatment_passed": true,
+      "earns_place": false,
+      "treatment_verdicts": {
+        "press-release-customer-first": {
+          "verdict": "pass",
+          "why": "Press release leads with the customer problem (weekly status update burden), quantifies the pain (an hour or more weekly), and centers the benefit on the customer. The customer quote from Jordan M. is specific, believable, and references concrete details (dependency slipping, ticket stuck four days) rather than generic praise."
+        },
+        "plain-language": {
+          "verdict": "pass",
+          "why": "Language is direct and concrete throughout: 'one click,' 'under a minute,' 'five minutes reviewing,' 'garbage in, garbage out.' Minimal jargon; the few technical terms (LLM, API) appear only in internal sections. The press release itself reads like something a real person would find compelling."
+        },
+        "hard-faq": {
+          "verdict": "pass",
+          "why": "Internal FAQ explicitly tackles: why customers will care (with honest uncertainty about whether review saves time), why us vs. pasting into ChatGPT, biggest risks (detailed risk table with likelihood/impact/mitigation), what they're NOT doing at launch, how it makes money (retention/upsell + switching costs), and success conditions. These are genuinely hard questions answered with candor."
+        },
+        "quantified-benefit": {
+          "verdict": "pass",
+          "why": "Concrete claims: 'an hour or more' saved weekly, 'five minutes reviewing' vs. Sunday evening sessions, '5\u201310\u00d7 faster than writing from a blank page,' beta success threshold of \u226560% users reporting time saved. These are specific rather than vague."
+        },
+        "honest-verdict": {
+          "verdict": "pass",
+          "why": "Verdict section explicitly labels the idea 'reshape and validate, not a drop,' identifies four specific weaknesses (unproven quality bar, data quality problem, time-limited moat, LLM cost math), and sets measurable go/no-go criteria for the beta (60% satisfaction, \u226430% discard rate). Not boosterish filler."
+        }
+      }
+    }
+  ]
+}

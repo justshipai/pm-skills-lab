@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "five-choice-cascade",
+      "description": "Structures the answer as the Playing-to-Win cascade — winning aspiration, where to play, how to win, capabilities, management systems — as linked CHOICES, not goals/initiatives.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "where-not-to-play",
+      "description": "Makes a specific where-to-play choice AND explicitly names where it will NOT play / who it gives up, rather than targeting everyone.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "defensible-how-to-win",
+      "description": "Gives a defensible, arena-specific reason it will win (and why it's hard to copy), not 'best features' or 'better UX' generically.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "coherence",
+      "description": "Shows the choices reinforce each other (capabilities serve the how-to-win; systems build the capabilities).",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "what-must-be-true",
+      "description": "States what must be true for the strategy to work and/or the biggest risks to test.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

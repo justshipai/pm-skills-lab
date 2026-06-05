@@ -4,7 +4,7 @@ Every skill ships with a scenario eval. The harness (`scripts/run_evals.py`) run
 
 **Status key:** ✅ **verified** = the skill passes the rubric *and* beats the baseline. ➖ **no measurable lift** = the skill passes, but a strong base model already aces this scenario unaided — not a failure, just a task where one-shot lift can't show the skill's value (consistency across varied inputs). ❌ **not verified** = the with-skill output didn't pass the rubric.
 
-**16 verified · 3 no-lift (strong baseline) · 0 not verified · 19/19 run.**
+**20 verified · 4 no-lift (strong baseline) · 0 not verified · 24/24 run.**
 
 | Skill | Status | Baseline | With skill | Last run |
 |---|---|---|---|---|
@@ -27,3 +27,8 @@ Every skill ships with a scenario eval. The harness (`scripts/run_evals.py`) run
 | `rice-scorer` | ✅ verified | 0.25 | 1.0 | 2026-06-05 11:02 UTC |
 | `roadmap-builder` | ✅ verified | 0.55 | 1.0 | 2026-06-05 11:03 UTC |
 | `prd-generator` | ✅ verified | 0.917 | 1.0 | 2026-06-05 11:06 UTC |
+| `north-star-metric` | ✅ verified | 0.95 | 1.0 | 2026-06-05 13:32 UTC |
+| `playing-to-win` | ✅ verified | 0.7 | 1.0 | 2026-06-05 13:37 UTC |
+| `product-strategy-canvas` | ✅ verified | 0.818 | 1.0 | 2026-06-05 13:38 UTC |
+| `product-vision` | ✅ verified | 0.75 | 1.0 | 2026-06-05 13:31 UTC |
+| `working-backwards` | ➖ no measurable lift (strong baseline) | 1.0 | 1.0 | 2026-06-05 13:34 UTC |

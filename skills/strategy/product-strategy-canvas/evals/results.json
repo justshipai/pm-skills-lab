@@ -1,0 +1,43 @@
+{
+  "skill": "skills/strategy/product-strategy-canvas",
+  "run_at": "2026-06-05 13:38 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.818,
+      "treatment_score": 1.0,
+      "lift": 0.182,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "diagnosis-first": {
+          "verdict": "pass",
+          "why": "Opens with a dedicated Diagnosis section that honestly names the structural challenge (cannot out-scale incumbents, burn-rate trap) before any solutions are proposed, and cites the profitable-cities lesson as the core tension."
+        },
+        "non-obvious-insight": {
+          "verdict": "pass",
+          "why": "The claim that incumbents have a *structural* blind spot \u2014 their economics require high commissions that damage indie restaurants, making the indie-loyal segment permanently unwinnable for them \u2014 is a specific, arguable belief, not a generic 'focus on customers' platitude."
+        },
+        "focus-with-non-goals": {
+          "verdict": "pass",
+          "why": "Names a precise focused bet (mid-size cities 200k\u2013800k, operator-first, indie restaurants) and lists five explicit, concrete non-goals including no chains, no top-10 metros, no speed race, no discount subscription, and no multi-city expansion before profitability."
+        },
+        "defensibility": {
+          "verdict": "pass",
+          "why": "Provides a structured moat table with four distinct layers (operator switching costs, local network effects, brand signal, data flywheel) and explains the persistence mechanism for each, including why incumbents cannot replicate without restructuring their P&L."
+        },
+        "coherent-bets": {
+          "verdict": "pass",
+          "why": "Each of the four bets includes an explicit 'Why it follows' note tying it back to the diagnosis or insight, and the sequencing logic (operator health \u2192 city playbook \u2192 community layer \u2192 referral) is internally consistent."
+        },
+        "success-and-assumptions": {
+          "verdict": "pass",
+          "why": "Names a primary metric (contribution margin per city at month 12), four supporting KPIs with numeric targets, and a risk/assumption table with five rows each paired with a concrete test or trigger."
+        }
+      }
+    }
+  ]
+}

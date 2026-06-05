@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "press-release-customer-first",
+      "description": "Includes a mock launch-day press release written from the customer's point of view, leading with the customer problem and benefit (not the company/tech), with a believable customer quote.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "plain-language",
+      "description": "The press release uses plain, specific language a normal person would find compelling — not jargon/buzzword filler.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "hard-faq",
+      "description": "Includes an FAQ that tackles the hard questions — why customers will care, why us, biggest risks, what we're NOT doing, and/or how it makes money — rather than only easy ones.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "quantified-benefit",
+      "description": "Quantifies or makes concrete the customer benefit (e.g. time saved vs. today) rather than vague 'saves time'.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "honest-verdict",
+      "description": "Ends with an honest judgment on whether the idea is compelling/worth building (build / reshape / drop), including what's weak or risky.",
+      "weight": 2,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

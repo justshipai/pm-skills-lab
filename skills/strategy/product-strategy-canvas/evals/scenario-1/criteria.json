@@ -1,0 +1,41 @@
+{
+  "criteria": [
+    {
+      "id": "diagnosis-first",
+      "description": "Opens with an honest diagnosis of the central challenge / current reality before proposing actions, rather than jumping to solutions or goals.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "non-obvious-insight",
+      "description": "States a non-obvious insight/belief that gives an edge, not a platitude everyone already shares.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "focus-with-non-goals",
+      "description": "Names a focused bet/where-to-focus AND explicit non-goals (what they will not do), rather than trying to do everything.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "defensibility",
+      "description": "Explains how the advantage is defended / why it persists (a moat), not just how it differs.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "coherent-bets",
+      "description": "The proposed bets/initiatives follow coherently from the diagnosis and insight rather than being a grab-bag.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "success-and-assumptions",
+      "description": "Defines how success is measured and the key assumptions / what-must-be-true (risks).",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

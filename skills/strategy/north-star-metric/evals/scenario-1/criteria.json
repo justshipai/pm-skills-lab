@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "value-capturing-nsm",
+      "description": "Proposes an NSM that measures delivered customer value / engagement quality (e.g. a value-moment rate), not a cumulative vanity metric.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "rejects-vanity-and-revenue",
+      "description": "Explicitly explains why raw MAU (vanity) and ad revenue (lagging result the team can't directly move) are NOT the right North Star, rather than adopting them.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "input-metric-tree",
+      "description": "Decomposes the NSM into 3-5 input metrics the team can directly influence, showing how they relate.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "guardrails",
+      "description": "Includes guardrail metric(s) that must not regress (e.g. trust, content quality, churn).",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "gameability-check",
+      "description": "Considers whether the NSM is leading vs lagging and whether it can be gamed without helping users (e.g. clickbait inflating sessions), and addresses it.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

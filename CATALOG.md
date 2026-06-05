@@ -63,13 +63,13 @@ The full roadmap — ~160 skills across 14 categories. `[x]` = authored & eval-r
 - [ ] `analyst-report-digest` — Gartner/Forrester-style synthesis
 - [ ] `changelog-monitor` — Competitor release monitor
 
-## Strategy & vision (0 / 14)
+## Strategy & vision (5 / 14)
 
-- [ ] `product-vision` — Product vision statement
-- [ ] `product-strategy-canvas` — Vision → defensibility canvas
+- [x] `product-vision` — Product vision statement
+- [x] `product-strategy-canvas` — Vision → defensibility canvas
 - [ ] `strategy-doc` — Context / insight / choices / actions
-- [ ] `playing-to-win` — Roger Martin strategy cascade
-- [ ] `north-star-metric` — North Star + input-metric tree
+- [x] `playing-to-win` — Roger Martin strategy cascade
+- [x] `north-star-metric` — North Star + input-metric tree
 - [ ] `product-principles` — Product principles / tenets
 - [ ] `business-model-canvas` — Business Model Canvas
 - [ ] `lean-canvas` — Lean Canvas
@@ -77,7 +77,7 @@ The full roadmap — ~160 skills across 14 categories. `[x]` = authored & eval-r
 - [ ] `moats-analysis` — Defensibility / moats
 - [ ] `build-buy-partner` — Build/buy/partner decision
 - [ ] `platform-strategy` — Platform-vs-product analysis
-- [ ] `working-backwards` — PR/FAQ narrative (Amazon)
+- [x] `working-backwards` — PR/FAQ narrative (Amazon)
 - [ ] `bets-and-themes` — Annual bets & themes framing
 
 ## Prioritization & planning (3 / 15)

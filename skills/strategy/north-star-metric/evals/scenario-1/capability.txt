@@ -1,0 +1,1 @@
+Defining a North Star Metric that captures delivered customer value and leads revenue (rejecting the proposed vanity metric 'MAU' and the lagging business metric 'ad revenue'), decomposing it into 3-5 movable input metrics, and adding guardrails — rather than echoing MAU/revenue.

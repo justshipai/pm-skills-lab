@@ -1,0 +1,39 @@
+{
+  "skill": "skills/strategy/playing-to-win",
+  "run_at": "2026-06-05 13:37 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.7,
+      "treatment_score": 1.0,
+      "lift": 0.3,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "five-choice-cascade": {
+          "verdict": "pass",
+          "why": "Explicitly structures all five levels of the Playing-to-Win cascade as linked choices with clear headers: winning aspiration, where to play, how to win, capabilities, management systems. Each level is framed as a choice with trade-offs, not just goals or initiatives."
+        },
+        "where-not-to-play": {
+          "verdict": "pass",
+          "why": "Makes specific where-to-play choices (independent knowledge workers, English-speaking markets, desktop-first, prosumer pricing) AND explicitly names five categories it will NOT play in: team/enterprise, project management, students/casual users, non-English markets, and API platform play. Names specific competitors ceded to each category."
+        },
+        "defensible-how-to-win": {
+          "verdict": "pass",
+          "why": "Articulates a specific position ('high retrieval intelligence, low system overhead') with named reasons it's hard to copy: behavioral data moat that grows with usage, brand positioning competitors can't credibly adopt without betraying existing user bases (Notion can't simplify, Apple can't add intelligence), and workflow coherence vs. feature count. Goes beyond 'best features' or 'better UX'."
+        },
+        "coherence": {
+          "verdict": "pass",
+          "why": "Includes an explicit coherence table showing how each choice reinforces others. Demonstrates that WTP/WNP, channel, pricing, capabilities, and metrics all point in the same direction, and explains the reinforcing loops (more usage \u2192 better intelligence \u2192 more retention \u2192 more usage)."
+        },
+        "what-must-be-true": {
+          "verdict": "pass",
+          "why": "Explicitly lists five numbered assumptions that must be true for the strategy to work, each with a named test or validation method. Also identifies the central strategic bet and the biggest external risk (Notion simplifying)."
+        }
+      }
+    }
+  ]
+}

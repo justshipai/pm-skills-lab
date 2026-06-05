@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "customer-world",
+      "description": "Describes the future from the customer's changed world/life, not the company's market position or revenue goals.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "concrete-not-buzzwords",
+      "description": "Paints a specific, vivid picture and avoids generic buzzword filler (seamless, innovative, world-class, AI-powered); a competitor couldn't simply paste their name in.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "aspirational-believable",
+      "description": "Is aspirational and inspiring while remaining believable/anchored, not pure fantasy.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "not-feature-list",
+      "description": "Is a future-state vision, not a roadmap or feature list, and is distinct from a mission statement.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "guides-tradeoffs",
+      "description": "Is sharp enough to guide decisions — makes some in/out trade-offs obvious.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

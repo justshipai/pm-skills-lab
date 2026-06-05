@@ -1,0 +1,1 @@
+Producing a Playing-to-Win strategy cascade (winning aspiration → where to play → how to win → capabilities → management systems) that makes a specific, defensible where-to-play choice with an explicit where-NOT-to-play, a non-generic how-to-win, and a coherence/what-must-be-true check — rather than the 'best features, grow fast' non-strategy.

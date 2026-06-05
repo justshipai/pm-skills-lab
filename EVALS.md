@@ -4,7 +4,7 @@ Every skill ships with a scenario eval. The harness (`scripts/run_evals.py`) run
 
 **Status key:** ✅ **verified** = the skill passes the rubric *and* beats the baseline. ➖ **no measurable lift** = the skill passes, but a strong base model already aces this scenario unaided — not a failure, just a task where one-shot lift can't show the skill's value (consistency across varied inputs). ❌ **not verified** = the with-skill output didn't pass the rubric.
 
-**30 verified · 11 no-lift (strong baseline) · 0 not verified · 41/41 run.**
+**33 verified · 13 no-lift (strong baseline) · 0 not verified · 46/46 run.**
 
 | Skill | Status | Baseline | With skill | Last run |
 |---|---|---|---|---|
@@ -24,6 +24,11 @@ Every skill ships with a scenario eval. The harness (`scripts/run_evals.py`) run
 | `retrospective` | ➖ no measurable lift (strong baseline) | 1.0 | 1.0 | 2026-06-05 13:59 UTC |
 | `stakeholder-map` | ✅ verified | 0.9 | 1.0 | 2026-06-05 10:59 UTC |
 | `weekly-update` | ✅ verified | 0.9 | 1.0 | 2026-06-05 13:54 UTC |
+| `ab-test-designer` | ➖ no measurable lift (strong baseline) | 1.0 | 1.0 | 2026-06-05 16:04 UTC |
+| `ab-test-interpreter` | ✅ verified | 0.8 | 1.0 | 2026-06-05 16:05 UTC |
+| `cohort-analysis` | ✅ verified | 0.9 | 1.0 | 2026-06-05 16:08 UTC |
+| `funnel-analysis` | ✅ verified | 0.7 | 1.0 | 2026-06-05 16:07 UTC |
+| `metric-drop-diagnoser` | ➖ no measurable lift (strong baseline) | 1.0 | 1.0 | 2026-06-05 16:10 UTC |
 | `accessibility-audit` | ➖ no measurable lift (strong baseline) | 1.0 | 1.0 | 2026-06-05 15:09 UTC |
 | `ai-interface-patterns` | ➖ no measurable lift (strong baseline) | 1.0 | 1.0 | 2026-06-05 15:25 UTC |
 | `data-viz-design` | ✅ verified | 0.722 | 1.0 | 2026-06-05 15:26 UTC |

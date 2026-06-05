@@ -130,19 +130,19 @@ The full roadmap — ~160 skills across 14 categories. `[x]` = authored & eval-r
 - [ ] `microcopy-pass` — UX-writing pass
 - [ ] `onboarding-flow` — Onboarding flow design
 
-## Data, metrics & experimentation (0 / 12)
+## Data, metrics & experimentation (5 / 12)
 
 - [ ] `nl-to-sql` — Natural language → SQL
 - [ ] `metrics-dashboard` — North Star + inputs + guardrails
-- [ ] `funnel-analysis` — Funnel interpretation
-- [ ] `cohort-analysis` — Retention / cohort analysis
-- [ ] `ab-test-designer` — Hypothesis, MDE, sample size
-- [ ] `ab-test-interpreter` — Significance, ship/stop/extend
+- [x] `funnel-analysis` — Funnel interpretation
+- [x] `cohort-analysis` — Retention / cohort analysis
+- [x] `ab-test-designer` — Hypothesis, MDE, sample size
+- [x] `ab-test-interpreter` — Significance, ship/stop/extend
 - [ ] `experiment-backlog` — Experiment roadmap
 - [ ] `metric-tree` — Metric definition / tree
 - [ ] `guardrail-metrics` — Guardrail metric definition
 - [ ] `data-storytelling` — Metrics → narrative
-- [ ] `metric-drop-diagnoser` — Anomaly diagnosis
+- [x] `metric-drop-diagnoser` — Anomaly diagnosis
 - [ ] `willingness-to-pay` — Van Westendorp WTP analysis
 
 ## Go-to-market & launch (0 / 11)

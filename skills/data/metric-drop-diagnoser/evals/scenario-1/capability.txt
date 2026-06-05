@@ -1,0 +1,1 @@
+Diagnosing a metric drop in the disciplined order — first confirm it's real (instrumentation/tracking/pipeline), then localize by segment (device/version/geo/channel/browser), timeline it against changes, consider mix shift, and produce ranked hypotheses each with how to check and where to start — rather than a flat brainstorm of possible causes.

@@ -1,0 +1,41 @@
+{
+  "criteria": [
+    {
+      "id": "hypothesis-and-primary-metric",
+      "description": "States a clear hypothesis and a single primary metric (onboarding completion rate), not a vague 'see which is better'.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "sample-size-and-duration",
+      "description": "Computes (or shows how to compute) the required sample size from baseline, MDE, significance, and power, and translates it into a run duration at the given traffic.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "mde-stated",
+      "description": "Names a minimum detectable effect / smallest lift worth shipping as an explicit input, rather than leaving effect size undefined.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "guardrails",
+      "description": "Includes guardrail metrics that must not regress (e.g. activation/quality of completion, downstream retention), not just the headline metric.",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "decision-and-no-peeking",
+      "description": "Pre-commits decision/stop rules and addresses not stopping early on a 'significant' peek (fixed duration or sequential method).",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "randomization-and-traps",
+      "description": "Specifies the randomization unit and/or flags classic traps (peeking, multiple comparisons, novelty, weekly seasonality).",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

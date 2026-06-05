@@ -1,0 +1,39 @@
+{
+  "skill": "skills/data/metric-drop-diagnoser",
+  "run_at": "2026-06-05 16:10 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": false,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 1.0,
+      "treatment_score": 1.0,
+      "lift": 0.0,
+      "treatment_passed": true,
+      "earns_place": false,
+      "treatment_verdicts": {
+        "confirm-real-first": {
+          "verdict": "pass",
+          "why": "The response leads with a dedicated 'Is it real?' section that explicitly checks tracking pixel firing, dashboard definition changes, pipeline delays, payment processor cross-reference, and A/B misconfiguration before any causal theorizing. It even gives a binary decision rule: if orders in payments system are flat, stop and fix measurement."
+        },
+        "localize-by-segment": {
+          "verdict": "pass",
+          "why": "A full 'Localize' section covers app version/release, platform/OS, browser, device type, geography/locale, acquisition channel, new vs. returning users, payment method, and checkout funnel step \u2014 each with rationale and what a concentrated drop there would suggest. It also prioritizes which segments to pull first."
+        },
+        "timeline-vs-changes": {
+          "verdict": "pass",
+          "why": "A dedicated 'Timeline vs. changes' section systematically reviews code deploys, feature flags, third-party dependencies, pricing/promotions, UX/copy changes, marketing/traffic source, external platform changes, and seasonality \u2014 explicitly noting that even 'minor' or unannounced changes should be checked."
+        },
+        "mix-shift": {
+          "verdict": "pass",
+          "why": "A dedicated 'Mix shift?' section explains the mechanism clearly (aggregate rate falls with no individual segment worsening), lists common drivers (paid campaigns, email list changes, product category promotions, new user share spike), and provides a concrete method to check it."
+        },
+        "ranked-hypotheses-with-checks": {
+          "verdict": "pass",
+          "why": "The 'Ranked hypotheses' table lists 8 hypotheses in explicit priority order with likelihood ratings, specific verification methods, and estimated time to check each. A 'Start here' section further distills the top 3 immediate actions, making the starting point unambiguous."
+        }
+      }
+    }
+  ]
+}

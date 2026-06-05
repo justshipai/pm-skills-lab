@@ -1,0 +1,1 @@
+Analyzing a conversion funnel by identifying the priority leak weighted by volume × drop × fixability (not just the worst %), quantifying the opportunity in users/$ of a realistic fix, segmenting where the drop concentrates, and forming hypotheses with cheap checks — rather than restating the funnel percentages.

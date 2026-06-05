@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "reads-curve-shape",
+      "description": "Reads the shape of the retention curve — recognizes it decays toward zero (no flattening), signalling weak durable value, rather than just restating the percentages.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "cohort-trend",
+      "description": "Compares cohorts over time and notes retention is NOT improving across A/B/C (no cohort-over-cohort gain).",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "acquisition-vs-retention",
+      "description": "Diagnoses this as a retention/leaky-bucket problem (3x signups, flat revenue) and warns against scaling paid acquisition into a non-retaining product.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "segment-and-action",
+      "description": "Recommends segmenting to find any retaining group and prioritizing retention/activation work, with a concrete next step.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "definition-caveat",
+      "description": "Notes how 'active' is defined and/or other caveats affecting the read.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

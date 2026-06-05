@@ -1,0 +1,39 @@
+{
+  "skill": "skills/data/cohort-analysis",
+  "run_at": "2026-06-05 16:08 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.9,
+      "treatment_score": 1.0,
+      "lift": 0.1,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "reads-curve-shape": {
+          "verdict": "pass",
+          "why": "Explicitly states the curve decays toward zero with no flattening, uses the ski-slope-to-bottom analogy, and directly connects this to absence of durable value/PMF signal."
+        },
+        "cohort-trend": {
+          "verdict": "pass",
+          "why": "Directly compares A/B/C cohorts at M1, M3, and M6, notes retention is flat or slightly declining, and explicitly states no upward trajectory despite 3x signup growth."
+        },
+        "acquisition-vs-retention": {
+          "verdict": "pass",
+          "why": "Explicitly diagnoses leaky bucket, connects 3x signups + flat revenue to retention failure, and strongly warns against scaling paid acquisition into a non-retaining product with CAC/LTV logic."
+        },
+        "segment-and-action": {
+          "verdict": "pass",
+          "why": "Recommends segmenting by channel, first action, plan, and vertical with specific rationale for each; gives concrete next steps including interviewing M6 survivors and instrumenting M1 drop."
+        },
+        "definition-caveat": {
+          "verdict": "pass",
+          "why": "Notes 'active' is undefined, distinguishes login vs. core action definitions, flags N-month vs. survival window measurement differences, and recommends restating with core action definition."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "skill": "skills/data/funnel-analysis",
+  "run_at": "2026-06-05 16:07 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.7,
+      "treatment_score": 1.0,
+      "lift": 0.3,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "priority-leak-by-opportunity": {
+          "verdict": "pass",
+          "why": "The output explicitly identifies the product page\u2192cart drop as the largest absolute volume loss (425,000 users) and weighs it against the checkout friction leak (40K\u219222K), comparing both by volume and fixability rather than just worst percentage. It notes the cascade effect and downstream leverage, satisfying the weighted-by-volume-and-fixability requirement."
+        },
+        "quantified-opportunity": {
+          "verdict": "pass",
+          "why": "Both scenarios are quantified in purchases and revenue using $60 AOV: Scenario A yields +3,600 purchases/month = +$216K/month; Scenario B yields +4,000 purchases/month = +$240K/month. Combined upside is stated as $400K\u2013$450K/month. Calculations are explicit and realistic."
+        },
+        "segment-the-drop": {
+          "verdict": "pass",
+          "why": "A dedicated 'Segment View' section recommends segmenting by device, traffic source, new vs. returning, product category, and cart value band, with specific reasoning for each cut."
+        },
+        "hypotheses-and-checks": {
+          "verdict": "pass",
+          "why": "For each priority leak, multiple hypotheses are listed with specific cheap validation methods (exit surveys, scroll/click maps, session replays, form error logs, review-count comparisons), clearly framed as hypotheses to test rather than asserted causes."
+        },
+        "recommendation": {
+          "verdict": "pass",
+          "why": "A clear where-to-focus-first recommendation is given (two parallel workstreams: checkout friction audit and product page investigation), with concrete next diagnostic steps (three specific queries to run this week before building anything)."
+        }
+      }
+    }
+  ]
+}

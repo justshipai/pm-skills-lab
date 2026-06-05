@@ -1,0 +1,1 @@
+Interpreting A/B results rigorously — checking statistical significance and the confidence interval, practical significance, whether it was powered, and screening for traps (here: peeking/early-stopping on day 2, short run, and a guardrail regression in revenue-per-order) — to reach a defensible ship/iterate/stop decision, rather than "variant is higher, ship it".

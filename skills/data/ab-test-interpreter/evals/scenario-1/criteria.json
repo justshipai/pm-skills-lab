@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "significance-and-uncertainty",
+      "description": "Assesses whether the difference is statistically significant and conveys uncertainty (confidence interval / plausible range), not just comparing the two point estimates.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "catches-peeking",
+      "description": "Catches the early-stopping/peeking problem ('looked significant on day 2') and the very short 5-day run as reasons to distrust a premature call.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "guardrail-revenue",
+      "description": "Flags the lower revenue-per-order as a guardrail concern — a higher purchase rate may not be a net win if revenue drops — rather than ignoring it.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "powered-check",
+      "description": "Considers whether the test is adequately powered / has enough sample, rather than treating the result as definitive.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "clear-decision",
+      "description": "Gives a clear, reasoned ship/iterate/stop/extend recommendation with the risk of being wrong, not just a description of the numbers.",
+      "weight": 2,
+      "required": true
+    }
+  ],
+  "pass_threshold": 0.7
+}

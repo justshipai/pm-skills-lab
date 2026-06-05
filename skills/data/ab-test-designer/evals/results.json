@@ -1,0 +1,43 @@
+{
+  "skill": "skills/data/ab-test-designer",
+  "run_at": "2026-06-05 16:04 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": false,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 1.0,
+      "treatment_score": 1.0,
+      "lift": 0.0,
+      "treatment_passed": true,
+      "earns_place": false,
+      "treatment_verdicts": {
+        "hypothesis-and-primary-metric": {
+          "verdict": "pass",
+          "why": "Clear directional hypothesis stated ('3-step flow will increase onboarding completion rate by at least 3 pp') with a single named primary metric (onboarding completion rate defined precisely as % reaching final confirmation screen)."
+        },
+        "sample-size-and-duration": {
+          "verdict": "pass",
+          "why": "Shows the two-proportion z-test formula with all inputs (p1=0.55, p2=0.58, \u03b1=0.05, power=80%), computes ~3,490 per variant / ~6,980 total, then divides by weekly traffic (7,000/week) to arrive at ~1 week, recommending 2 weeks for guardrail observability and seasonality coverage. Sensitivity to different MDEs also shown."
+        },
+        "mde-stated": {
+          "verdict": "pass",
+          "why": "MDE explicitly stated as +3 pp absolute (55%\u219258%), with rationale for why smaller effects would not justify shipping, and sensitivity note for alternative MDEs (+1 pp, +5 pp)."
+        },
+        "guardrails": {
+          "verdict": "pass",
+          "why": "Three guardrail metrics defined: Day-7 retention, Day-1 activation rate, and account setup completeness. Each has a directional rule ('must not drop') and a quantitative threshold (baseline \u2212 MoE at 95% CI). Guardrail breach blocks shipping regardless of primary metric outcome."
+        },
+        "decision-and-no-peeking": {
+          "verdict": "pass",
+          "why": "Pre-committed decision table covers all outcome scenarios. Explicitly prohibits early stopping for positive primary results, allows early stopping only for guardrail harm, mentions sequential/alpha-spending methods if continuous monitoring is required, and fixes Day 14 as the sole readout date."
+        },
+        "randomization-and-traps": {
+          "verdict": "pass",
+          "why": "Randomization unit specified as User ID (not session/device), persistent server-side assignment noted, cross-device leakage addressed. Traps table covers peeking, multiple comparisons, novelty effect, seasonality, segment cherry-picking, primacy effects, and guardrail lag."
+        }
+      }
+    }
+  ]
+}

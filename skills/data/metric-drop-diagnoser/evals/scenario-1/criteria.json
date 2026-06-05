@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "confirm-real-first",
+      "description": "Starts by ruling out an instrumentation/tracking/pipeline/definition artifact before theorizing about real causes.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "localize-by-segment",
+      "description": "Localizes the drop by segmenting (device/browser, app version, geography, channel, new vs returning, payment method) rather than only listing global causes.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "timeline-vs-changes",
+      "description": "Aligns the drop against a change log / deploys / experiments / external events (even though 'nothing obvious shipped', checks systematically).",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "mix-shift",
+      "description": "Considers mix shift (composition change, e.g. a traffic-source change) as a cause where no single segment got worse.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "ranked-hypotheses-with-checks",
+      "description": "Produces ranked/prioritized hypotheses, each paired with how to check it, and indicates where to start — rather than an unordered guess list.",
+      "weight": 2,
+      "required": true
+    }
+  ],
+  "pass_threshold": 0.7
+}

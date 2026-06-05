@@ -1,0 +1,1 @@
+Designing an A/B test that is actually powered and decision-ready: a clear hypothesis, one primary metric plus guardrails, the baseline and a minimum detectable effect, a computed sample size and run duration, the randomization unit, and pre-committed stop/decision rules — rather than "split traffic and see which wins".

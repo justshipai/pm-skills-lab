@@ -1,0 +1,1 @@
+Reading cohort retention by the curve's shape (here: decaying toward zero with no flattening = weak durable value, and no cohort-over-cohort improvement), diagnosing it as a retention/leaky-bucket problem rather than an acquisition one, recommending fixing retention before scaling paid spend, and segmenting to find any retaining group — rather than describing the numbers.

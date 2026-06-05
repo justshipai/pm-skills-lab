@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "priority-leak-by-opportunity",
+      "description": "Identifies the priority leak weighted by volume and fixability (e.g. the large product-view→add-to-cart drop vs. later steps), not merely the single worst percentage.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "quantified-opportunity",
+      "description": "Quantifies the prize of a realistic improvement in users/revenue (using the $60 AOV), rather than just naming a weak step.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "segment-the-drop",
+      "description": "Recommends segmenting the drop-off (device, channel, new vs returning, etc.) rather than relying on the aggregate funnel.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "hypotheses-and-checks",
+      "description": "Offers hypotheses for the priority leak and cheap ways to validate them, rather than asserting causes.",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "recommendation",
+      "description": "Gives a clear where-to-focus-first recommendation and a next diagnostic step.",
+      "weight": 1,
+      "required": true
+    }
+  ],
+  "pass_threshold": 0.7
+}

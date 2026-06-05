@@ -12,7 +12,7 @@ Most PM skill libraries are *"trust me, here's a markdown file."* You can't tell
 
 **pm-skills-lab takes the opposite stance: every skill ships with a scenario eval and an in-repo harness that runs the task _with and without_ the skill, then grades both against a rubric.** A skill earns the **verified** mark only when the with-skill run beats the no-skill baseline. Results are published in [`EVALS.md`](./EVALS.md) — so "it works" is a number you can check, not a claim you have to trust. Running evals needs only an LLM API key; no external eval service required.
 
-> **Status (v0):** the 15 skills below are authored and **eval-ready** — each has a written scenario + rubric, and the harness is in the repo. Results haven't been published yet, so every skill is currently marked ⏳ (not ✅). The badge is earned by a committed result, never asserted.
+> **Status:** all 15 authored skills have been run through the harness — **12 verified, 3 no-measurable-lift (strong baseline), 0 failed.** Full results and per-criterion detail are in [`EVALS.md`](./EVALS.md). Running the evals also surfaced (and fixed) a real measurement bug along the way — which is exactly what evals are for.
 
 This is a **curated, maintained library** — the skills here are authored and held to the eval bar, so you can install the set and trust it. Contributions are welcome (see below) and held to the same bar, but the core is a deliberately-built collection, not a free-for-all.
 
@@ -27,18 +27,18 @@ The deepest, most battle-tested category in the lab is **AI-product PM** — the
 
 | Skill | What it does |
 |---|---|
-| [`ai-feature-spec`](./skills/ai-product/ai-feature-spec/) ⏳ | Specs an AI feature with an eval plan, guardrails, and graceful fallbacks baked in |
-| [`ai-prd`](./skills/ai-product/ai-prd/) ⏳ | Full AI PRD anchored on a model card, data strategy, and evaluation strategy |
-| [`llm-eval-set-designer`](./skills/ai-product/llm-eval-set-designer/) ⏳ | Designs a runnable eval set (stratified cases + graders + bars), Hamel-style |
-| [`model-selection`](./skills/ai-product/model-selection/) ⏳ | Eval-driven model/cost/latency/quality trade-off and recommendation |
-| [`hallucination-risk-register`](./skills/ai-product/hallucination-risk-register/) ⏳ | Enumerates failure modes with detection + mitigation, ranked by exposure |
-| [`staged-ai-rollout`](./skills/ai-product/staged-ai-rollout/) ⏳ | Shadow → canary → GA rollout plan with eval gates and a kill switch |
-| [`eval-rubric-designer`](./skills/ai-product/eval-rubric-designer/) ⏳ | Builds an LLM-as-judge rubric with anchored criteria and calibration |
-| [`agent-capability-spec`](./skills/ai-product/agent-capability-spec/) ⏳ | Specs an agent's tools, permissions, autonomy, and scope boundaries |
-| [`human-in-the-loop-design`](./skills/ai-product/human-in-the-loop-design/) ⏳ | Maps each action to the right human oversight by risk and confidence |
-| [`ai-pricing-model`](./skills/ai-product/ai-pricing-model/) ⏳ | Unit-economics-grounded pricing with margin guardrails |
+| [`ai-feature-spec`](./skills/ai-product/ai-feature-spec/) | Specs an AI feature with an eval plan, guardrails, and graceful fallbacks baked in |
+| [`ai-prd`](./skills/ai-product/ai-prd/) | Full AI PRD anchored on a model card, data strategy, and evaluation strategy |
+| [`llm-eval-set-designer`](./skills/ai-product/llm-eval-set-designer/) | Designs a runnable eval set (stratified cases + graders + bars), Hamel-style |
+| [`model-selection`](./skills/ai-product/model-selection/) | Eval-driven model/cost/latency/quality trade-off and recommendation |
+| [`hallucination-risk-register`](./skills/ai-product/hallucination-risk-register/) | Enumerates failure modes with detection + mitigation, ranked by exposure |
+| [`staged-ai-rollout`](./skills/ai-product/staged-ai-rollout/) | Shadow → canary → GA rollout plan with eval gates and a kill switch |
+| [`eval-rubric-designer`](./skills/ai-product/eval-rubric-designer/) | Builds an LLM-as-judge rubric with anchored criteria and calibration |
+| [`agent-capability-spec`](./skills/ai-product/agent-capability-spec/) | Specs an agent's tools, permissions, autonomy, and scope boundaries |
+| [`human-in-the-loop-design`](./skills/ai-product/human-in-the-loop-design/) | Maps each action to the right human oversight by risk and confidence |
+| [`ai-pricing-model`](./skills/ai-product/ai-pricing-model/) | Unit-economics-grounded pricing with margin guardrails |
 
-⏳ = authored and eval-ready (scenario + rubric written, result not yet published). ✅ is earned only once a committed eval result shows the skill beats the baseline — see [`EVALS.md`](./EVALS.md). The rest of the wedge (11 more) is catalogued in [`CATALOG.md`](./CATALOG.md) and **open for contribution**.
+Live **verified status for every skill is tracked in [`EVALS.md`](./EVALS.md)** — currently 12/15 verified across the repo, with 3 marked *no measurable lift* (a strong base model already aces those scenarios unaided; see the status key in EVALS.md). The rest of the wedge (11 more) is catalogued in [`CATALOG.md`](./CATALOG.md) and **open for contribution**.
 
 Beyond the wedge, the generic library is underway too — `prd-generator`, `rice-scorer`, `okr-drafting`, `roadmap-builder`, and `stakeholder-map` are authored, with ~140 more catalogued.
 

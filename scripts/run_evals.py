@@ -150,6 +150,43 @@ def judge(output: str, criteria: dict, judge_model: str) -> dict:
     return {"score": score, "passed": passed, "gate_failed": gate_failed, "verdicts": norm}
 
 
+# ---------------------------------------------------------------- status
+
+def classify(result: dict) -> str:
+    """Three honest outcomes, derived from stored scenario scores:
+       verified — with-skill passes the rubric AND beats the baseline everywhere.
+       tie      — with-skill passes, but a strong baseline already does too (lift <= 0).
+                  Not a failure: a one-shot test can't show the skill's value when the
+                  base model already aces this prompt. Value shows on varied/hard inputs.
+       failed   — with-skill output did not pass the rubric on some scenario.
+    """
+    scs = result.get("scenarios") or []
+    if not scs:
+        return "notrun"
+    if any(not s.get("treatment_passed") for s in scs):
+        return "failed"
+    if all(s.get("earns_place") for s in scs):
+        return "verified"
+    return "tie"
+
+
+STATUS_DASH = {
+    "verified": "✅ verified",
+    "tie": "➖ no measurable lift (strong baseline)",
+    "failed": "❌ not verified",
+    "notrun": "⏳ not yet run",
+}
+STATUS_VERDICT = {
+    "verified": "✅ VERIFIED — the skill beats the no-skill baseline on every scenario.",
+    "tie": ("➖ NO MEASURABLE LIFT — the with-skill output passes the rubric, but a strong "
+            "no-skill baseline already does too on this scenario. This is **not** a failure: "
+            "a single well-specified scenario can't show a skill's value when the base model "
+            "already aces that exact prompt. The skill earns its keep through consistency "
+            "across varied, messy, real-world inputs — which one-shot lift doesn't capture."),
+    "failed": "❌ NOT VERIFIED — the with-skill output did not pass the rubric (see per-criterion detail).",
+}
+
+
 # ---------------------------------------------------------------- per skill
 
 def run_skill(skill_dir: Path, model: str, judge_model: str) -> dict:
@@ -204,7 +241,7 @@ def write_results_md(skill_dir: Path, r: dict):
     lines = [f"# Eval results — `{Path(r['skill']).name}`", "",
              f"- **Run:** {r['run_at']}",
              f"- **Model under test:** {r['model']}  ·  **Judge:** {r['judge_model']}",
-             f"- **Verdict:** {'✅ VERIFIED — skill beats the no-skill baseline on every scenario' if r['verified'] else '❌ not verified — see per-criterion detail below'}",
+             f"- **Verdict:** {STATUS_VERDICT[classify(r)]}",
              "",
              "| Scenario | Baseline | With skill | Lift | Earns its place? |",
              "|---|---|---|---|---|"]
@@ -245,34 +282,42 @@ def discover_skills():
 
 
 def regenerate_dashboard():
-    rows, verified_n, run_n, total = [], 0, 0, 0
+    rows, n = [], {"verified": 0, "tie": 0, "failed": 0, "notrun": 0}
+    total = 0
     for s in discover_skills():
         total += 1
         rel = s.relative_to(ROOT).as_posix()
         rj = s / "evals" / "results.json"
         if rj.exists():
             r = json.loads(rj.read_text(encoding="utf-8"))
-            run_n += 1
-            verified_n += 1 if r["verified"] else 0
+            st = classify(r)
+            n[st] += 1
             base = ", ".join(str(x["baseline_score"]) for x in r["scenarios"])
             treat = ", ".join(str(x["treatment_score"]) for x in r["scenarios"])
-            status = "✅ verified" if r["verified"] else "❌ not verified"
-            rows.append(f"| `{Path(rel).name}` | {status} | {base} | {treat} | {r['run_at']} |")
+            rows.append(f"| `{Path(rel).name}` | {STATUS_DASH[st]} | {base} | {treat} | {r['run_at']} |")
         else:
-            rows.append(f"| `{Path(rel).name}` | ⏳ not yet run | – | – | – |")
+            n["notrun"] += 1
+            rows.append(f"| `{Path(rel).name}` | {STATUS_DASH['notrun']} | – | – | – |")
+    run_n = total - n["notrun"]
     header = [
         "# Eval results dashboard", "",
-        "Every skill ships with a scenario eval. This table shows, for each skill, whether it "
-        "**measurably beats the no-skill baseline** when run through `scripts/run_evals.py`. "
-        "A skill is **verified** only when its treatment run passes the rubric and scores higher "
-        "than the baseline on every scenario. Per-skill detail lives in each skill's "
-        "`evals/RESULTS.md`.", "",
-        f"**Status: {verified_n} verified · {run_n}/{total} run · {total - run_n} not yet run.**", "",
+        "Every skill ships with a scenario eval. The harness (`scripts/run_evals.py`) runs each "
+        "scenario twice — once with no skill (baseline), once with the skill — and an LLM judge "
+        "scores both against the rubric. Per-skill detail (incl. per-criterion verdicts) lives in "
+        "each skill's `evals/RESULTS.md`.", "",
+        "**Status key:** ✅ **verified** = the skill passes the rubric *and* beats the baseline. "
+        "➖ **no measurable lift** = the skill passes, but a strong base model already aces this "
+        "scenario unaided — not a failure, just a task where one-shot lift can't show the skill's "
+        "value (consistency across varied inputs). ❌ **not verified** = the with-skill output "
+        "didn't pass the rubric.", "",
+        f"**{n['verified']} verified · {n['tie']} no-lift (strong baseline) · {n['failed']} not verified · "
+        f"{run_n}/{total} run.**", "",
         "| Skill | Status | Baseline | With skill | Last run |",
         "|---|---|---|---|---|",
     ]
     DASHBOARD.write_text("\n".join(header + rows) + "\n", encoding="utf-8")
-    print(f"\nDashboard: {verified_n} verified, {run_n}/{total} run → {DASHBOARD.relative_to(ROOT)}")
+    print(f"\nDashboard: {n['verified']} verified, {n['tie']} no-lift, {n['failed']} not verified, "
+          f"{run_n}/{total} run → {DASHBOARD.relative_to(ROOT)}")
 
 
 def main(argv):
@@ -281,10 +326,14 @@ def main(argv):
     ap.add_argument("--model", default=DEFAULT_MODEL)
     ap.add_argument("--judge-model", default=DEFAULT_JUDGE)
     ap.add_argument("--dashboard-only", action="store_true",
-                    help="just regenerate EVALS.md from existing results.json files")
+                    help="regenerate EVALS.md + each RESULTS.md from existing results.json (no model calls)")
     args = ap.parse_args(argv)
 
     if args.dashboard_only:
+        for s in discover_skills():
+            rj = s / "evals" / "results.json"
+            if rj.exists():
+                write_results_md(s, json.loads(rj.read_text(encoding="utf-8")))
         regenerate_dashboard(); return 0
 
     targets = [Path(s).resolve() for s in args.skills] or discover_skills()

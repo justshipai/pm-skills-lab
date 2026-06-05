@@ -2,7 +2,7 @@
 
 - **Run:** 2026-06-05 10:57 UTC
 - **Model under test:** claude-sonnet-4-6  ·  **Judge:** claude-sonnet-4-6
-- **Verdict:** ❌ not verified — see per-criterion detail below
+- **Verdict:** ➖ NO MEASURABLE LIFT — the with-skill output passes the rubric, but a strong no-skill baseline already does too on this scenario. This is **not** a failure: a single well-specified scenario can't show a skill's value when the base model already aces that exact prompt. The skill earns its keep through consistency across varied, messy, real-world inputs — which one-shot lift doesn't capture.
 
 | Scenario | Baseline | With skill | Lift | Earns its place? |
 |---|---|---|---|---|

@@ -2,7 +2,7 @@
 
 - **Run:** 2026-06-05 10:59 UTC
 - **Model under test:** claude-sonnet-4-6  ·  **Judge:** claude-sonnet-4-6
-- **Verdict:** ✅ VERIFIED — skill beats the no-skill baseline on every scenario
+- **Verdict:** ✅ VERIFIED — the skill beats the no-skill baseline on every scenario.
 
 | Scenario | Baseline | With skill | Lift | Earns its place? |
 |---|---|---|---|---|

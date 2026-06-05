@@ -1,0 +1,1 @@
+Designing AI-feature UX by applying the established AI-UX patterns — streaming with stop, regenerate/edit, confidence/uncertainty, graceful no-answer, error/fallback, first-run/empty state, AI labeling and trust — and explicitly handling the slow/wrong/unsure cases, rather than just "a text box, a generate button, and a spinner".

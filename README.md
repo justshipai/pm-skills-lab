@@ -12,7 +12,7 @@ Most PM skill libraries are *"trust me, here's a markdown file."* You can't tell
 
 **pm-skills-lab takes the opposite stance: every skill ships with a scenario eval and an in-repo harness that runs the task _with and without_ the skill, then grades both against a rubric.** A skill earns the **verified** mark only when the with-skill run beats the no-skill baseline. Results are published in [`EVALS.md`](./EVALS.md) — so "it works" is a number you can check, not a claim you have to trust. Running evals needs only an LLM API key; no external eval service required.
 
-> **Status:** 39 skills authored across 8 categories. 34 have been run through the harness so far — **26 verified, 8 no-measurable-lift (strong baseline), 0 failed**; the 5 newest (design & UX) are eval-ready and awaiting their run. Live status and per-criterion detail are in [`EVALS.md`](./EVALS.md). Running the evals also surfaced (and fixed) a real measurement bug along the way — which is exactly what evals are for.
+> **Status:** 41 skills authored across 8 categories. 39 have been run through the harness so far — **29 verified, 10 no-measurable-lift (strong baseline), 0 failed**; the 2 newest (AI interface patterns, data-viz) are eval-ready and awaiting their run. Live status and per-criterion detail are in [`EVALS.md`](./EVALS.md). Running the evals also surfaced (and fixed) a real measurement bug along the way — which is exactly what evals are for.
 
 This is a **curated, maintained library** — the skills here are authored and held to the eval bar, so you can install the set and trust it. Contributions are welcome (see below) and held to the same bar, but the core is a deliberately-built collection, not a free-for-all.
 
@@ -98,7 +98,7 @@ The full roadmap lives in [`CATALOG.md`](./CATALOG.md) — ~160 skills across 14
 | Strategy & vision | 14 | 5 |
 | Prioritization & planning | 15 | 3 |
 | Specs & definition | 15 | 1 |
-| Design & UX | 8 | 5 |
+| Design & UX | 10 | 7 |
 | Data, metrics & experimentation | 12 | 0 |
 | Go-to-market & launch | 11 | 0 |
 | Growth | 7 | 0 |
@@ -112,7 +112,7 @@ The library is actively maintained, but good skills from the community are very 
 
 ## Credits & prior art
 
-Standing on the shoulders of the people who proved PM skills were worth packaging — [Paweł Huryn](https://github.com/phuryn/pm-skills), [Niko Vijayaratnam](https://github.com/nikovijay/pm-ai-skills-kit), and [Aman Khan](https://github.com/amanaiproduct/amans-skills) — and the PM thinkers whose frameworks these skills encode (Cagan, Torres, Martin, Savoia, Dunford, Biddle, Ulwick, and others). Eval format adapted from [Tessl](https://docs.tessl.io/).
+Standing on the shoulders of the people who proved PM skills were worth packaging — [Paweł Huryn](https://github.com/phuryn/pm-skills), [Niko Vijayaratnam](https://github.com/nikovijay/pm-ai-skills-kit), and [Aman Khan](https://github.com/amanaiproduct/amans-skills) — and the PM thinkers whose frameworks these skills encode (Cagan, Torres, Martin, Savoia, Dunford, Biddle, Ulwick, and others). Design & AI-UX skills drew inspiration from the [AI UX Playground](https://www.aiuxplayground.com/). Eval format adapted from [Tessl](https://docs.tessl.io/).
 
 ## License
 

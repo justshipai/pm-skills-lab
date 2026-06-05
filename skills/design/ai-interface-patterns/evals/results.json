@@ -1,0 +1,39 @@
+{
+  "skill": "skills/design/ai-interface-patterns",
+  "run_at": "2026-06-05 15:25 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": false,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 1.0,
+      "treatment_score": 1.0,
+      "lift": 0.0,
+      "treatment_passed": true,
+      "earns_place": false,
+      "treatment_verdicts": {
+        "applies-ai-patterns": {
+          "verdict": "pass",
+          "why": "Explicitly implements streaming with stop, regenerate, tone/length steering controls, edit-in-place, undo stack, thumbs feedback, and discoverability via keyboard shortcut \u2014 well beyond a button-and-spinner pattern."
+        },
+        "uncertainty-and-no-answer": {
+          "verdict": "pass",
+          "why": "Defines a distinct no-answer state with reason text and exits, uses in-draft placeholders for unanswerable specifics, adds hedged language for ambiguous threads, and lists specific triggers (unsupported language, safety filter, empty thread hidden button)."
+        },
+        "control-and-editability": {
+          "verdict": "pass",
+          "why": "Draft is immediately editable plain text, AI chip fades on first keystroke, undo includes pre-suggestion state, stop mid-stream leaves partial editable draft, regenerate and discard are present, and Send is always explicitly user-owned."
+        },
+        "errors-latency-firstrun": {
+          "verdict": "pass",
+          "why": "Covers slow/timeout (4s and 12s thresholds), API error, safety block, each with human-readable messages and exits; streaming as primary latency treatment is explicitly justified; first-run coach mark sets expectations and handles empty-thread edge case."
+        },
+        "trust-and-labeling": {
+          "verdict": "pass",
+          "why": "AI chip labels draft with tooltip explaining source, fades on edit to signal ownership transfer, 'Based on' transparency affordance shows model context, first-run tooltip explicitly states user always controls Send, and uncertainty is surfaced in-draft rather than hidden."
+        }
+      }
+    }
+  ]
+}

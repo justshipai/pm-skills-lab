@@ -1,0 +1,1 @@
+Designing a data visualization by starting from the question/decision, matching the encoding to the data relationship (retention-over-time across cohorts → retention/line curves, or a cohort heatmap), stripping chart-junk, keeping it accessible and non-misleading, and giving an insight-led takeaway — rather than defaulting to a habitual or decorative chart.

@@ -1,0 +1,39 @@
+{
+  "skill": "skills/design/data-viz-design",
+  "run_at": "2026-06-05 15:26 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.722,
+      "treatment_score": 1.0,
+      "lift": 0.278,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "question-first": {
+          "verdict": "pass",
+          "why": "The output explicitly opens with the question and decision it supports, then identifies the data relationship (multi-series trend + cross-cohort comparison) before recommending a chart type."
+        },
+        "encoding-fits-data": {
+          "verdict": "pass",
+          "why": "Recommends a multi-line chart with weeks on X and retention % on Y, one line per cohort. Provides a comparison table rejecting grouped bar, heatmap, stacked area, pie, and small multiples with specific justifications for each rejection."
+        },
+        "strip-junk-and-label": {
+          "verdict": "pass",
+          "why": "Explicitly removes background fill, heavy gridlines, chart border, and legend box. Replaces legend with direct end-labels on each line. Addresses the 6-line legibility problem with line weight differentiation and direct labeling, so grayscale printouts remain readable."
+        },
+        "integrity-accessibility": {
+          "verdict": "pass",
+          "why": "Addresses 0\u2013100% Y-axis with explicit reasoning against truncation, notes unequal X-axis intervals, recommends sequential single-hue palette safe for color-blind readers, references WCAG AA contrast ratio, and notes direct labels as a non-color fallback."
+        },
+        "insight-led-takeaway": {
+          "verdict": "pass",
+          "why": "Provides a concrete insight-led title example ('Retention is improving at Week 1\u20132, but long-term drop-off remains flat'), explicitly contrasts it with a rejected variable-name title, and specifies what to highlight (most recent cohort, divergence points, critical drop-off week)."
+        }
+      }
+    }
+  ]
+}

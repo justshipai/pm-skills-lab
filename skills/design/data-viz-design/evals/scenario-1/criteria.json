@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "question-first",
+      "description": "Starts from the question/decision and data relationship (comparing retention curves over time across cohorts) before choosing a chart, rather than naming a chart by default.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "encoding-fits-data",
+      "description": "Recommends an encoding that fits retention-over-time-across-cohorts (e.g. retention/line curves with weeks on X, or a cohort heatmap/triangle) and justifies it / rejects poor fits (e.g. pie, single bar).",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "strip-junk-and-label",
+      "description": "Removes chart-junk and favors direct labeling / limited series, rather than a cluttered or legend-heavy chart (e.g. handling 6 overlapping lines legibly).",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "integrity-accessibility",
+      "description": "Addresses honest scales (e.g. consistent % axis) and accessibility (not color-alone for 6 cohorts), rather than ignoring them.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "insight-led-takeaway",
+      "description": "Frames an insight-led takeaway/title and what to highlight, not just 'retention by cohort'.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

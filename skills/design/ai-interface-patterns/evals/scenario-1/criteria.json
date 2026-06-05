@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "applies-ai-patterns",
+      "description": "Applies multiple established AI-UX patterns beyond a basic generate-and-show — e.g. streaming/stop, regenerate, edit, suggestions/tone control — rather than just a button and a spinner.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "uncertainty-and-no-answer",
+      "description": "Handles the low-confidence / can't-help case gracefully (e.g. when the email is ambiguous or shouldn't be auto-replied) instead of always producing a confident reply.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "control-and-editability",
+      "description": "Gives the user control — edit, regenerate, tweak tone/length, undo — treating the draft as a starting point, with the human sending (not auto-send).",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "errors-latency-firstrun",
+      "description": "Designs error/fallback, loading/streaming feedback, and/or the first-run/empty state (what to expect, examples) rather than only the happy path.",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "trust-and-labeling",
+      "description": "Addresses trust — labeling output as AI, setting expectations about accuracy, encouraging the user to review before sending.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

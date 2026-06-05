@@ -4,7 +4,7 @@ Every skill ships with a scenario eval. The harness (`scripts/run_evals.py`) run
 
 **Status key:** ✅ **verified** = the skill passes the rubric *and* beats the baseline. ➖ **no measurable lift** = the skill passes, but a strong base model already aces this scenario unaided — not a failure, just a task where one-shot lift can't show the skill's value (consistency across varied inputs). ❌ **not verified** = the with-skill output didn't pass the rubric.
 
-**29 verified · 10 no-lift (strong baseline) · 0 not verified · 39/39 run.**
+**30 verified · 11 no-lift (strong baseline) · 0 not verified · 41/41 run.**
 
 | Skill | Status | Baseline | With skill | Last run |
 |---|---|---|---|---|
@@ -25,6 +25,8 @@ Every skill ships with a scenario eval. The harness (`scripts/run_evals.py`) run
 | `stakeholder-map` | ✅ verified | 0.9 | 1.0 | 2026-06-05 10:59 UTC |
 | `weekly-update` | ✅ verified | 0.9 | 1.0 | 2026-06-05 13:54 UTC |
 | `accessibility-audit` | ➖ no measurable lift (strong baseline) | 1.0 | 1.0 | 2026-06-05 15:09 UTC |
+| `ai-interface-patterns` | ➖ no measurable lift (strong baseline) | 1.0 | 1.0 | 2026-06-05 15:25 UTC |
+| `data-viz-design` | ✅ verified | 0.722 | 1.0 | 2026-06-05 15:26 UTC |
 | `design-critique` | ➖ no measurable lift (strong baseline) | 1.0 | 1.0 | 2026-06-05 15:10 UTC |
 | `prototype-brief` | ✅ verified | 0.864 | 1.0 | 2026-06-05 15:04 UTC |
 | `ui-states-matrix` | ✅ verified | 0.95 | 1.0 | 2026-06-05 15:06 UTC |

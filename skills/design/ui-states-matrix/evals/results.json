@@ -1,0 +1,39 @@
+{
+  "skill": "skills/design/ui-states-matrix",
+  "run_at": "2026-06-05 15:06 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.95,
+      "treatment_score": 1.0,
+      "lift": 0.05,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "covers-core-states": {
+          "verdict": "pass",
+          "why": "Explicitly covers empty, loading/uploading, error/failed, and success states both for the upload zone and per-file in the file list, with clear triggers and visual descriptions for each."
+        },
+        "domain-specific-states": {
+          "verdict": "pass",
+          "why": "Covers drag-over (Drag Active), drag-rejected for invalid type/oversized files, per-file progress bars with percentage, upload failure with retry, partial/mixed success in multi-file batch, and unsupported file type rejection \u2014 all domain-specific states addressed."
+        },
+        "actions-recovery": {
+          "verdict": "pass",
+          "why": "Every state in both tables includes an explicit Actions/Recovery column. Failed uploads get per-file Retry and global retry-all; offline state gets Resume prompt; drag-rejected returns to Idle; deletion has confirmation to prevent accidental loss; session timeout prompts re-auth."
+        },
+        "data-edge-cases": {
+          "verdict": "pass",
+          "why": "Dedicated edge cases table covers 0 files, 1 file (singular copy), 50+ files (pagination/virtualisation), very long filenames (mid-truncation with tooltip), duplicate filenames, missing metadata, near-instant uploads, and mixed success/failure batches."
+        },
+        "empty-and-error-quality": {
+          "verdict": "pass",
+          "why": "Empty state explicitly called out as 'not a blank void' with copy, context, and CTA. Error states provide plain-English messages naming the cause and always include a Retry or next-step action; 'Watch Out For' section reinforces both points explicitly."
+        }
+      }
+    }
+  ]
+}

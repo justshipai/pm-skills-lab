@@ -1,0 +1,39 @@
+{
+  "skill": "skills/design/ux-heuristic-audit",
+  "run_at": "2026-06-05 15:07 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.7,
+      "treatment_score": 1.0,
+      "lift": 0.3,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "systematic-heuristics": {
+          "verdict": "pass",
+          "why": "Explicitly evaluates all 10 Nielsen heuristics in a structured table, addressing each principle individually rather than ad-hoc opinions. Every heuristic is numbered and labeled with a corresponding issue or confirmation of compliance."
+        },
+        "severity-ratings": {
+          "verdict": "pass",
+          "why": "Each issue is assigned a numeric severity (0\u20134) in the table and reinforced in the Must-Fix and Minor sections. Ratings are used to differentiate P0/P1/P2/P3 priorities and separate catastrophic from cosmetic issues."
+        },
+        "concrete-fixes": {
+          "verdict": "pass",
+          "why": "Every issue is paired with specific, actionable fixes: e.g., 'type DELETE confirmation', '30-second undo window or 7-day deactivation grace period', 'success toast within 2s', 'sticky jump-nav sidebar', 'collapse Danger zone by default behind disclosure toggle'. No vague advice like 'make it clearer'."
+        },
+        "domain-specific-catches": {
+          "verdict": "pass",
+          "why": "Catches all three key domain-specific issues: delete account needing confirmation/re-auth/grace period (H3+H5), long toggle list needing grouping with category headers and master toggles (H4+H7), and save preferences needing status feedback via toasts and error states (H1+H9)."
+        },
+        "prioritized": {
+          "verdict": "pass",
+          "why": "Explicitly separates Severity 3\u20134 Must-Fix from Severity 1\u20132 Minor/Cosmetic issues, and provides a dedicated prioritized action table ranking items P0 through P3 with the most severe issues surfaced first."
+        }
+      }
+    }
+  ]
+}

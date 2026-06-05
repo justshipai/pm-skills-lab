@@ -1,0 +1,43 @@
+{
+  "skill": "skills/design/prototype-brief",
+  "run_at": "2026-06-05 15:04 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.864,
+      "treatment_score": 1.0,
+      "lift": 0.136,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "screens-and-components": {
+          "verdict": "pass",
+          "why": "Explicitly names two screens (Inbox List and Thread View) and breaks each into named components with descriptions in tables. AppShell, InboxHeader, ConversationList, ConversationRow, EmptyState, ThreadHeader, MessageThread, MessageBubble, ReplyComposer are all individually specified."
+        },
+        "all-states": {
+          "verdict": "pass",
+          "why": "Covers loading (skeletons), populated, empty, and error states for Inbox List; and loading, loaded, error, composing, sending, success, failed, and empty-thread states for Thread View. All major edge cases including reply failure with text preservation are explicitly called out."
+        },
+        "data-shape": {
+          "verdict": "pass",
+          "why": "Provides TypeScript type definitions for both Conversation and Message entities with field names and example values, plus a full JSON seed array of 6 conversations with realistic nested message arrays and all required fields populated."
+        },
+        "interactions-flow": {
+          "verdict": "pass",
+          "why": "Interaction table covers every trigger (app load, row click, back arrow, textarea input, send click, failure, mark all read, close conversation) with explicit action and result columns. Flow is unambiguous including state mutations like isUnread toggling and status updates."
+        },
+        "acceptance-criteria": {
+          "verdict": "pass",
+          "why": "11 numbered, specific, testable acceptance criteria covering list rendering, skeletons, thread opening, unread clearing, reply disabled state, reply success flow, reply error state, back navigation, empty state, mark-all-read, and rapid-click stability."
+        },
+        "scoped-and-pasteable": {
+          "verdict": "pass",
+          "why": "Opens with an explicit scope section listing what's in and out, includes a paste instruction in the header, and the entire brief is self-contained with seed data, type definitions, style constraints, and acceptance criteria \u2014 ready to paste directly into a generative UI tool."
+        }
+      }
+    }
+  ]
+}

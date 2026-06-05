@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "systematic-heuristics",
+      "description": "Evaluates against a recognized set of usability heuristics (Nielsen's 10 or equivalent), checking the interface against each principle systematically rather than listing a few ad-hoc opinions.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "severity-ratings",
+      "description": "Rates each issue's severity (e.g. 0–4) so findings are prioritized, not a flat list.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "concrete-fixes",
+      "description": "Pairs each issue with a concrete, specific fix rather than vague advice like 'make it clearer'.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "domain-specific-catches",
+      "description": "Catches issues specific to this page — e.g. 'delete account' needs confirmation/error-prevention, the long toggle list needs grouping/recognition, saving prefs needs status feedback.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "prioritized",
+      "description": "Surfaces the most severe issues first / separates must-fix from minor.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

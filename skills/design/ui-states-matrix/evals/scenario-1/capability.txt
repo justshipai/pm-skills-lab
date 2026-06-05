@@ -1,0 +1,1 @@
+Enumerating the full set of UI states for a screen — empty, loading/in-progress, partial, error, success, and data edge cases (0/1/many/long/invalid) — with what each shows and the actions/recovery available, especially the commonly-forgotten empty/loading/error/upload-failure states, rather than designing only the happy path.

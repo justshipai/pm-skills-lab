@@ -1,0 +1,1 @@
+Conducting a systematic heuristic evaluation against Nielsen's 10 usability heuristics, rating each issue's severity (0–4) and pairing it with a concrete fix, then prioritizing by severity — rather than a handful of generic, unrated, unprioritized opinions.

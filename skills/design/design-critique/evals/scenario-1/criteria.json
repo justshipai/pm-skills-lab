@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "goal-anchored",
+      "description": "Anchors the critique to the design's goal (start a session quickly) and user, judging points against that rather than personal taste.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "specific-actionable",
+      "description": "Each point is specific and actionable (the concrete change to make), not vague advice like 'improve the layout'.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "prioritized",
+      "description": "Separates must-fix from should-fix/polish (or otherwise prioritizes), rather than a flat equal list — e.g. flags the buried 'Start' as a top issue.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "covers-dimensions",
+      "description": "Covers multiple relevant dimensions (goal/flow, hierarchy, usability, states, content, accessibility) rather than one narrow angle.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "strengths-and-questions",
+      "description": "Names strengths to keep and/or asks about unclear intent rather than only listing problems or assuming.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

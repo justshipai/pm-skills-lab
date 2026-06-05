@@ -1,0 +1,1 @@
+Giving a structured design critique anchored to the design's goal/user, covering usability/hierarchy/states/content/accessibility, separating must-fix from polish, and making each point specific and actionable (e.g. the buried Start action working against the goal) — rather than vague praise or scattered taste-based comments.

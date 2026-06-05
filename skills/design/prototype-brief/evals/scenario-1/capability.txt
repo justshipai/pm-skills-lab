@@ -1,0 +1,1 @@
+Turning a feature into a build-ready prototype brief for a vibe-coding tool: screens broken into components, EVERY UI state (empty/loading/error/success/edge) not just the happy path, a data shape with sample data, interactions/flow, and acceptance criteria — rather than a one-line prompt that yields a static happy-path mockup.

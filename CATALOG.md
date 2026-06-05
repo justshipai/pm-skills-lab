@@ -117,16 +117,16 @@ The full roadmap — ~160 skills across 14 categories. `[x]` = authored & eval-r
 - [ ] `decision-record` — RFC / ADR (options, trade-offs, reversibility)
 - [ ] `mvp-scope-cutter` — Thinnest-slice scoping
 
-## Design & UX (0 / 8)
+## Design & UX (5 / 8)
 
-- [ ] `ux-heuristic-audit` — Nielsen heuristics
-- [ ] `accessibility-audit` — WCAG quick audit
+- [x] `prototype-brief` — Build-ready brief/prompt for prototyping tools (Bolt/v0/Lovable)
+- [x] `ui-states-matrix` — Every UI state a screen needs (empty/loading/error/edge)
+- [x] `ux-heuristic-audit` — Nielsen heuristics + severity + fixes
+- [x] `accessibility-audit` — WCAG quick audit + severity + fixes
+- [x] `design-critique` — Goal-anchored, prioritized, actionable critique
 - [ ] `ia-review` — Information architecture / nav
-- [ ] `wireframe-from-spec` — Wireframe prompt for prototyping tools
 - [ ] `microcopy-pass` — UX-writing pass
-- [ ] `design-critique` — Design critique facilitator
 - [ ] `onboarding-flow` — Onboarding flow design
-- [ ] `empty-state-designer` — Empty/error-state design
 
 ## Data, metrics & experimentation (0 / 12)
 

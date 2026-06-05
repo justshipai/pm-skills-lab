@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "covers-key-areas",
+      "description": "Audits across multiple high-impact accessibility areas (contrast, keyboard, visible focus, names/labels, color-alone, target size, form errors) rather than only alt text or a single area.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "specific-and-criterion-based",
+      "description": "Names specific issues tied to recognizable WCAG criteria/areas, not vague 'improve accessibility'.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "catches-domain-issues",
+      "description": "Catches the screen-specific problems — color-only password-strength meter, icon-only 'show password' and social buttons needing accessible names, and errors conveyed by red text alone.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "severity-and-fixes",
+      "description": "Rates severity (blocker/major/minor) and gives concrete, implementable fixes (e.g. specific aria-label, a non-color cue).",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "verify-in-app",
+      "description": "Acknowledges checks that need the live UI / screen reader rather than asserting them statically.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

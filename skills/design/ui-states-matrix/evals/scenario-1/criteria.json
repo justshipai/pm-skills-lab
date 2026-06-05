@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "covers-core-states",
+      "description": "Covers the core UI states beyond the happy path — at minimum empty, loading/in-progress, error, and success — as designed states.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "domain-specific-states",
+      "description": "Includes states specific to file upload — e.g. drag-over/hover, per-file upload progress, upload failure/retry, invalid file type or too-large, partial-success of a multi-file upload.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "actions-recovery",
+      "description": "For each state, says what the user can do / how to recover (e.g. retry a failed upload, remove a file), not just the visual.",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "data-edge-cases",
+      "description": "Addresses data extremes (0 files, 1, many, very long filenames) so the layout stays intentional.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "empty-and-error-quality",
+      "description": "Treats the empty state as informative (not blank) and errors as recoverable (clear message + next step), not dead ends or raw errors.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

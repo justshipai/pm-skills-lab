@@ -1,0 +1,41 @@
+{
+  "criteria": [
+    {
+      "id": "screens-and-components",
+      "description": "Breaks the feature into screens and their component parts, rather than describing one undifferentiated UI.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "all-states",
+      "description": "Specifies the full set of UI states (empty, loading, error, success, and edge cases) for the screens — not just the happy/success path.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "data-shape",
+      "description": "Defines the data entities/fields the UI binds to, ideally with sample data, rather than leaving the tool to improvise.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "interactions-flow",
+      "description": "Specifies interactions and flow — what each action does and where it leads.",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "acceptance-criteria",
+      "description": "Includes acceptance criteria so the generated prototype can be checked (covering states/interactions), enabling precise re-prompting.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "scoped-and-pasteable",
+      "description": "Scopes to a demonstrable flow and is written as a concrete, paste-ready brief rather than vague prose.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

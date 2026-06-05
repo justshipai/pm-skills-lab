@@ -1,0 +1,39 @@
+{
+  "skill": "skills/design/accessibility-audit",
+  "run_at": "2026-06-05 15:09 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": false,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 1.0,
+      "treatment_score": 1.0,
+      "lift": 0.0,
+      "treatment_passed": true,
+      "earns_place": false,
+      "treatment_verdicts": {
+        "covers-key-areas": {
+          "verdict": "pass",
+          "why": "Audit explicitly covers contrast (1.4.3), keyboard operability (2.1.1), visible focus (2.4.7), names/labels (4.1.2, 3.3.2), color-alone (1.4.1), target size (2.5.8), form errors (3.3.1), and more \u2014 well beyond a single area."
+        },
+        "specific-and-criterion-based": {
+          "verdict": "pass",
+          "why": "Every finding cites specific WCAG criterion numbers (1.4.1, 4.1.2, 3.3.1, 2.4.7, 2.1.1, 1.4.3, 2.5.8, etc.) with precise technical fixes like aria-label values, aria-describedby, aria-live, and input.type toggling."
+        },
+        "catches-domain-issues": {
+          "verdict": "pass",
+          "why": "Explicitly catches all three domain-specific issues: color-only password-strength meter (finding #1), icon-only show-password button needing accessible name (finding #2), social login icon buttons needing aria-label (finding #3), and errors conveyed by red text alone (findings #4 and #5)."
+        },
+        "severity-and-fixes": {
+          "verdict": "pass",
+          "why": "Each finding is rated Blocker/Major/Minor with concrete fixes including specific code examples (aria-label='Show password', aria-pressed, aria-describedby, aria-invalid, role='status', aria-live='polite', outline CSS values)."
+        },
+        "verify-in-app": {
+          "verdict": "pass",
+          "why": "Dedicated 'Verify In-App' section explicitly acknowledges checks requiring the live UI or screen reader, with specific verification methods for each check and clear disclaimer that they cannot be confirmed from static description."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "skill": "skills/design/design-critique",
+  "run_at": "2026-06-05 15:10 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": false,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 1.0,
+      "treatment_score": 1.0,
+      "lift": 0.0,
+      "treatment_passed": true,
+      "earns_place": false,
+      "treatment_verdicts": {
+        "goal-anchored": {
+          "verdict": "pass",
+          "why": "Every finding is explicitly judged against 'start a session quickly' \u2014 the critique opens by naming that goal and the user context, then each table row ties back to speed-to-session as the core metric, never drifting into personal aesthetic preference."
+        },
+        "specific-actionable": {
+          "verdict": "pass",
+          "why": "Each finding includes a concrete 'Specific Change' column entry \u2014 e.g., 'Move a featured session card immediately below the welcome message,' 'Add a dark scrim or gradient behind text,' 'Replace Recommended for you with a curated beginner path until there's enough data.' No vague 'improve the layout' advice present."
+        },
+        "prioritized": {
+          "verdict": "pass",
+          "why": "Findings are explicitly tiered Must-fix / Should-fix / Polish in the table, and a 'Top 3 to Address First' section further distills the hierarchy. The buried Start action is flagged as the single highest-impact change."
+        },
+        "covers-dimensions": {
+          "verdict": "pass",
+          "why": "Critique addresses goal/flow (multiple rows), visual hierarchy, usability, content/copy, states (new-user zero-state), accessibility (WCAG contrast), and consistency/visual rhythm \u2014 covering at least six distinct dimensions."
+        },
+        "strengths-and-questions": {
+          "verdict": "pass",
+          "why": "'What Works' section names four specific strengths to preserve (personalized greeting, streak counter, bottom nav, recommendations intent). 'Open Questions' section asks about unclear intent (quick-start definition, new vs. returning user, hero image constraints, bottom nav contents) rather than assuming."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Running a WCAG-based accessibility audit across high-impact areas (contrast, keyboard, visible focus, names/labels, color-alone, target size, forms/errors), citing specific criteria, rating severity, and giving concrete fixes — catching issues like icon-only buttons lacking labels, the color-only strength meter, and red-only error text — rather than 'add alt text'.

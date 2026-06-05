@@ -1,41 +1,41 @@
 {
   "skill": "skills/prioritization/rice-scorer",
-  "run_at": "2026-06-05 09:12 UTC",
+  "run_at": "2026-06-05 11:02 UTC",
   "model": "claude-sonnet-4-6",
   "judge_model": "claude-sonnet-4-6",
   "verified": true,
   "scenarios": [
     {
       "scenario": "scenario-1",
-      "baseline_score": 0.2,
+      "baseline_score": 0.25,
       "treatment_score": 1.0,
-      "lift": 0.8,
+      "lift": 0.75,
       "treatment_passed": true,
       "earns_place": true,
       "treatment_verdicts": {
         "four-factors-scored": {
           "verdict": "pass",
-          "why": "Every item has explicit Reach, Impact, Confidence, and Effort values with a computed RICE score shown as formula and result."
+          "why": "Every item has explicit Reach, Impact, Confidence, and Effort values, and a computed RICE score shown in the table."
         },
         "reach-as-count": {
           "verdict": "pass",
-          "why": "Reach is expressed as a user count per quarter (e.g., 15,000, 50,000, 20,000) with a consistent 1-quarter window. Impact and Confidence use the defined scales, not arbitrary 1-10 ratings."
+          "why": "Reach is expressed as actual user counts (e.g., 15,000; 20,000; 50,000) over a defined 1-quarter window, anchored to a 50,000 MAU baseline. Impact uses the standard 3/2/1/0.5/0.25 scale and Confidence uses percentage scale."
         },
         "effort-all-functions": {
           "verdict": "pass",
-          "why": "Effort is stated in person-weeks and explicitly covers multiple functions (design, eng, QA, GTM) in the assumptions table and item descriptions. Used consistently as denominator in all five calculations."
+          "why": "Effort is measured in person-weeks explicitly covering design, eng, QA, and GTM, and is used as the denominator in the RICE formula consistently across all items."
         },
         "ranked-output": {
           "verdict": "pass",
-          "why": "A clear ranked table and numbered list (1\u20135) is produced directly from the computed scores."
+          "why": "A clear ranked table from score 8,333 down to 375 is provided, with rank numbers and labels."
         },
         "sanity-check": {
           "verdict": "pass",
-          "why": "Dedicated Sanity Check section flags Mobile App's low confidence as unreliable score, flags 2FA as mechanically inflated relative to strategic growth intent, and notes the need for discovery before committing to Mobile App."
+          "why": "The output flags low-confidence/high-score items (2FA's math-driven #1 vs. actual purpose, mobile app's strategic vs. score tension), notes sequencing dependencies (referral after retention fixes, Slack before mobile), and highlights items RICE under- or over-rates for strategic reasons."
         },
         "confidence-as-flag": {
           "verdict": "pass",
-          "why": "Mobile App's 50% confidence is explicitly called out with a recommendation to run a discovery sprint (survey churned users, check analytics, sales-call notes) before committing, rather than treating the score as definitive."
+          "why": "Both 50%-confidence items (referral program and mobile app) are explicitly called out with recommendations to validate first \u2014 a no-code referral test and a PWA spike \u2014 before committing full build effort."
         }
       }
     }

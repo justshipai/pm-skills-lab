@@ -1,49 +1,49 @@
 {
   "skill": "skills/ai-product/ai-feature-spec",
-  "run_at": "2026-06-05 08:53 UTC",
+  "run_at": "2026-06-05 10:33 UTC",
   "model": "claude-sonnet-4-6",
   "judge_model": "claude-sonnet-4-6",
   "verified": true,
   "scenarios": [
     {
       "scenario": "scenario-1",
-      "baseline_score": 0.25,
-      "treatment_score": 0.857,
-      "lift": 0.607,
+      "baseline_score": 0.893,
+      "treatment_score": 1.0,
+      "lift": 0.107,
       "treatment_passed": true,
       "earns_place": true,
       "treatment_verdicts": {
         "evaluation-plan": {
           "verdict": "pass",
-          "why": "Specifies a 150-note golden set with diversity requirements, dual annotators with adjudication, explicit numeric bars on recall/precision/owner accuracy/date accuracy/latency/cost, an LLM-as-judge secondary rubric, and multiple online signals (acceptance rate, edit rate, deletion rate, re-run rate) with steady-state targets. Comprehensive and concrete."
+          "why": "Defines a 100-note stratified golden dataset with dual human annotators and a rubric, specific precision/recall/hallucination thresholds, offline eval before launch, LLM-as-judge calibration procedure, and multiple online signals (edit rate, delete rate, add rate, thumbs) with alert thresholds."
         },
         "graceful-fallback": {
-          "verdict": "partial",
-          "why": "Section 6 is cut off mid-sentence so the full fallback behavior is not described. The document references it repeatedly and lists trigger conditions, but the actual user experience during fallback is not shown in the candidate output."
+          "verdict": "pass",
+          "why": "Enumerates distinct fallback paths: API failure shows toast + retry + inline manual template; empty array shows editable table with participant names; note too long shows word count + section-select affordance; user ignoring feature leaves note unchanged. Manual template always available independent of AI."
         },
         "failure-modes-guardrails": {
           "verdict": "pass",
-          "why": "Enumerates 8 AI-specific failure modes including hallucinated items, missed items, wrong owner, garbled dates, context-window overflow, and confident-but-wrong output. Each is paired with a concrete detection method (source_span validation, golden-set metrics, edit signals) and a specific mitigation (span suppression, editable chips, absolute date display, no silent truncation)."
+          "why": "Table lists 8 specific failure modes (hallucination, wrong owner, missed items, invented date, empty response, timeout, too-long note, prompt injection) each paired with likelihood, detection mechanism, and concrete mitigation."
         },
         "non-ai-baseline": {
           "verdict": "pass",
-          "why": "Explicitly describes the non-AI baseline (structured template), explains why it fails in practice, articulates why AI earns its place (free-form prose requires language understanding), and keeps the manual template as a permanent fallback. Includes a concrete threshold below which the baseline is the better decision."
+          "why": "Explicitly describes the non-AI baseline (manual Action Items table/template), explains why it has low adoption, articulates why regex/keyword rules fail on free-form prose, and sets a measurable bar the AI must clear versus the template to justify shipping."
         },
         "uncertainty-and-reversibility": {
           "verdict": "pass",
-          "why": "UI presents output as reviewable suggestions ('Review these suggestions'), low-confidence owners are editable chips visually distinguished, absolute dates shown alongside source text, 'Did we miss anything?' affordance, and users can edit or delete individual items before accepting. Human-in-the-loop is explicit throughout."
+          "why": "Source quote citations with highlight link, warning icon when quote unmatched, null fields shown as editable placeholders, list opens in editable state, inline field editing, undo on save-to-note, panel never writes to note until confirmed, confirmation prompt on edited discard."
         },
         "cost-latency": {
           "verdict": "pass",
-          "why": "P95 latency target of \u22646 seconds and cost target of \u2264$0.02 per extraction at p95 note length are both explicit gate criteria that must be met simultaneously before canary rollout."
+          "why": "Explicit p50 < 4s and p95 < 8s latency budgets per stage, unit cost calculated (~$0.001-0.002/extraction), daily cost projection at 10K extractions, rate-limit tiers (20/day free, 100/day paid), auto-alert at $500/day, throttle at $1,000/day, mobile network condition testing required."
         },
         "success-metrics-multi-dimensional": {
           "verdict": "pass",
-          "why": "Quality metrics (recall, precision, owner accuracy, date accuracy) are paired with adoption/outcome metrics (acceptance rate \u226570%, deletion rate \u226415%, edit rate, re-run rate) and operational guardrails (latency, cost). Spans multiple dimensions with explicit targets."
+          "why": "Primary metrics span adoption (% users trying feature), repeat usage, acceptance rate, and satisfaction (thumbs up). Guardrail metrics separately track delete rate, latency, cost, data incidents, and core editor crash rate with explicit breach thresholds."
         },
         "staged-rollout": {
-          "verdict": "partial",
-          "why": "Canary is mentioned as the first post-evaluation destination and \u00a710 references gate-2 decisions, but the full staged rollout plan (shadow mode, canary size/duration, GA criteria, kill switch mechanism) is not elaborated in the visible text."
+          "verdict": "pass",
+          "why": "Four explicit phases: shadow/dogfood (logged, not shown), closed beta (~500 opt-in users), 10% canary, GA \u2014 each with duration, numeric gate criteria, and a kill switch triggerable in <5 minutes via feature flag with an automatic trigger on delete-rate spike."
         }
       }
     }

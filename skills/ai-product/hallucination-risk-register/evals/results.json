@@ -1,6 +1,6 @@
 {
   "skill": "skills/ai-product/hallucination-risk-register",
-  "run_at": "2026-06-05 09:00 UTC",
+  "run_at": "2026-06-05 10:47 UTC",
   "model": "claude-sonnet-4-6",
   "judge_model": "claude-sonnet-4-6",
   "verified": true,
@@ -15,27 +15,27 @@
       "treatment_verdicts": {
         "beyond-hallucination": {
           "verdict": "pass",
-          "why": "Identifies at least 10 distinct failure modes beyond hallucination: omission, stale/outdated info, overconfidence, prompt injection, data/PII leakage, scope creep into diagnosis, wrong logistics, toxic output, bias/inequitable performance, and silent degradation."
+          "why": "Identifies 12 distinct failure modes including omission, stale/outdated info, overconfidence, prompt injection, cross-patient PII/data leakage, out-of-scope diagnosis, silent degradation, bias across segments, toxic output, wrong appointment details, latency blowout, and fabrication \u2014 well beyond plain hallucination."
         },
         "detection-and-mitigation": {
           "verdict": "pass",
-          "why": "Every failure mode in the register has an explicit Detection column and a separate Mitigation column with concrete mechanisms (checklist diff, grounding checks, intent classifier, freshness timestamps, tenant isolation, regression eval suites, etc.)."
+          "why": "Every one of the 12 failure modes has an explicit Detection column and a Mitigation column with concrete, distinct controls. Both sides are substantive (e.g., faithfulness scoring + RAG-only; classifier + hard refusal; TTL expiry + staleness alerts), not just one or the other."
         },
         "prioritized": {
           "verdict": "pass",
-          "why": "Uses a Severity \u00d7 Likelihood scoring matrix (scores 6\u201320), ranks modes explicitly, and a summary priority table is provided. Justification for why overconfident-but-wrong outranks visible failure is also stated."
+          "why": "Uses explicit Severity \u00d7 Likelihood scoring matrix, produces ranked priority table sorted by score (16 down to 6), and includes a launch-gate recommendation ordering which risks must be resolved first. Not all modes treated as equal."
         },
         "domain-specific": {
           "verdict": "pass",
-          "why": "Includes healthcare-specific failure modes: critical prep omission (NPO/aspiration risk), scope creep into diagnosis/treatment advice, procedure-specific hallucinated instructions (blood thinners before biopsy), and procedure cancellation consequences."
+          "why": "Multiple healthcare-specific failure modes: omission of safety-critical prep instructions (colonoscopy/NPO example), crossing no-diagnosis boundary, stale clinical protocols, wrong EHR appointment details, and health-literacy/language equity concerns \u2014 not just generic LLM risks."
         },
         "residual-risk": {
           "verdict": "pass",
-          "why": "Every row has a dedicated Residual Risk column with specific post-mitigation risks named (e.g., edge-case classifier misses, family account session complexity, novel injection patterns, gradual drift not triggering thresholds)."
+          "why": "Dedicated 'Residual Risk' column in the main register, a 'Cannot Currently Detect' section explicitly flagging modes where detection is weak or absent, and a formal 'Residual Risk Accepted By' table with named owners and acceptance conditions."
         },
         "verifiable-controls": {
           "verdict": "pass",
-          "why": "Strongly prefers verifiable controls throughout: structured checklist diffs, RAG with citation requirements, allow-lists, hard tenant isolation by authenticated patient ID, automated regression eval suites, canary deployments, input sanitization layers, and schema-driven retrieval \u2014 not just prompt instructions."
+          "why": "Strongly prefers verifiable controls throughout: RAG-only with citation anchoring, structured EHR payload injection (never LLM-generated), per-request PII regex+NER scan, automated regression eval as CI gate, TTL-based KB expiry, output classifiers with measurable thresholds, input token caps, canary deployments \u2014 not 'we'll prompt it not to'."
         }
       }
     }

@@ -1,41 +1,41 @@
 {
   "skill": "skills/ai-product/human-in-the-loop-design",
-  "run_at": "2026-06-05 09:02 UTC",
+  "run_at": "2026-06-05 10:49 UTC",
   "model": "claude-sonnet-4-6",
   "judge_model": "claude-sonnet-4-6",
-  "verified": true,
+  "verified": false,
   "scenarios": [
     {
       "scenario": "scenario-1",
-      "baseline_score": 0.909,
-      "treatment_score": 0.955,
-      "lift": 0.046,
+      "baseline_score": 1.0,
+      "treatment_score": 1.0,
+      "lift": 0.0,
       "treatment_passed": true,
-      "earns_place": true,
+      "earns_place": false,
       "treatment_verdicts": {
         "action-to-oversight-map": {
           "verdict": "pass",
-          "why": "Explicit table maps each distinct action (auto-approve, auto-reject, flag, shadow-ban, escalate, bulk action) to a specific oversight level with risk and reversibility reasoning for each \u2014 not a single global decision."
+          "why": "Detailed table maps every distinct action (auto-approve, auto-reject, flag, priority-flag, bulk re-evaluation, account suspension, appeal resolution) to a specific oversight level (auto/on-loop, review-after, defer, confirm/in-loop) with explicit risk and reversibility reasoning for each."
         },
         "confidence-routing": {
           "verdict": "pass",
-          "why": "Defined numeric thresholds (\u22650.92, 0.65\u20130.92, <0.65) route to auto-action, human review with pre-filled recommendation, or uncertain-defer with no recommendation shown; watchlist override also specified."
+          "why": "Explicit confidence band table with numeric thresholds routing to auto-action, human-review, or confirm queue; severity override that bypasses confidence entirely; fail-closed on timeout/error \u2014 all three routing modes clearly specified."
         },
         "review-surface": {
           "verdict": "pass",
-          "why": "Detailed UI mockup shows confidence score, top signals with source links, seller context, approve/reject/escalate/edit/snooze actions, reject-requires-reason design, collapsed listing body, and queue stats to prevent rubber-stamping \u2014 well beyond 'a human checks it'."
+          "why": "Provides wireframe-level card designs for standard flag, priority-flag, and auto-reject queues; specifies what evidence is shown (confidence score, matched signals, seller history, listing content); defines specific action buttons (Approve, Reject+reason, Escalate, Overturn); sets a 30-second decision-time target."
         },
         "undo-and-escalation": {
           "verdict": "pass",
-          "why": "Explicit reversal table with who, time window, and method per action type; escalation path includes full context handoff, 4-hour SLA, auto-suppression fallback, and on-call paging for high-severity categories."
+          "why": "Undo table covers every action type with mechanism, time window, and who can act; escalation section defines trigger conditions, full hand-off context checklist, SLAs with breach behavior (stays held, manager paged), and named-moderator assignment."
         },
         "asymmetric-error-handling": {
-          "verdict": "partial",
-          "why": "Shadow-ban and escalation get stricter human gates due to irreversibility/harm, and async sampling catches auto-reject errors. However, the output doesn't explicitly frame the false-approval vs. false-rejection asymmetry or explain why one error type is treated more strictly than the other in terms of harm calculus."
+          "verdict": "pass",
+          "why": "Explicitly sets stricter auto-reject threshold (0.92) vs auto-approve (0.95); false-approval rate limit (0.5%) is tighter than false-rejection (1.0%); severe-signal listings bypass confidence entirely; 'What this design does not do' section explicitly notes severity always overrides score."
         },
         "trust-ramp-or-fatigue": {
           "verdict": "pass",
-          "why": "Detailed per-action-class trust ramp with three quantitative gates (precision/recall, override rate, volume stability), eight-week consecutive requirement, multi-stakeholder sign-off, and automatic tightening triggers when override rate spikes \u2014 addresses both loosening and fatigue/drift prevention."
+          "why": "Detailed trust ramp with four quantitative criteria, two-period confirmation requirement, explicit sign-off process, and automatic tightening triggers; ongoing mandatory sampling (5%/10%) explicitly decoupled from volume to prevent fatigue-driven skip; addresses both loosening over time and preventing rubber-stamping."
         }
       }
     }

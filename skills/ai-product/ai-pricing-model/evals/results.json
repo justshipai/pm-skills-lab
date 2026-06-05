@@ -1,41 +1,41 @@
 {
   "skill": "skills/ai-product/ai-pricing-model",
-  "run_at": "2026-06-05 08:56 UTC",
+  "run_at": "2026-06-05 10:42 UTC",
   "model": "claude-sonnet-4-6",
   "judge_model": "claude-sonnet-4-6",
   "verified": true,
   "scenarios": [
     {
       "scenario": "scenario-1",
-      "baseline_score": 0.818,
-      "treatment_score": 0.909,
-      "lift": 0.091,
+      "baseline_score": 0.955,
+      "treatment_score": 1.0,
+      "lift": 0.045,
       "treatment_passed": true,
       "earns_place": true,
       "treatment_verdicts": {
         "unit-economics": {
           "verdict": "pass",
-          "why": "Detailed token-level cost breakdown with explicit assumptions (model, token counts, retry rate, RAG, infra markup) producing a fully-loaded $0.007\u2013$0.01/draft figure before any pricing recommendation."
+          "why": "Explicitly computes cost per draft for both typical ($0.0057) and heavy ($0.0142) jobs with stated token assumptions, model pricing, retry overhead, retrieval, and infra costs. Usage distribution by segment is also computed with clear assumptions about tickets/day and adoption rate."
         },
         "structure-choice": {
           "verdict": "pass",
-          "why": "Explicitly evaluates four alternatives (pure flat, pure usage-based, outcome-based, unlimited) with specific objections to each, then selects tiered seat add-on with included allowance + overage and justifies each element of the choice."
+          "why": "Chooses tiered seat add-on with included allowance + overage and explicitly justifies it. Rejects flat unlimited, pure usage, outcome-based, and baked-in pricing with specific reasons for each rejection."
         },
         "margin-distribution": {
           "verdict": "pass",
-          "why": "Runs complete margin tables across p25/p50/p90/p99 for both Starter and Pro tiers, showing GM% at each percentile and flagging the one borderline case (Pro p90 at 58%) with a mitigation suggestion."
+          "why": "Full margin stress test across light, typical, heavy p90, whale, and capped-whale segments for both Starter and Pro tiers. Confirms no segment is underwater; whale is explicitly identified as the risk case and shown to be margin-positive with overage."
         },
         "cost-guardrails": {
           "verdict": "pass",
-          "why": "Specifies hard-metered allowance, auto-billed overage in 100-draft blocks, soft-limit warnings at 80%, and references a hard fair-use cap (truncated but clearly intended)."
+          "why": "Multiple guardrails specified: included allowance, overage billing, fair-use hard cap with soft-pause at 100%, rate limit (60 drafts/hr), admin kill-switch, and anomaly alert at $15 cost threshold."
         },
         "value-wtp-crosscheck": {
-          "verdict": "fail",
-          "why": "No explicit cross-check against value delivered to the buyer (e.g., time saved per draft, agent labor cost offset) or next-best alternative pricing. Pricing is derived purely from cost-plus with a target GM%, not anchored to WTP."
+          "verdict": "pass",
+          "why": "Quantifies value delivered (25 hours/month saved at $625/agent/month labor value), showing $15\u201325 is only 2\u20134% of value. Also benchmarks against Salesforce/Zendesk ($50 add-ons) and DIY API cost ($2\u20135/agent/month)."
         },
         "cost-trend-sensitivity": {
           "verdict": "pass",
-          "why": "Explicitly notes \u221230\u201340%/yr inference cost trajectory and states the structure must flex to accommodate it, acknowledging this in the margin constraints table."
+          "why": "Sensitivity table explicitly models model cost halving (within 12\u201318 months), LLM cost spike, and competitor price pressure, with recommended responses for each scenario including how overage/caps act as buffers and when to raise overage rates."
         }
       }
     }

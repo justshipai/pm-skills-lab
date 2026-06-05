@@ -1,45 +1,45 @@
 {
   "skill": "skills/specs/prd-generator",
-  "run_at": "2026-06-05 09:15 UTC",
+  "run_at": "2026-06-05 11:06 UTC",
   "model": "claude-sonnet-4-6",
   "judge_model": "claude-sonnet-4-6",
   "verified": true,
   "scenarios": [
     {
       "scenario": "scenario-1",
-      "baseline_score": 0.542,
-      "treatment_score": 0.958,
-      "lift": 0.416,
+      "baseline_score": 0.917,
+      "treatment_score": 1.0,
+      "lift": 0.083,
       "treatment_passed": true,
       "earns_place": true,
       "treatment_verdicts": {
         "problem-first-with-evidence": {
           "verdict": "pass",
-          "why": "Opens with a clear problem statement backed by quantified evidence: app store review data (47/200), user interviews (6/8), competitive analysis, exit survey (n=340), and rating trend (4.4\u21924.1). Solution is introduced only after the problem section."
+          "why": "Opens with the user problem (eye strain in low-light), immediately backed by quantified evidence: 47 App Store mentions, 23% of 1-2 star reviews, 34% of sessions in evening hours, competitive gap analysis, and platform API context."
         },
         "target-user-jtbd": {
           "verdict": "pass",
-          "why": "Names specific primary user (evening/night note-takers, ~35% of DAU with session timestamps cited), secondary user (light sensitivity/accessibility), and states a well-formed JTBD in the standard 'when/want/so that' format."
+          "why": "Explicitly names primary user (evening journalers, students, professionals, on-call workers) and secondary user (aesthetic preference), with a precise JTBD statement in the standard 'when/want/so that' format."
         },
         "measurable-success": {
           "verdict": "pass",
-          "why": "Four metrics with baselines, numeric targets, and 90-day timeframe: dark mode adoption \u226540% MAU, App Store rating \u22654.3\u2605, session length parity, churn -10% relative. Measurement methods specified. Guardrails also defined."
+          "why": "Five metrics with explicit numeric targets: \u226540% dark mode adoption in 30 days, +5pp retention improvement, \u22654.4 App Store rating, <2% negative dark-mode reviews, <200ms theme switch. Guardrails also specified."
         },
         "prioritized-requirements": {
           "verdict": "pass",
-          "why": "Requirements are explicitly tiered P0/P1/P2 with rationale, expressed as user stories with detailed acceptance criteria for each. Coverage is comprehensive across all priority levels."
+          "why": "Requirements are tiered P0/P1/P2, each expressed as a user story in 'As a user\u2026 I want\u2026 so that\u2026' format with explicit, checkboxed acceptance criteria."
         },
         "non-goals": {
           "verdict": "pass",
-          "why": "Explicit non-goals stated: custom/fully-customizable color themes and font palettes are out-of-scope, called out in both the target user section and implicitly in the solution scope. Out-of-scope user also named."
+          "why": "Dedicated Non-goals section with six explicit out-of-scope items: web/desktop clients, per-note overrides, custom theme builder, animated transitions, font/layout changes, cross-device sync."
         },
         "edge-cases": {
           "verdict": "pass",
-          "why": "Each P0 requirement has a dedicated edge cases subsection covering: image inversion, placeholder contrast, Android <10 fallback, no system preference default, user override vs system change conflicts, single-display of tooltip."
+          "why": "Multiple edge cases covered: OS switching while app is backgrounded or foregrounded, older OS versions without API support, OLED vs LCD rendering, third-party SDK surfaces, mid-session theme switch causing crash or data loss, scheduled switching interaction with manual override."
         },
         "risks-rollout": {
-          "verdict": "partial",
-          "why": "Guardrails and some implicit risks (OLED burn-in, WCAG compliance, regression) are mentioned, but there is no explicit risks/dependencies/open questions section or a milestone/rollout plan (e.g., phased rollout, feature flags, staged release). The PRD is cut off before REQ-07 which may have contained more."
+          "verdict": "pass",
+          "why": "Risks table with likelihood/impact/mitigation for five risks; dependencies section covering design tokens, OS API gating, QA device matrix, analytics; five open questions with owners and due dates; detailed phased rollout plan with milestones and a 10%\u219250%\u2192100% staged release."
         }
       }
     }

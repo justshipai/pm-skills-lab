@@ -1,37 +1,37 @@
 {
   "skill": "skills/ai-product/agent-capability-spec",
-  "run_at": "2026-06-05 08:51 UTC",
+  "run_at": "2026-06-05 10:30 UTC",
   "model": "claude-sonnet-4-6",
   "judge_model": "claude-sonnet-4-6",
-  "verified": true,
+  "verified": false,
   "scenarios": [
     {
       "scenario": "scenario-1",
-      "baseline_score": 0.636,
-      "treatment_score": 0.864,
-      "lift": 0.228,
+      "baseline_score": 1.0,
+      "treatment_score": 1.0,
+      "lift": 0.0,
       "treatment_passed": true,
-      "earns_place": true,
+      "earns_place": false,
       "treatment_verdicts": {
         "tool-inventory-side-effects": {
           "verdict": "pass",
-          "why": "Table T1-T12 explicitly classifies each tool as Read, Reversible Write, or Irreversible/External with clear blast radius descriptions (e.g., 'sends email to all attendees', 'irreversible once accepted')."
+          "why": "Section 2 provides a complete tool inventory with explicit action classes (READ, REVERSIBLE-WRITE, IRREVERSIBLE-EXTERNAL) for every tool, including blast radius reasoning and reversibility classification for all 15+ tools across 5 categories."
         },
         "autonomy-and-confirmation": {
           "verdict": "pass",
-          "why": "Section 1 declares 'Bounded-Autonomous' level; Section 4 provides a detailed table mapping each action class to Auto/Confirm/Double-confirm behavior with specific examples and batching rules."
+          "why": "Section 1 defines a deliberate 'Bounded-autonomous' level with a comparison table. Section 4 specifies per-action-class confirmation rules (READ=auto, REVERSIBLE-WRITE=auto within policy, IRREVERSIBLE-EXTERNAL=confirm by default), a decision tree, and a user-configurable Strict Mode."
         },
         "never-do-list": {
-          "verdict": "partial",
-          "why": "Prohibited actions are scattered (mass-cancellation, public calendar publishing mentioned in \u00a71; withheld scopes in \u00a73) but there is no single explicit 'Never Do' list. Prohibited behaviors are implicit rather than consolidated."
+          "verdict": "pass",
+          "why": "Section 5 contains 11 absolute prohibited actions (5.1) that cannot be unlocked by any user setting, plus a separate out-of-scope decline list (5.2) covering non-scheduling requests, with rationale for each prohibition."
         },
         "least-privilege-and-limits": {
           "verdict": "pass",
-          "why": "Detailed permission tables with explicitly withheld scopes, an allow-list for data/recipients/date range, and a hard limits table with numeric caps on invites, emails, recipients, spend, and rate limits."
+          "why": "Section 3.1 specifies minimal OAuth scopes with explicit withheld scopes per integration. Section 3.2 defines an allow-list for data access. Section 3.3 provides hard numeric limits (email caps, event caps, attendee limits, tool call limits, time limits, scheduling horizon)."
         },
         "containment-recovery": {
-          "verdict": "partial",
-          "why": "Audit logging (T12, append-only) is specified. Hard limits cause stops/escalations. However, rollback/undo for already-sent invites or cancellations is not addressed, and a kill/stop capability beyond limit-triggered pauses is not explicitly defined."
+          "verdict": "pass",
+          "why": "Section 6 covers all four elements: append-only audit logging with sync requirement (6.1), multi-level kill switches including auto-halt on limit breach (6.2), rollback/snapshot mechanisms with 15-minute undo (6.3), and explicit escalation triggers with stop-acting requirements (6.4)."
         }
       }
     }

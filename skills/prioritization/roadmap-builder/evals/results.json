@@ -1,6 +1,6 @@
 {
   "skill": "skills/prioritization/roadmap-builder",
-  "run_at": "2026-06-05 09:13 UTC",
+  "run_at": "2026-06-05 11:03 UTC",
   "model": "claude-sonnet-4-6",
   "judge_model": "claude-sonnet-4-6",
   "verified": true,
@@ -15,23 +15,23 @@
       "treatment_verdicts": {
         "now-next-later": {
           "verdict": "pass",
-          "why": "Roadmap is explicitly structured into Now / Next / Later horizons with clear definitions for each, no Gantt chart or fixed dates used as the organizing principle."
+          "why": "Explicitly organized into Now / Next / Later horizons with clear labels and no Gantt chart or fixed dates."
         },
         "outcome-anchored": {
           "verdict": "pass",
-          "why": "Every item is framed as an outcome/problem statement first, with a candidate solution second, and each row explicitly identifies the metric or behavior it moves (retention, activation, churn, MAU, etc.)."
+          "why": "Every item in all three horizons is framed as an outcome or problem statement with specific metrics called out (D30 retention, WAU, notes per session, sharing events, etc.)."
         },
         "laddered-to-strategy": {
           "verdict": "pass",
-          "why": "The strategy section explicitly states 'win with students' and every item is justified against student jobs-to-be-done. Items like collaboration and calendar are deferred to Later with explicit reasoning that they require retention to be proven first, reflecting disciplined sequencing."
+          "why": "Strategy section explicitly states 'win with students' and all items are justified against student jobs-to-be-done (capture, retain, produce). Non-student items (calendar, templates) are deferred to Later with explicit rationale."
         },
         "confidence-convention": {
           "verdict": "pass",
-          "why": "The document explicitly states Now is 'high confidence / locked,' Next is 'medium confidence / directional,' and Later is 'directional and low confidence' with 'Do not treat these as committed' \u2014 fully satisfies the criterion."
+          "why": "Explicitly labels Now as 'high confidence,' Next as 'medium confidence,' Later as 'low confidence / not a commitment.' The 'How to read this' section reinforces that outcomes are committed but solutions evolve and Later items are directional signals."
         },
         "now-focused": {
           "verdict": "pass",
-          "why": "Now contains only two tightly scoped items with explicit justification for why only those two are included, keeping the horizon narrow and focused."
+          "why": "Now contains only two items with explicit rationale for keeping the list short. The bulk of the backlog is distributed across Next and Later."
         }
       }
     }

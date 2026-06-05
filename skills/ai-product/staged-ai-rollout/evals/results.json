@@ -1,6 +1,6 @@
 {
   "skill": "skills/ai-product/staged-ai-rollout",
-  "run_at": "2026-06-05 09:07 UTC",
+  "run_at": "2026-06-05 10:57 UTC",
   "model": "claude-sonnet-4-6",
   "judge_model": "claude-sonnet-4-6",
   "verified": false,
@@ -15,31 +15,31 @@
       "treatment_verdicts": {
         "distinct-staged-plan": {
           "verdict": "pass",
-          "why": "Six clearly distinct stages: offline eval, shadow, dogfood, canary, staged GA tier 1, staged GA tier 2 \u2014 each with its own audience, duration, and purpose."
+          "why": "Five clearly distinct stages: Offline eval, Shadow mode, Internal dogfood, Canary (autonomous low-risk), and Staged GA with incremental percentage ramps. Each is qualitatively different, not just a percentage change."
         },
         "entry-gates-per-stage": {
           "verdict": "pass",
-          "why": "Each stage has an explicit 'Entry gate' and 'Promote if\u2026' column in the overview table, referencing concrete metrics measured in the prior stage."
+          "why": "Every stage has explicit, specific entry gates referencing what the prior stage measured (e.g., Shadow requires offline eval passed + PII scrubber approved; Canary requires dogfood override rate <20% + rollback triggers pre-committed; Staged GA requires Canary bars met). Gates are numeric and named."
         },
         "kill-switch-with-fallback": {
           "verdict": "pass",
-          "why": "Single feature flag kill switch with <2min activation time, and explicitly states fallback is the pre-existing 'no answer yet' experience with no broken UI or error messages."
+          "why": "Single feature flag `refund_ai_enabled` with self-serve and automatic toggle described. Fallback is explicitly the pre-existing human-agent queue with defined customer-facing message \u2014 no error, SLA clock starts immediately. Fallback must be confirmed working before Shadow begins."
         },
         "precommitted-rollback-triggers": {
           "verdict": "pass",
-          "why": "Numeric thresholds pre-committed for both automatic kill (e.g., >0.2% harm rate in 1-hour window, >$200 daily cost) and human-reviewed kill (e.g., flagged rate >5%, human reply drop >10%)."
+          "why": "Rollback triggers table pre-commits specific numeric thresholds: $5K/$25K hourly dollar runaway, FP >5% over 200-decision window, p95 latency >45s for 15 minutes, re-escalation >2\u00d7 baseline over 24h, fraud cluster \u226520 in 1 hour. Explicit automatic vs. manual actions specified."
         },
         "shadow-mode": {
           "verdict": "pass",
-          "why": "Stage 1 is explicitly a shadow stage: 100% of live questions, output hidden, measuring real-world latency/cost/quality with no user risk."
+          "why": "Stage 1 is explicitly a shadow mode: AI runs on 100% of live traffic, no decision is actioned, no payment issued, output compared to human decisions. Described in detail including minimum sample size of 1,000 decisions for promotion."
         },
         "multi-dimensional-gates": {
           "verdict": "pass",
-          "why": "Gates and monitoring explicitly cover quality (helpfulness, accuracy, flag rate), cost (per answer, daily ceiling), and latency (p95, time to post) across all stages."
+          "why": "Quality (accuracy, FP/FN), cost (cost/decision \u2264$0.08, total weekly cost), and latency (p50/p95/p99) bars are all defined upfront and referenced as gate conditions at each stage. All three dimensions appear in the promote-if criteria."
         },
         "drift-monitoring": {
           "verdict": "pass",
-          "why": "Steady-state section includes daily, weekly, and monthly eval cadences, a specific drift protocol triggered by 7-day declining helpfulness trend, and monthly full offline eval re-runs."
+          "why": "Steady-state monitoring section covers continuous automated alerts, weekly sampled accuracy audits (explicitly 'never stops, even at full GA'), weekly decision distribution drift check with >5pp shift triggering investigation, and monthly full offline eval re-run. Triggered re-evaluation list also specified."
         }
       }
     }

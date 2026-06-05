@@ -1,9 +1,10 @@
 # Task
 
-You're a product manager working on an AI feature. Design an evaluation set we can run to decide whether the feature is good enough to ship and to catch regressions later.
+You're a product manager. Engineering plans to "spot-check a few outputs and ship it." Design a proper evaluation set we can actually run to decide if the feature below is good enough, and to catch regressions later.
 
-> The feature is an AI assistant that summarizes long customer-support email
-> threads into a short handoff note for the next agent (key issue, what's been
-> tried, customer sentiment, next step). Design the eval set.
+> The feature lets non-technical users ask questions in plain English and turns
+> them into SQL that runs against the company's production database (e.g. "how
+> many orders shipped late last month?"). For most users it's read-only, but for
+> admins it can also modify data. Design the eval set.
 
 Produce your answer as a markdown document.

@@ -40,6 +40,9 @@ DASHBOARD = ROOT / "EVALS.md"
 
 DEFAULT_MODEL = os.environ.get("EVAL_MODEL", "claude-sonnet-4-6")
 DEFAULT_JUDGE = os.environ.get("EVAL_JUDGE_MODEL", "claude-sonnet-4-6")
+# Long deliverables (a full PRD, a rollout plan) need room — too small a cap
+# truncates the output and the judge grades an incomplete document.
+AGENT_MAX_TOKENS = int(os.environ.get("EVAL_MAX_OUTPUT_TOKENS", "8000"))
 API_URL = os.environ.get("EVAL_BASE_URL", "https://api.anthropic.com/v1/messages")
 ANTHROPIC_VERSION = "2023-06-01"
 
@@ -67,19 +70,20 @@ def call_model(system: str, user: str, model: str, max_tokens: int = 2000) -> st
         },
     )
     last_err = None
-    for attempt in range(3):
+    for attempt in range(4):
         try:
-            with urllib.request.urlopen(req, timeout=120) as resp:
+            with urllib.request.urlopen(req, timeout=300) as resp:
                 payload = json.loads(resp.read())
             return "".join(b.get("text", "") for b in payload.get("content", []))
         except urllib.error.HTTPError as e:
             last_err = f"HTTP {e.code}: {e.read().decode('utf-8', 'ignore')[:200]}"
             if e.code in (429, 500, 502, 503, 529):
-                time.sleep(2 * (attempt + 1)); continue
+                time.sleep(3 * (attempt + 1)); continue
             break
-        except Exception as e:  # noqa
-            last_err = str(e); time.sleep(2 * (attempt + 1))
-    sys.exit(f"ERROR calling model {model}: {last_err}")
+        except Exception as e:  # timeouts, connection resets, etc. — retry
+            last_err = str(e); time.sleep(3 * (attempt + 1))
+    # Don't kill the whole run on one bad call — let the caller skip this skill.
+    raise RuntimeError(f"model call to {model} failed after retries: {last_err}")
 
 
 # ---------------------------------------------------------------- helpers
@@ -161,9 +165,9 @@ def run_skill(skill_dir: Path, model: str, judge_model: str) -> dict:
         criteria = json.loads((sc / "criteria.json").read_text(encoding="utf-8"))
 
         print(f"   · {sc.name}: baseline…", end="", flush=True)
-        base_out = call_model("", task, model)
+        base_out = call_model("", task, model, max_tokens=AGENT_MAX_TOKENS)
         print(" treatment…", end="", flush=True)
-        treat_out = call_model(skill_body, task, model)
+        treat_out = call_model(skill_body, task, model, max_tokens=AGENT_MAX_TOKENS)
         print(" judging…", end="", flush=True)
         base = judge(base_out, criteria, judge_model)
         treat = judge(treat_out, criteria, judge_model)
@@ -200,13 +204,26 @@ def write_results_md(skill_dir: Path, r: dict):
     lines = [f"# Eval results — `{Path(r['skill']).name}`", "",
              f"- **Run:** {r['run_at']}",
              f"- **Model under test:** {r['model']}  ·  **Judge:** {r['judge_model']}",
-             f"- **Verdict:** {'✅ VERIFIED — skill beats the no-skill baseline on every scenario' if r['verified'] else '❌ not verified — see below'}",
+             f"- **Verdict:** {'✅ VERIFIED — skill beats the no-skill baseline on every scenario' if r['verified'] else '❌ not verified — see per-criterion detail below'}",
              "",
              "| Scenario | Baseline | With skill | Lift | Earns its place? |",
              "|---|---|---|---|---|"]
     for s in r["scenarios"]:
         lines.append(f"| {s['scenario']} | {s['baseline_score']} | {s['treatment_score']} "
                      f"| {s['lift']:+} | {'✅' if s['earns_place'] else '❌'} |")
+
+    # per-criterion verdicts for the with-skill (treatment) run — the diagnostics
+    for s in r["scenarios"]:
+        verdicts = s.get("treatment_verdicts", {})
+        if not verdicts:
+            continue
+        lines += ["", f"### {s['scenario']} — with-skill verdicts (per criterion)", "",
+                  "| Criterion | Verdict | Why |", "|---|---|---|"]
+        for cid, v in verdicts.items():
+            mark = {"pass": "✅ pass", "partial": "🟡 partial", "fail": "❌ fail"}.get(v.get("verdict"), v.get("verdict", ""))
+            why = (v.get("why", "") or "").replace("|", "/").replace("\n", " ")
+            lines.append(f"| `{cid}` | {mark} | {why} |")
+
     lines += ["", "_Baseline = the task with no skill. With skill = the same task and model, "
               "SKILL.md supplied as the system prompt. Scores are the weighted fraction of the "
               "scenario's `criteria.json` rubric, graded by an LLM judge. Reproduce with "
@@ -271,9 +288,18 @@ def main(argv):
         regenerate_dashboard(); return 0
 
     targets = [Path(s).resolve() for s in args.skills] or discover_skills()
+    errored = []
     for sd in targets:
-        run_skill(sd, args.model, args.judge_model)
+        try:
+            run_skill(sd, args.model, args.judge_model)
+        except Exception as e:  # one skill failing must not abort the whole run
+            rel = sd.relative_to(ROOT).as_posix() if ROOT in sd.parents else sd.name
+            print(f"   ⚠ skipped {rel}: {e}")
+            errored.append(rel)
     regenerate_dashboard()
+    if errored:
+        print(f"\n⚠ {len(errored)} skill(s) errored and kept their previous result: "
+              + ", ".join(errored) + f"\n  Re-run just those: python3 scripts/run_evals.py {' '.join(errored)}")
     return 0
 
 

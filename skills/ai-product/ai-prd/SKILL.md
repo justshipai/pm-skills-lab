@@ -61,6 +61,18 @@ Use `ai-feature-spec` for a single AI feature. Use **this** for an AI *initiativ
 ## 10. Open questions
 ```
 
+## Completeness check before you finish
+
+A thin section is a failed section. Before returning the PRD, confirm each of these is *concrete*, not gestured at:
+
+- **Model card (§3)** states intended use, capabilities, **and at least three explicit limitations**, plus a short list of prohibited/out-of-scope uses. Not "it has limitations" — name them.
+- **Data strategy (§4)** names the **actual** data sources, the rights/licensing position, the privacy/consent stance, **and** the feedback data you'll capture to improve the model. Don't say "we'll use our data" — say which data and on what basis.
+- **Evaluation strategy (§5)** gives a **concrete "good enough to ship" threshold** (a number or a clear bar) and *how* it's measured offline and online. Not "we'll monitor quality."
+- **Approach (§2)** makes an explicit buy-vs-build (or RAG-vs-fine-tune) call with a one-line rationale.
+- **Metrics (§9)** include at least one quality metric **and** a cost or latency guardrail that must not regress.
+
+If any of these is vague, expand it before finishing. These five are what separate a real AI PRD from a generic one.
+
 ## Anti-patterns to refuse
 
 - A PRD with no model card → you're specifying a wish. Add section 3.

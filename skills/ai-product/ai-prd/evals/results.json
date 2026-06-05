@@ -1,49 +1,49 @@
 {
   "skill": "skills/ai-product/ai-prd",
-  "run_at": "2026-06-05 08:55 UTC",
+  "run_at": "2026-06-05 10:39 UTC",
   "model": "claude-sonnet-4-6",
   "judge_model": "claude-sonnet-4-6",
-  "verified": false,
+  "verified": true,
   "scenarios": [
     {
       "scenario": "scenario-1",
-      "baseline_score": 0.423,
-      "treatment_score": 0.692,
+      "baseline_score": 0.731,
+      "treatment_score": 1.0,
       "lift": 0.269,
-      "treatment_passed": false,
-      "earns_place": false,
+      "treatment_passed": true,
+      "earns_place": true,
       "treatment_verdicts": {
         "model-card": {
           "verdict": "pass",
-          "why": "Section 3 explicitly covers intended use, detailed capabilities table, and a comprehensive limitations table with 7 named limitations including hallucination risk, regulatory claims, language coverage, and more. All three required elements are present and substantive."
+          "why": "Section 3 explicitly names intended use (SMB email drafting, starting point for human review), capabilities (7 bullet points), and 7 explicit numbered limitations including real-time facts, factual accuracy, language coverage, regulated content, and scope boundaries."
         },
         "prohibited-uses": {
           "verdict": "pass",
-          "why": "Section 3.4 explicitly names prohibited behaviours including spam/phishing, impersonation, hate speech, regulated advice, compliance law violations, and competing model training \u2014 these are out-of-scope uses with both technical and policy enforcement noted."
+          "why": "Section 3 lists 6 prohibited uses with enforcement mechanisms: deceptive/phishing content, spam, harassment, regulated product promotion without disclosure, manipulation of vulnerable populations, and prompt injection attempts."
         },
         "data-strategy": {
-          "verdict": "partial",
-          "why": "The PRD addresses vendor DPA requirements (no training on customer data), mentions capturing feedback signal for fine-tuning, and references a curated example library. However, it does not detail the source or rights status of the curated email examples, does not address user consent for feedback data capture, and privacy handling for customer brief data sent to the API is only lightly touched (DPA requirement noted but not elaborated)."
+          "verdict": "pass",
+          "why": "Section 4 specifies all data types, sources, and status; addresses ToS/DPA for user-generated content with explicit launch-blocker requirement; covers rights for industry corpus with consent requirements; details retention, deletion, residency, and full feedback telemetry captured per generation."
         },
         "evaluation-strategy": {
-          "verdict": "partial",
-          "why": "Section 5 is referenced (quality bar) but not included in the candidate output \u2014 the document is truncated. The PRD does mention a quality plateau trigger for fine-tuning and references 'marketing copy benchmarks' in vendor selection, but the full evaluation strategy with offline/online measurement definitions is not visible in the submitted text."
+          "verdict": "pass",
+          "why": "Section 5 defines 'good enough to ship' with explicit dual bars (70% send-worthy offline, 60% sent online), an 8-dimension offline eval with numeric thresholds, a 500-brief eval set methodology with inter-rater agreement requirement, regression set, and online monitoring with specific alert thresholds and cadence."
         },
         "buy-vs-build": {
           "verdict": "pass",
-          "why": "Section 2 provides an explicit, well-reasoned decision for API-first with a fine-tuning pathway, includes a decision matrix comparing own model vs fine-tune vs API, and gives clear rationale including time-to-market, cost, data availability, and fine-tuning trigger conditions."
+          "why": "Section 2 provides an explicit decision table comparing API+RAG vs. fine-tune vs. own model vs. third-party, with clear rationale choosing API-first, named primary/fallback models, and a timeline for revisiting fine-tuning at 12 months."
         },
         "trust-ux": {
-          "verdict": "partial",
-          "why": "The PRD states outputs are 'a starting point for human editing, not a finished artefact' and mentions limitations must be communicated in the UI (Section 6 referenced), and supports regeneration/iteration. However, specific UI mechanisms for verification, editing workflows, or recovery from bad outputs are not detailed in the visible content."
+          "verdict": "pass",
+          "why": "Section 6 details 8 trust principles including persistent AI Draft badge until user edits, no auto-insert, editable rich-text editor, section-level regeneration, brief quality enforcement, collapsible limitations disclosure, lightweight feedback, and graceful failure fallback to manual compose."
         },
         "risk-compliance": {
-          "verdict": "partial",
-          "why": "Hallucination risk is named, regulated industry limitations are noted, and CAN-SPAM/GDPR/CASL are referenced. However, there is no systematic risk register, failure mode analysis, or explicit mitigations beyond policy prohibitions and UI warnings. Vendor uptime SLA is mentioned but downstream failure handling is absent."
+          "verdict": "pass",
+          "why": "Section 7 includes EU AI Act tier assessment, a 9-item risk register with likelihood/impact/mitigation, explicit compliance checklist with launch blockers (DPAs, ToS updates), coverage of prompt injection, cross-account data leakage, regulatory non-compliance, abuse, and copyright."
         },
         "guardrail-metrics": {
-          "verdict": "partial",
-          "why": "Quality metrics are referenced (vendor benchmark weighting, quality plateau trigger) and latency guardrail is explicit (p95 < 8s for 300-word draft). A cost guardrail ($25k/month fine-tuning trigger) is present. However, a formal success metric pairing a quality measure with a cost/latency guardrail in a 'must not regress' framing is not explicitly stated as a shipped guardrail \u2014 it appears as vendor criteria and triggers rather than ongoing monitoring metrics."
+          "verdict": "pass",
+          "why": "Section 9 includes quality guardrails with explicit thresholds: prohibited content escape rate (0/month), error rate (<1%), latency p95 (\u226410s), cost per generation (\u2264$0.08), and offline eval regression cap (5pp), covering both quality and cost/latency dimensions."
         }
       }
     }

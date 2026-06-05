@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "three-buckets",
+      "description": "Separates output into decisions, action items, and open questions rather than a prose summary.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "decisions-as-outcomes",
+      "description": "States the actual decision (API committed for Q3, dashboard to Q4) as a decision, not as 'we discussed prioritization'.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "actions-owner-date",
+      "description": "Action items each carry an owner and a due date where available (e.g. Jordan scopes API by Tuesday; Morgan tells the two customers), with TBD flagged where unknown.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "open-questions",
+      "description": "Captures unresolved items (export-bug fix date; design resource for API docs) as open questions rather than dropping them or treating them as decided.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "faithful-no-invention",
+      "description": "Does not invent owners, dates, or decisions not supported by the notes (e.g. flags the missing export-bug fix date rather than fabricating one).",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

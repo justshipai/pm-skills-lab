@@ -1,0 +1,1 @@
+Facilitating a retrospective that gets past symptoms to root causes (e.g. why on-call ownership was unclear, why Sales wasn't told about cuts), stays blameless (system/process not people), and lands a few concrete improvement actions each with an owner — rather than a blame-y or feel-good went-well/went-badly list.

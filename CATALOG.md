@@ -166,18 +166,18 @@ The full roadmap — ~160 skills across 14 categories. `[x]` = authored & eval-r
 - [ ] `growth-experiment-backlog` — Growth experiment backlog
 - [ ] `plg-motion` — PLG motion design
 
-## Communication & stakeholder (1 / 12)
+## Communication & stakeholder (6 / 12)
 
 - [x] `stakeholder-map` — Power × Interest + comms plan
-- [ ] `weekly-update` — Outcomes-led weekly update
+- [x] `weekly-update` — Outcomes-led weekly update
 - [ ] `exec-board-update` — Exec/board update + narrative
 - [ ] `status-multi-audience` — Exec / team / Slack formats
 - [ ] `meeting-prep` — Meeting prep brief
-- [ ] `meeting-notes-actions` — Notes → decisions + actions
-- [ ] `decision-log` — Decision log keeper
-- [ ] `pre-mortem` — Pre-mortem facilitator
+- [x] `meeting-notes-actions` — Notes → decisions + actions
+- [x] `decision-log` — Decision log keeper
+- [x] `pre-mortem` — Pre-mortem facilitator
 - [ ] `post-mortem` — Incident / post-mortem writeup
-- [ ] `retrospective` — Retro facilitator
+- [x] `retrospective` — Retro facilitator
 - [ ] `saying-no` — Scope-pushback drafter
 - [ ] `xfn-alignment-brief` — Cross-functional alignment brief
 

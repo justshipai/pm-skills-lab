@@ -1,0 +1,39 @@
+{
+  "skill": "skills/comms/retrospective",
+  "run_at": "2026-06-05 13:59 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": false,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 1.0,
+      "treatment_score": 1.0,
+      "lift": 0.0,
+      "treatment_passed": true,
+      "earns_place": false,
+      "treatment_verdicts": {
+        "root-cause": {
+          "verdict": "pass",
+          "why": "Applies iterative 'why' analysis to all three key issues (Sales blindsided, slow incident resolution, late delivery), arriving at specific systemic root causes: no ownership of stakeholder communication, no pre-launch readiness gate, no mid-cycle scope checkpoint. Goes clearly beyond symptom listing."
+        },
+        "concrete-owned-actions": {
+          "verdict": "pass",
+          "why": "Three actions, each with a named owner (PM, Engineering Lead, PM), a clear deliverable, and a stated purpose. Small, focused set rather than a wish list."
+        },
+        "blameless": {
+          "verdict": "pass",
+          "why": "Explicitly frames all failures as process gaps, not individual fault. Closing note directly states 'not about effort or intent' and attributes problems to three process gaps."
+        },
+        "keep-what-worked": {
+          "verdict": "pass",
+          "why": "Calls out standups as genuinely useful with a note to preserve the format, and notes the core feature shipped and works. Both are framed as things to continue."
+        },
+        "observations-vs-actions": {
+          "verdict": "pass",
+          "why": "Document is clearly structured: observations \u2192 iterative why \u2192 root cause \u2192 separate improvements table. Causes and actions are in distinct sections with no conflation."
+        }
+      }
+    }
+  ]
+}

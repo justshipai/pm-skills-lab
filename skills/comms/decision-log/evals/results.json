@@ -1,0 +1,43 @@
+{
+  "skill": "skills/comms/decision-log",
+  "run_at": "2026-06-05 13:57 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.95,
+      "treatment_score": 1.0,
+      "lift": 0.05,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "decision-stated": {
+          "verdict": "pass",
+          "why": "First line and decision section state clearly: delay Android two quarters, redirect engineers to web performance."
+        },
+        "rationale-captured": {
+          "verdict": "pass",
+          "why": "Four numbered reasoning points explain why: revenue concentration on web, focused execution, mobile gap not yet critical, and bounded delay. Dissenting view also acknowledged."
+        },
+        "options-considered": {
+          "verdict": "pass",
+          "why": "Four options in a table with trade-offs: continue Android on schedule, partial split, full redirect (chosen), and hire/contract. Each has a stated reason for rejection."
+        },
+        "reversibility": {
+          "verdict": "pass",
+          "why": "Explicitly labeled as 'two-way door' with nuance: moderate cost, no technical lock-in, but mobile roadmap slips further with each quarter delayed."
+        },
+        "owner-and-date": {
+          "verdict": "pass",
+          "why": "Date (2025-07-11) and decider (Product/PM) both stated at the top."
+        },
+        "revisit-trigger": {
+          "verdict": "pass",
+          "why": "Four specific triggers listed (churn attributable to Android, early web goals met, competitive escalation, team growth) plus an explicit checkpoint date of end of Q3 2025."
+        }
+      }
+    }
+  ]
+}

@@ -4,7 +4,7 @@ Every skill ships with a scenario eval. The harness (`scripts/run_evals.py`) run
 
 **Status key:** ✅ **verified** = the skill passes the rubric *and* beats the baseline. ➖ **no measurable lift** = the skill passes, but a strong base model already aces this scenario unaided — not a failure, just a task where one-shot lift can't show the skill's value (consistency across varied inputs). ❌ **not verified** = the with-skill output didn't pass the rubric.
 
-**20 verified · 4 no-lift (strong baseline) · 0 not verified · 24/24 run.**
+**23 verified · 6 no-lift (strong baseline) · 0 not verified · 29/29 run.**
 
 | Skill | Status | Baseline | With skill | Last run |
 |---|---|---|---|---|
@@ -18,7 +18,12 @@ Every skill ships with a scenario eval. The harness (`scripts/run_evals.py`) run
 | `llm-eval-set-designer` | ✅ verified | 0.885 | 1.0 | 2026-06-05 10:53 UTC |
 | `model-selection` | ✅ verified | 0.75 | 1.0 | 2026-06-05 10:55 UTC |
 | `staged-ai-rollout` | ➖ no measurable lift (strong baseline) | 1.0 | 1.0 | 2026-06-05 10:57 UTC |
+| `decision-log` | ✅ verified | 0.95 | 1.0 | 2026-06-05 13:57 UTC |
+| `meeting-notes-actions` | ➖ no measurable lift (strong baseline) | 1.0 | 1.0 | 2026-06-05 13:57 UTC |
+| `pre-mortem` | ✅ verified | 0.864 | 1.0 | 2026-06-05 13:56 UTC |
+| `retrospective` | ➖ no measurable lift (strong baseline) | 1.0 | 1.0 | 2026-06-05 13:59 UTC |
 | `stakeholder-map` | ✅ verified | 0.9 | 1.0 | 2026-06-05 10:59 UTC |
+| `weekly-update` | ✅ verified | 0.9 | 1.0 | 2026-06-05 13:54 UTC |
 | `assumption-mapping` | ✅ verified | 0.667 | 1.0 | 2026-06-05 11:38 UTC |
 | `interview-script` | ✅ verified | 0.682 | 1.0 | 2026-06-05 11:32 UTC |
 | `interview-synthesizer` | ✅ verified | 0.727 | 1.0 | 2026-06-05 11:34 UTC |

@@ -1,0 +1,39 @@
+{
+  "skill": "skills/comms/weekly-update",
+  "run_at": "2026-06-05 13:54 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.9,
+      "treatment_score": 1.0,
+      "lift": 0.1,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "outcomes-not-tasks": {
+          "verdict": "pass",
+          "why": "Leads with a clear status line stating what's at stake (2-week slip), shipped section frames results and impact (activation lift, signal to move to build), not just activities."
+        },
+        "blocker-and-ask": {
+          "verdict": "pass",
+          "why": "Dedicated '\u26a0 Blockers / Decisions Needed' section is prominent, delay-vs-cut-scope options are explicitly named, and a concrete ask (30-min call by a specific day, with default consequence stated) is clear and unburied."
+        },
+        "honest-status": {
+          "verdict": "pass",
+          "why": "Status line is \ud83d\udfe1 at-risk with explicit 'Search launch will slip 2 weeks' \u2014 not softened or buried."
+        },
+        "scannable": {
+          "verdict": "pass",
+          "why": "Clear section headers, bold lead sentences, blockquote for the ask, and concise bullets make it easy to skim for an exec audience."
+        },
+        "forward-look": {
+          "verdict": "pass",
+          "why": "'Next' section lists concrete upcoming actions tied to both paths, including what to expect on activation metrics and a flag commitment if pipeline slips further."
+        }
+      }
+    }
+  ]
+}

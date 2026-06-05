@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "root-cause",
+      "description": "Digs past symptoms to root causes on the items that mattered (e.g. WHY on-call ownership was undefined, WHY Sales wasn't informed of the cuts) rather than just listing what went badly.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "concrete-owned-actions",
+      "description": "Lands a small set of concrete improvement actions, each with an owner, rather than a long unowned wish list or no actions.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "blameless",
+      "description": "Frames problems as system/process issues, not blaming individuals.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "keep-what-worked",
+      "description": "Notes what went well (e.g. standups) to keep doing, not only problems.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "observations-vs-actions",
+      "description": "Separates observations/causes from the actions, rather than jumping straight from a complaint to a pet solution.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

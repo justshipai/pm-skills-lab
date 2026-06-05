@@ -1,0 +1,41 @@
+{
+  "criteria": [
+    {
+      "id": "decision-stated",
+      "description": "States the decision clearly and crisply.",
+      "weight": 1,
+      "required": true
+    },
+    {
+      "id": "rationale-captured",
+      "description": "Captures the reasoning / WHY behind the decision, not just the outcome.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "options-considered",
+      "description": "Records the alternatives that were considered (e.g. ship Android anyway, split the team) and why they were rejected.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "reversibility",
+      "description": "Notes how reversible the decision is (one-way vs two-way door) or how costly it would be to change course.",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "owner-and-date",
+      "description": "Identifies who made the decision and when.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "revisit-trigger",
+      "description": "States the assumptions or conditions under which the decision should be revisited.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

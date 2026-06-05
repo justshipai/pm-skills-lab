@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "outcomes-not-tasks",
+      "description": "Leads with outcomes / what changed / what's at stake rather than a list of activities the team did.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "blocker-and-ask",
+      "description": "Surfaces the blocker prominently and makes the decision-needed explicit (the delay-vs-cut-scope call), with a clear ask — not buried.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "honest-status",
+      "description": "States an overall status that honestly reflects the slipping search launch (at-risk/off-track), rather than a rosy 'all good'.",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "scannable",
+      "description": "Is structured and scannable (clear sections, lead-with-the-point) for a busy exec audience.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "forward-look",
+      "description": "Includes what's next / what to expect, not only a rear-view summary.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

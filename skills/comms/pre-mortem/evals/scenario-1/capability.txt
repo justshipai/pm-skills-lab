@@ -1,0 +1,1 @@
+Running a pre-mortem framed as "imagine it already failed — why?", surfacing failure modes across categories (incl. the unspoken 'Elephant' risks), classifying them (Tiger / Paper Tiger / Elephant), rating likelihood × impact to focus on the vital few, and assigning a mitigation + owner to each that matters — rather than a generic, unprioritized, unowned risk list.

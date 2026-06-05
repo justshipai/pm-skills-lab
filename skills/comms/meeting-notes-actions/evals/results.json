@@ -1,0 +1,39 @@
+{
+  "skill": "skills/comms/meeting-notes-actions",
+  "run_at": "2026-06-05 13:57 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": false,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 1.0,
+      "treatment_score": 1.0,
+      "lift": 0.0,
+      "treatment_passed": true,
+      "earns_place": false,
+      "treatment_verdicts": {
+        "three-buckets": {
+          "verdict": "pass",
+          "why": "Output is clearly separated into Decisions, Action Items, and Open Questions sections with no prose summary."
+        },
+        "decisions-as-outcomes": {
+          "verdict": "pass",
+          "why": "States 'API prioritized over reporting dashboard for Q3. Dashboard moves to Q4.' as a concrete outcome, not as 'we discussed prioritization'."
+        },
+        "actions-owner-date": {
+          "verdict": "pass",
+          "why": "Each action item has an owner and due date. Jordan/Next Tuesday, Morgan/TBD, and the export bug row flags 'TBD \u2014 needs assignment' and TBD for date, appropriately marking unknowns."
+        },
+        "open-questions": {
+          "verdict": "pass",
+          "why": "Both unresolved items (export bug fix date and design resource for API docs) are captured as open questions rather than dropped or treated as decided."
+        },
+        "faithful-no-invention": {
+          "verdict": "pass",
+          "why": "No dates or owners are fabricated. The export bug fix date is flagged as missing, TBD is used where information is absent, and no unsupported claims are made."
+        }
+      }
+    }
+  ]
+}

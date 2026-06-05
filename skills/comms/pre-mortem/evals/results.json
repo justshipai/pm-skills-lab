@@ -1,0 +1,43 @@
+{
+  "skill": "skills/comms/pre-mortem",
+  "run_at": "2026-06-05 13:56 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.864,
+      "treatment_score": 1.0,
+      "lift": 0.136,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "imagine-failure-framing": {
+          "verdict": "pass",
+          "why": "Opens explicitly with 'It is Launch + 3 months\u2026 results are bad' prospective-hindsight scene-setting before listing any risks, fully embodying the pre-mortem framing."
+        },
+        "risk-classification": {
+          "verdict": "pass",
+          "why": "Every risk is explicitly tagged as Tiger (\ud83d\udc2f), Elephant (\ud83d\udc18), or Paper Tiger (\ud83d\udc38) with a dedicated section explaining why Paper Tigers are dismissed \u2014 a clear three-way classification scheme."
+        },
+        "prioritized-likelihood-impact": {
+          "verdict": "pass",
+          "why": "Each risk in the table has explicit Likelihood and Impact ratings; a 'Vital Few' section further prioritizes which to act on first, rather than treating all risks equally."
+        },
+        "mitigations-and-owners": {
+          "verdict": "pass",
+          "why": "Every material risk has a concrete mitigation action and a named owner (e.g., 'PM + Exec Sponsor', 'Head of Sales + CEO', 'Eng Lead') plus an 'Action this week' directive. Paper Tigers are explicitly deprioritized with justification."
+        },
+        "category-breadth": {
+          "verdict": "pass",
+          "why": "Covers engineering/infra (#3, #12), product/onboarding (#1, #2), GTM/ICP (#4), sales alignment/comp (#7), support load (#10), lifecycle/nurture (#9), legal (#12), and competitive response (#11) \u2014 well beyond engineering alone."
+        },
+        "elephants-surfaced": {
+          "verdict": "pass",
+          "why": "Three explicit elephants are called out: the team has never built PLG and 'done' means shipping not experience (#6); sales will quietly undermine PLG due to comp threat (#7); and the privately-known truth that 8 weeks isn't enough (#8)."
+        }
+      }
+    }
+  ]
+}

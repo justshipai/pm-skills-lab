@@ -1,0 +1,1 @@
+Extracting a meeting into three separated buckets — decisions (stated as outcomes), action items each with an owner and due date (flagging TBD where unknown), and open questions — faithfully without inventing content, rather than a prose recap.

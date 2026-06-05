@@ -1,0 +1,41 @@
+{
+  "criteria": [
+    {
+      "id": "imagine-failure-framing",
+      "description": "Uses the prospective-hindsight framing ('it's the future, the launch failed — why?') to surface risks, not a generic 'what are the risks' list.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "risk-classification",
+      "description": "Classifies risks (Tigers / Paper Tigers / Elephants, or an equivalent that separates real threats, false alarms, and unspoken risks).",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "prioritized-likelihood-impact",
+      "description": "Rates risks by likelihood and impact (or similar) and focuses on the vital few rather than treating all equally.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "mitigations-and-owners",
+      "description": "Assigns a concrete mitigation and an owner to each risk that matters (not just a list of worries).",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "category-breadth",
+      "description": "Covers non-technical failure modes too — e.g. adoption/value, GTM, support load, sales/pricing cannibalization, team/capacity, dependencies — not only engineering risk.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "elephants-surfaced",
+      "description": "Explicitly surfaces at least one 'elephant' — a risk teams often privately know but don't say (e.g. free tier cannibalizing paid, no monetization path, support can't handle volume).",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

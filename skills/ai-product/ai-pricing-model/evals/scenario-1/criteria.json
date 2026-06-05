@@ -1,0 +1,41 @@
+{
+  "criteria": [
+    {
+      "id": "unit-economics",
+      "description": "Computes the marginal cost per unit of value (e.g. cost per draft from token/inference usage) before recommending a price, with stated assumptions.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "structure-choice",
+      "description": "Chooses a pricing structure deliberately (per-seat / usage / tiered with allowance+overage / outcome) and justifies it against alternatives.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "margin-distribution",
+      "description": "Tests margin across the usage distribution, especially the heavy user, rather than only the average — ensuring no segment is underwater.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "cost-guardrails",
+      "description": "Includes guardrails that protect margin (included allowance, overage, fair-use cap, or rate limit).",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "value-wtp-crosscheck",
+      "description": "Cross-checks price against the value delivered / willingness-to-pay / next-best alternative, not just cost-plus.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "cost-trend-sensitivity",
+      "description": "Considers that model/inference costs change over time and how that affects margin or price.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

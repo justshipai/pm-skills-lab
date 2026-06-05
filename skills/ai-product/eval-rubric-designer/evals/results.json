@@ -1,0 +1,43 @@
+{
+  "skill": "skills/ai-product/eval-rubric-designer",
+  "run_at": "2026-06-05 08:58 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.773,
+      "treatment_score": 0.909,
+      "lift": 0.136,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "decomposed-criteria": {
+          "verdict": "pass",
+          "why": "Six distinct, named criteria are defined: factual accuracy, decision capture, action-item completeness & attribution, next-steps clarity, structure & navigability, and tone & send-readiness. Each is observable and separate."
+        },
+        "anchored-levels": {
+          "verdict": "pass",
+          "why": "Every criterion provides a table with observable, behavioral definitions for each level (e.g., PASS for C1 requires every claim verifiable against transcript; FAIL requires any contradiction or fabrication). No reliance on adjectives like 'good' or 'clear' without grounding."
+        },
+        "discrete-scale": {
+          "verdict": "pass",
+          "why": "Criteria use either Pass/Fail or Pass/Partial/Fail scales explicitly. No unanchored numeric scales are used."
+        },
+        "calibration-examples": {
+          "verdict": "pass",
+          "why": "Each criterion includes labeled calibration examples (PASS, PARTIAL, FAIL, and borderline cases) with concrete transcript-vs-recap comparisons."
+        },
+        "gating-and-aggregate": {
+          "verdict": "pass",
+          "why": "C1 is explicitly marked as a gate criterion with explanation that any C1 failure causes automatic overall FAIL. Gate logic is stated in both the summary table and the C1 section."
+        },
+        "judge-validation": {
+          "verdict": "fail",
+          "why": "The rubric does not specify any process for validating the judge against human labels, agreement targets, or re-check cadence."
+        }
+      }
+    }
+  ]
+}

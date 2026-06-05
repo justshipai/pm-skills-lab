@@ -1,0 +1,1 @@
+Producing a scoring rubric that decomposes quality into separate observable criteria, anchors each level with concrete pass/fail descriptions and calibration examples, marks gating criteria, and specifies judge-vs-human validation — rather than a vague 1–10 scale.

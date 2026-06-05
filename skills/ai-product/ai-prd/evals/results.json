@@ -1,0 +1,51 @@
+{
+  "skill": "skills/ai-product/ai-prd",
+  "run_at": "2026-06-05 08:55 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": false,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.423,
+      "treatment_score": 0.692,
+      "lift": 0.269,
+      "treatment_passed": false,
+      "earns_place": false,
+      "treatment_verdicts": {
+        "model-card": {
+          "verdict": "pass",
+          "why": "Section 3 explicitly covers intended use, detailed capabilities table, and a comprehensive limitations table with 7 named limitations including hallucination risk, regulatory claims, language coverage, and more. All three required elements are present and substantive."
+        },
+        "prohibited-uses": {
+          "verdict": "pass",
+          "why": "Section 3.4 explicitly names prohibited behaviours including spam/phishing, impersonation, hate speech, regulated advice, compliance law violations, and competing model training \u2014 these are out-of-scope uses with both technical and policy enforcement noted."
+        },
+        "data-strategy": {
+          "verdict": "partial",
+          "why": "The PRD addresses vendor DPA requirements (no training on customer data), mentions capturing feedback signal for fine-tuning, and references a curated example library. However, it does not detail the source or rights status of the curated email examples, does not address user consent for feedback data capture, and privacy handling for customer brief data sent to the API is only lightly touched (DPA requirement noted but not elaborated)."
+        },
+        "evaluation-strategy": {
+          "verdict": "partial",
+          "why": "Section 5 is referenced (quality bar) but not included in the candidate output \u2014 the document is truncated. The PRD does mention a quality plateau trigger for fine-tuning and references 'marketing copy benchmarks' in vendor selection, but the full evaluation strategy with offline/online measurement definitions is not visible in the submitted text."
+        },
+        "buy-vs-build": {
+          "verdict": "pass",
+          "why": "Section 2 provides an explicit, well-reasoned decision for API-first with a fine-tuning pathway, includes a decision matrix comparing own model vs fine-tune vs API, and gives clear rationale including time-to-market, cost, data availability, and fine-tuning trigger conditions."
+        },
+        "trust-ux": {
+          "verdict": "partial",
+          "why": "The PRD states outputs are 'a starting point for human editing, not a finished artefact' and mentions limitations must be communicated in the UI (Section 6 referenced), and supports regeneration/iteration. However, specific UI mechanisms for verification, editing workflows, or recovery from bad outputs are not detailed in the visible content."
+        },
+        "risk-compliance": {
+          "verdict": "partial",
+          "why": "Hallucination risk is named, regulated industry limitations are noted, and CAN-SPAM/GDPR/CASL are referenced. However, there is no systematic risk register, failure mode analysis, or explicit mitigations beyond policy prohibitions and UI warnings. Vendor uptime SLA is mentioned but downstream failure handling is absent."
+        },
+        "guardrail-metrics": {
+          "verdict": "partial",
+          "why": "Quality metrics are referenced (vendor benchmark weighting, quality plateau trigger) and latency guardrail is explicit (p95 < 8s for 300-word draft). A cost guardrail ($25k/month fine-tuning trigger) is present. However, a formal success metric pairing a quality measure with a cost/latency guardrail in a 'must not regress' framing is not explicitly stated as a shipped guardrail \u2014 it appears as vendor criteria and triggers rather than ongoing monitoring metrics."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "skill": "skills/ai-product/llm-eval-set-designer",
+  "run_at": "2026-06-05 09:04 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": false,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.962,
+      "treatment_score": 0.808,
+      "lift": -0.154,
+      "treatment_passed": true,
+      "earns_place": false,
+      "treatment_verdicts": {
+        "stratified-cases": {
+          "verdict": "pass",
+          "why": "Cases are explicitly organized into four named buckets (Happy path, Hard/edge, Adversarial/abuse, Should-refuse) with distinct counts, sources, and targeted failure modes per bucket."
+        },
+        "grader-per-dimension": {
+          "verdict": "pass",
+          "why": "Each quality dimension (format compliance, sentiment, hallucination, omission, conciseness, PII, injection, editorializing, refusal) is assigned a specific grader type \u2014 code assertion, LLM-as-judge, or human \u2014 rather than one generic score."
+        },
+        "rubric-for-judge": {
+          "verdict": "partial",
+          "why": "Rubrics 4a, 4b, 4c are referenced with partial detail; 4a is excerpted mid-sentence and cut off, 4b and 4c are only named but not shown. The hallucination rubric begins a 0\u20133 scale but is incomplete. Enough structure exists to be meaningful but the rubrics are not fully specified."
+        },
+        "pass-bars": {
+          "verdict": "pass",
+          "why": "Explicit pass bars are set per dimension (e.g., all code assertions must be true, word count \u2264 120, sentiment partial credit scheme). PII leakage (F7) and prompt injection are treated as hard-fail via code assertions, implying zero-tolerance. Hallucination scored 0\u20133 but threshold not fully stated."
+        },
+        "grounded-in-real-data": {
+          "verdict": "pass",
+          "why": "Section 2 explicitly states failure modes were derived from reviewing 40 pilot outputs before writing criteria, and the case set mixes real anonymized threads with synthetic ones."
+        },
+        "judge-validation": {
+          "verdict": "partial",
+          "why": "For graceful refusal, the spec mentions starting with human review then transitioning to LLM-as-judge 'after calibration', implying validation against human labels. However, no explicit validation process is described for other LLM judges."
+        },
+        "living-eval": {
+          "verdict": "fail",
+          "why": "There is no mention of adding production failures as regression cases, no run cadence, and no process for updating the eval set over time."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "criteria": [
+    {
+      "id": "stratified-cases",
+      "description": "Cases are stratified into meaningful buckets (e.g. happy path, hard/edge, adversarial, should-refuse/out-of-scope) rather than one flat list.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "grader-per-dimension",
+      "description": "Assigns a grader type (code/deterministic assertion, LLM-as-judge with a rubric, or human) appropriate to each quality dimension, rather than one generic score.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "rubric-for-judge",
+      "description": "Where an LLM-as-judge or human grader is used, a written rubric or explicit criteria are specified — not just 'rate 1-10'.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "pass-bars",
+      "description": "Sets explicit pass/quality bars, ideally per bucket, including at least one zero-tolerance / hard-fail criterion for severe errors.",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "grounded-in-real-data",
+      "description": "Recommends deriving failure modes / cases from real (or pilot) outputs rather than only imagined ones.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "judge-validation",
+      "description": "Mentions validating an LLM-as-judge against human labels, or otherwise checking grader trustworthiness.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "living-eval",
+      "description": "Treats the eval set as living — production failures become new regression cases — and/or specifies a run cadence.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

@@ -1,0 +1,1 @@
+Designing human oversight for an AI feature by mapping each action to an oversight level based on risk and reversibility, routing by model confidence, designing a fast review surface and an undo/escalation path, and defining a trust ramp — rather than a single automate-or-not decision.

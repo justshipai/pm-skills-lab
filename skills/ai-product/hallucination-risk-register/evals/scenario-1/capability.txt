@@ -1,0 +1,1 @@
+Producing a prioritized AI failure-mode risk register that goes beyond hallucination (omission, stale info, overconfidence, prompt injection, data leakage, out-of-scope/unsafe output, etc.), pairs each mode with a detection AND a mitigation, ranks by severity × likelihood, and names residual risk — rather than a generic risk list.

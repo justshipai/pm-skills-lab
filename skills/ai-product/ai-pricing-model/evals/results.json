@@ -1,0 +1,43 @@
+{
+  "skill": "skills/ai-product/ai-pricing-model",
+  "run_at": "2026-06-05 08:56 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.818,
+      "treatment_score": 0.909,
+      "lift": 0.091,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "unit-economics": {
+          "verdict": "pass",
+          "why": "Detailed token-level cost breakdown with explicit assumptions (model, token counts, retry rate, RAG, infra markup) producing a fully-loaded $0.007\u2013$0.01/draft figure before any pricing recommendation."
+        },
+        "structure-choice": {
+          "verdict": "pass",
+          "why": "Explicitly evaluates four alternatives (pure flat, pure usage-based, outcome-based, unlimited) with specific objections to each, then selects tiered seat add-on with included allowance + overage and justifies each element of the choice."
+        },
+        "margin-distribution": {
+          "verdict": "pass",
+          "why": "Runs complete margin tables across p25/p50/p90/p99 for both Starter and Pro tiers, showing GM% at each percentile and flagging the one borderline case (Pro p90 at 58%) with a mitigation suggestion."
+        },
+        "cost-guardrails": {
+          "verdict": "pass",
+          "why": "Specifies hard-metered allowance, auto-billed overage in 100-draft blocks, soft-limit warnings at 80%, and references a hard fair-use cap (truncated but clearly intended)."
+        },
+        "value-wtp-crosscheck": {
+          "verdict": "fail",
+          "why": "No explicit cross-check against value delivered to the buyer (e.g., time saved per draft, agent labor cost offset) or next-best alternative pricing. Pricing is derived purely from cost-plus with a target GM%, not anchored to WTP."
+        },
+        "cost-trend-sensitivity": {
+          "verdict": "pass",
+          "why": "Explicitly notes \u221230\u201340%/yr inference cost trajectory and states the structure must flex to accommodate it, acknowledging this in the margin constraints table."
+        }
+      }
+    }
+  ]
+}

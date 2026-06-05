@@ -1,0 +1,1 @@
+Drafting OKRs with a qualitative ambitious objective and 3–5 outcome-based key results (each a metric with baseline → target), distinguishing outcomes from a feature/ship list, laddering to the company goal, and adding a guardrail metric — rather than listing tasks as key results.

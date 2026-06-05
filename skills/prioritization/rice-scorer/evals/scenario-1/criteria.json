@@ -1,0 +1,41 @@
+{
+  "criteria": [
+    {
+      "id": "four-factors-scored",
+      "description": "Scores each item on all four RICE factors (Reach, Impact, Confidence, Effort) and computes a score, rather than ranking by gut.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "reach-as-count",
+      "description": "Treats Reach as a real count over a consistent time window (not a 1-10 rating), and uses recognizable Impact/Confidence scales.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "effort-all-functions",
+      "description": "Estimates Effort as person-time across functions and uses it as the denominator consistently.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "ranked-output",
+      "description": "Produces a clear ranked order from the scores.",
+      "weight": 1,
+      "required": true
+    },
+    {
+      "id": "sanity-check",
+      "description": "Adds a sanity-check beyond the raw scores — flags low-confidence/high-score items, or notes strategy/dependencies/sequencing that RICE doesn't capture.",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "confidence-as-flag",
+      "description": "Uses low confidence to recommend validation/testing rather than committing, where relevant (e.g. the unproven mobile-app bet).",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

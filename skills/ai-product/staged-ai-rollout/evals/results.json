@@ -1,0 +1,47 @@
+{
+  "skill": "skills/ai-product/staged-ai-rollout",
+  "run_at": "2026-06-05 09:07 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": false,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 1.0,
+      "treatment_score": 1.0,
+      "lift": 0.0,
+      "treatment_passed": true,
+      "earns_place": false,
+      "treatment_verdicts": {
+        "distinct-staged-plan": {
+          "verdict": "pass",
+          "why": "Six clearly distinct stages: offline eval, shadow, dogfood, canary, staged GA tier 1, staged GA tier 2 \u2014 each with its own audience, duration, and purpose."
+        },
+        "entry-gates-per-stage": {
+          "verdict": "pass",
+          "why": "Each stage has an explicit 'Entry gate' and 'Promote if\u2026' column in the overview table, referencing concrete metrics measured in the prior stage."
+        },
+        "kill-switch-with-fallback": {
+          "verdict": "pass",
+          "why": "Single feature flag kill switch with <2min activation time, and explicitly states fallback is the pre-existing 'no answer yet' experience with no broken UI or error messages."
+        },
+        "precommitted-rollback-triggers": {
+          "verdict": "pass",
+          "why": "Numeric thresholds pre-committed for both automatic kill (e.g., >0.2% harm rate in 1-hour window, >$200 daily cost) and human-reviewed kill (e.g., flagged rate >5%, human reply drop >10%)."
+        },
+        "shadow-mode": {
+          "verdict": "pass",
+          "why": "Stage 1 is explicitly a shadow stage: 100% of live questions, output hidden, measuring real-world latency/cost/quality with no user risk."
+        },
+        "multi-dimensional-gates": {
+          "verdict": "pass",
+          "why": "Gates and monitoring explicitly cover quality (helpfulness, accuracy, flag rate), cost (per answer, daily ceiling), and latency (p95, time to post) across all stages."
+        },
+        "drift-monitoring": {
+          "verdict": "pass",
+          "why": "Steady-state section includes daily, weekly, and monthly eval cadences, a specific drift protocol triggered by 7-day declining helpfulness trend, and monthly full offline eval re-runs."
+        }
+      }
+    }
+  ]
+}

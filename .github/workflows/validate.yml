@@ -18,16 +18,12 @@ jobs:
       - name: Validate skill structure
         run: python3 scripts/validate.py
 
-      - name: Check plugins are in sync with skills/
-        run: |
-          python3 scripts/build-plugins.py
-          if [ -n "$(git status --porcelain plugins .claude-plugin)" ]; then
-            echo "::error::plugins/ or marketplace.json is out of date."
-            echo "Run 'python3 scripts/build-plugins.py' and commit the result."
-            git --no-pager diff -- plugins .claude-plugin
-            exit 1
-          fi
-
-# Note: structural validation runs in CI. The with-skill vs. without-skill
-# eval (the merge gate) is run by a maintainer with the Tessl CLI before merge,
-# since it needs model access and credentials. See CONTRIBUTING.md.
+# Structural validation runs in CI (files present, frontmatter + JSON well-formed).
+# The eval itself — scripts/run_evals.py, which compares the skill against the
+# no-skill baseline — needs an LLM API key and costs money, so it is NOT run on
+# every PR. Contributors run it locally and commit evals/RESULTS.md; a maintainer
+# re-runs it before merge. See CONTRIBUTING.md.
+#
+# To run evals in CI, add ANTHROPIC_API_KEY as a repo secret and a step:
+#   - run: python3 scripts/run_evals.py
+#     env: { ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }} }

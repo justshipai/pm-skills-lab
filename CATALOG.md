@@ -1,28 +1,28 @@
 # Skill catalog
 
-The full roadmap — ~160 skills across 14 categories. `[x]` = live and verified, `[ ]` = open for contribution. Want one? Open an issue to claim it, then follow [CONTRIBUTING.md](./CONTRIBUTING.md).
+The full roadmap — ~160 skills across 14 categories. `[x]` = authored & eval-ready, `[ ]` = open for contribution. Whether an authored skill is **verified** (beats its baseline on a real eval run) is tracked separately in [`EVALS.md`](./EVALS.md). Want to build one? Open an issue to claim it, then follow [CONTRIBUTING.md](./CONTRIBUTING.md).
 
-## AI-product PM — launch wedge (1 / 21)
+## AI-product PM — launch wedge (10 / 21)
 
 - [x] `ai-feature-spec` — Spec an AI feature with eval plan, guardrails, and fallbacks
-- [ ] `ai-prd` — PRD for an AI feature (model card, data requirements, success criteria)
-- [ ] `llm-eval-set-designer` — Design an eval set (cases + rubric) for an AI feature
-- [ ] `eval-rubric-designer` — Build an LLM-as-judge rubric that discriminates good from bad
+- [x] `ai-prd` — PRD for an AI feature (model card, data requirements, success criteria)
+- [x] `llm-eval-set-designer` — Design an eval set (cases + rubric) for an AI feature
+- [x] `eval-rubric-designer` — Build an LLM-as-judge rubric that discriminates good from bad
 - [ ] `golden-set-curation` — Curate a golden/test set for an AI feature
 - [ ] `synthetic-eval-data` — Generate synthetic evaluation data
 - [ ] `prompt-spec` — Prompt spec / prompt review
-- [ ] `model-selection` — Model / cost / latency / quality trade-off analysis
+- [x] `model-selection` — Model / cost / latency / quality trade-off analysis
 - [ ] `model-migration-plan` — Model upgrade/migration plan with regression eval
-- [ ] `hallucination-risk-register` — Failure modes and the guardrail for each
+- [x] `hallucination-risk-register` — Failure modes and the guardrail for each
 - [ ] `prompt-injection-threat-model` — Prompt-injection / jailbreak threat model
 - [ ] `rag-quality-eval` — RAG / retrieval-quality eval
-- [ ] `agent-capability-spec` — Agent tools, permissions, and scope boundaries
-- [ ] `human-in-the-loop-design` — Review / escalation / undo for AI actions
+- [x] `agent-capability-spec` — Agent tools, permissions, and scope boundaries
+- [x] `human-in-the-loop-design` — Review / escalation / undo for AI actions
 - [ ] `ai-ux-patterns-review` — Trust, transparency, undo, citations
 - [ ] `confidence-uncertainty-ux` — When to surface "I'm not sure"
 - [ ] `ai-success-metrics` — Quality, cost, latency, deflection metrics
-- [ ] `ai-pricing-model` — Token / usage-based pricing and unit economics
-- [ ] `staged-ai-rollout` — Shadow → canary → GA rollout with eval gates
+- [x] `ai-pricing-model` — Token / usage-based pricing and unit economics
+- [x] `staged-ai-rollout` — Shadow → canary → GA rollout with eval gates
 - [ ] `data-flywheel-design` — Feedback loops that improve the model
 - [ ] `responsible-ai-checklist` — Responsible-AI / red-team checklist
 
@@ -80,27 +80,27 @@ The full roadmap — ~160 skills across 14 categories. `[x]` = live and verified
 - [ ] `working-backwards` — PR/FAQ narrative (Amazon)
 - [ ] `bets-and-themes` — Annual bets & themes framing
 
-## Prioritization & planning (0 / 15)
+## Prioritization & planning (3 / 15)
 
-- [ ] `rice-scorer` — RICE scoring
+- [x] `rice-scorer` — RICE scoring
 - [ ] `ice-scorer` — ICE scoring
 - [ ] `wsjf` — Cost-of-delay / WSJF
 - [ ] `kano-model` — Kano classification
 - [ ] `moscow` — MoSCoW sorting
 - [ ] `opportunity-scoring` — Ulwick opportunity scores
 - [ ] `backlog-prioritizer` — Multi-criteria backlog prioritization
-- [ ] `okr-drafting` — Objective + measurable KRs
+- [x] `okr-drafting` — Objective + measurable KRs
 - [ ] `okr-health-check` — Alignment audit
 - [ ] `quarterly-planning` — Capacity × priorities synthesis
-- [ ] `roadmap-builder` — Now/Next/Later outcome roadmap
+- [x] `roadmap-builder` — Now/Next/Later outcome roadmap
 - [ ] `roadmap-narrative` — Stakeholder story for a roadmap
 - [ ] `capacity-planner` — Capacity & resource planning
 - [ ] `dependency-mapper` — Dependency mapping
 - [ ] `outcome-roadmap-converter` — Features → outcomes
 
-## Specs & definition (0 / 15)
+## Specs & definition (1 / 15)
 
-- [ ] `prd-generator` — PRD (problem/value/risks, Cagan framing)
+- [x] `prd-generator` — PRD (problem/value/risks, Cagan framing)
 - [ ] `one-pager` — One-pager / brief
 - [ ] `feature-spec` — Stories, AC, edge cases
 - [ ] `user-stories` — INVEST, 3 C's
@@ -166,9 +166,9 @@ The full roadmap — ~160 skills across 14 categories. `[x]` = live and verified
 - [ ] `growth-experiment-backlog` — Growth experiment backlog
 - [ ] `plg-motion` — PLG motion design
 
-## Communication & stakeholder (0 / 12)
+## Communication & stakeholder (1 / 12)
 
-- [ ] `stakeholder-map` — Power × Interest + comms plan
+- [x] `stakeholder-map` — Power × Interest + comms plan
 - [ ] `weekly-update` — Outcomes-led weekly update
 - [ ] `exec-board-update` — Exec/board update + narrative
 - [ ] `status-multi-audience` — Exec / team / Slack formats

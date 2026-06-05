@@ -1,0 +1,1 @@
+Producing an AI PRD anchored on a model card (intended use, capabilities, explicit limitations, prohibited uses), a data strategy (sourcing, rights, privacy, feedback data), and an evaluation strategy — rather than a generic PRD that treats the model as a black box.

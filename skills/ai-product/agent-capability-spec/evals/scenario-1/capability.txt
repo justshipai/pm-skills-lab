@@ -1,0 +1,1 @@
+Producing an agent capability spec that enumerates tools with their side effects and reversibility, sets a deliberate autonomy level, defines per-action confirmation rules, a never-do list, least-privilege permissions with limits (rate/scope), and containment/recovery (audit, stop, rollback, escalation) — rather than describing a helpful assistant.

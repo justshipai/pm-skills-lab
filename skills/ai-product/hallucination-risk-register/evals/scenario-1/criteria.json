@@ -1,0 +1,41 @@
+{
+  "criteria": [
+    {
+      "id": "beyond-hallucination",
+      "description": "Identifies multiple distinct failure modes beyond plain hallucination — e.g. omission, stale/outdated info, overconfidence, prompt injection, data/PII leakage, out-of-scope or unsafe output.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "detection-and-mitigation",
+      "description": "For each (or most) failure modes, gives BOTH a way to detect it and a way to mitigate it — not just one or the other.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "prioritized",
+      "description": "Prioritizes the modes by severity and likelihood (or equivalent), rather than treating all as equal.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "domain-specific",
+      "description": "Includes failure modes specific to this domain (e.g. giving medical advice / unsafe prep guidance, out-of-scope diagnosis) rather than only generic ones.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "residual-risk",
+      "description": "Names residual risk after mitigation and/or flags modes that cannot currently be detected.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "verifiable-controls",
+      "description": "Prefers verifiable controls (grounding, allow-lists, refusal thresholds, schema/validation, human confirmation) over 'we'll prompt it not to'.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

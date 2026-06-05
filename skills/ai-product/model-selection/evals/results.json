@@ -1,0 +1,47 @@
+{
+  "skill": "skills/ai-product/model-selection",
+  "run_at": "2026-06-05 09:05 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": false,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.917,
+      "treatment_score": 0.875,
+      "lift": -0.042,
+      "treatment_passed": true,
+      "earns_place": false,
+      "treatment_verdicts": {
+        "bar-and-constraints-first": {
+          "verdict": "pass",
+          "why": "The response opens with an explicit constraints table covering latency (p50/p95), context window, streaming, data privacy, minimum quality bar (80%), cost ceiling ($/1K requests), and volume \u2014 all defined before any model comparison begins."
+        },
+        "eval-driven-not-leaderboard": {
+          "verdict": "pass",
+          "why": "Explicitly warns in a callout box that quality scores are placeholders and instructs the team to run candidates against their own eval set covering continuation coherence, style consistency, and user-acceptance rate, explicitly rejecting reliance on public benchmarks."
+        },
+        "quantified-cost-latency": {
+          "verdict": "pass",
+          "why": "Provides specific $/1K request figures for each model, p50 and p95 TTFT values, monthly and annual cost projections at stated volume (100M req/day), and a 10x volume sensitivity row \u2014 all quantitative, not vague adjectives."
+        },
+        "cheapest-that-clears": {
+          "verdict": "partial",
+          "why": "The matrix and cost tables clearly show cheaper models (Gemini Flash, Haiku) that clear constraints, and GPT-4o is eliminated for cost/latency failures, but the response is cut off before an explicit final recommendation applying this principle is stated."
+        },
+        "multiple-candidates": {
+          "verdict": "pass",
+          "why": "Evaluates five candidates spanning frontier (GPT-4o), mid-tier (GPT-4o mini, Claude Haiku, Gemini Flash), and self-hosted open-weight (Llama 3.1 8B), covering API and self-hosted tiers."
+        },
+        "sensitivity": {
+          "verdict": "partial",
+          "why": "Includes a 10x volume row showing cost implications but does not explicitly discuss re-evaluation triggers or what quality/price/volume changes would shift the recommendation between models."
+        },
+        "lock-in-portability": {
+          "verdict": "pass",
+          "why": "The decision matrix includes an explicit 'Lock-in risk' row rating each model (Medium for OpenAI options, Low for Anthropic/Google, Very Low for self-hosted), directly addressing portability concerns."
+        }
+      }
+    }
+  ]
+}

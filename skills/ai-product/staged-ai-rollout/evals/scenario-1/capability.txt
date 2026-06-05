@@ -1,0 +1,1 @@
+Producing a staged AI rollout plan with distinct stages (offline eval → shadow → dogfood → canary → staged GA), an explicit entry gate and measures per stage, a kill switch with a defined non-AI fallback, and pre-committed numeric rollback triggers gating on quality, cost, and latency — rather than a single launch or a simple percentage ramp.

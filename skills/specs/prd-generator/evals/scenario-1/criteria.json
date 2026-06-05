@@ -1,0 +1,47 @@
+{
+  "criteria": [
+    {
+      "id": "problem-first-with-evidence",
+      "description": "Leads with the user problem and some evidence/justification rather than opening with the solution.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "target-user-jtbd",
+      "description": "Names the specific target user and the job-to-be-done, not just 'users'.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "measurable-success",
+      "description": "Defines measurable success metric(s) with a target, not 'users will like it'.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "prioritized-requirements",
+      "description": "Requirements are prioritized (MoSCoW or P0/P1/P2) and expressed as testable user stories with acceptance criteria.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "non-goals",
+      "description": "States explicit non-goals / out-of-scope items.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "edge-cases",
+      "description": "Acceptance criteria or requirements cover edge/error cases, not only the happy path.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "risks-rollout",
+      "description": "Surfaces risks/dependencies/open questions and a rollout or milestone plan.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

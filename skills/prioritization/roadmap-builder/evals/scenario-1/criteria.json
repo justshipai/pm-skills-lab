@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "now-next-later",
+      "description": "Organizes the roadmap into Now / Next / Later (or equivalent horizons) rather than fixed dates or a Gantt chart.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "outcome-anchored",
+      "description": "Items are anchored to outcomes/problems and the metric they should move, not just feature names.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "laddered-to-strategy",
+      "description": "Sequencing reflects the stated strategy (winning with students), prioritizing items that serve it over those that don't.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "confidence-convention",
+      "description": "States that confidence decreases across horizons / that Next and Later evolve with learning, so Later isn't read as a commitment.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "now-focused",
+      "description": "Keeps the Now horizon focused rather than dumping most of the backlog into it.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

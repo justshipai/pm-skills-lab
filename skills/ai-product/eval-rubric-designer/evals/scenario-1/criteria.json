@@ -1,0 +1,41 @@
+{
+  "criteria": [
+    {
+      "id": "decomposed-criteria",
+      "description": "Breaks 'quality' into multiple distinct, observable criteria (e.g. captures decisions, action items with owners, next steps, accuracy) rather than one overall score.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "anchored-levels",
+      "description": "Each criterion has concrete anchors describing what a PASS vs a FAIL looks like in observable terms, not adjectives like 'clear' or 'good'.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "discrete-scale",
+      "description": "Uses a reliable discrete scale (pass/fail or anchored 3-point) rather than an unanchored 1-10 scale.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "calibration-examples",
+      "description": "Includes calibration/example outputs (e.g. a clear pass, a clear fail, a borderline case) to anchor the judge.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "gating-and-aggregate",
+      "description": "Identifies gating criteria (a severe failure fails the item) and/or defines how criteria aggregate into a verdict.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "judge-validation",
+      "description": "Specifies validating the judge against human labels (an agreement target) and a re-check cadence.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

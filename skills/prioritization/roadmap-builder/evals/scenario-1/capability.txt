@@ -1,0 +1,1 @@
+Building an outcome-based Now/Next/Later roadmap: organizing items around the problems/outcomes they serve (with the metric each moves) rather than as a feature list, using horizons instead of fixed dates, keeping Now focused, laddering to the strategy, and stating that confidence decreases across horizons — rather than a dated feature Gantt.

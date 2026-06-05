@@ -1,0 +1,1 @@
+Producing a PRD that leads with the user problem and evidence, names the target user and job-to-be-done, defines measurable success metrics with a target, prioritizes requirements (MoSCoW/P0-P2) as testable user stories including edge cases, and states explicit non-goals — rather than a solution-first feature list.

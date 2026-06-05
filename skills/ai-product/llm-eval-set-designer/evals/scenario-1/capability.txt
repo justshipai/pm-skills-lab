@@ -1,0 +1,1 @@
+Designing a runnable LLM eval set that stratifies cases by failure mode, matches a grader (code assertion / LLM-as-judge with rubric / human) to each quality dimension, sets per-bucket pass bars including a zero-tolerance bucket, and validates the judge — rather than a vague "we'll rate the summaries."

@@ -1,0 +1,43 @@
+{
+  "skill": "skills/ai-product/human-in-the-loop-design",
+  "run_at": "2026-06-05 09:02 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.909,
+      "treatment_score": 0.955,
+      "lift": 0.046,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "action-to-oversight-map": {
+          "verdict": "pass",
+          "why": "Explicit table maps each distinct action (auto-approve, auto-reject, flag, shadow-ban, escalate, bulk action) to a specific oversight level with risk and reversibility reasoning for each \u2014 not a single global decision."
+        },
+        "confidence-routing": {
+          "verdict": "pass",
+          "why": "Defined numeric thresholds (\u22650.92, 0.65\u20130.92, <0.65) route to auto-action, human review with pre-filled recommendation, or uncertain-defer with no recommendation shown; watchlist override also specified."
+        },
+        "review-surface": {
+          "verdict": "pass",
+          "why": "Detailed UI mockup shows confidence score, top signals with source links, seller context, approve/reject/escalate/edit/snooze actions, reject-requires-reason design, collapsed listing body, and queue stats to prevent rubber-stamping \u2014 well beyond 'a human checks it'."
+        },
+        "undo-and-escalation": {
+          "verdict": "pass",
+          "why": "Explicit reversal table with who, time window, and method per action type; escalation path includes full context handoff, 4-hour SLA, auto-suppression fallback, and on-call paging for high-severity categories."
+        },
+        "asymmetric-error-handling": {
+          "verdict": "partial",
+          "why": "Shadow-ban and escalation get stricter human gates due to irreversibility/harm, and async sampling catches auto-reject errors. However, the output doesn't explicitly frame the false-approval vs. false-rejection asymmetry or explain why one error type is treated more strictly than the other in terms of harm calculus."
+        },
+        "trust-ramp-or-fatigue": {
+          "verdict": "pass",
+          "why": "Detailed per-action-class trust ramp with three quantitative gates (precision/recall, override rate, volume stability), eight-week consecutive requirement, multi-stakeholder sign-off, and automatic tightening triggers when override rate spikes \u2014 addresses both loosening and fatigue/drift prevention."
+        }
+      }
+    }
+  ]
+}

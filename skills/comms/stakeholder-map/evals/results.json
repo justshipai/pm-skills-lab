@@ -1,0 +1,39 @@
+{
+  "skill": "skills/comms/stakeholder-map",
+  "run_at": "2026-06-05 09:09 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.8,
+      "treatment_score": 1.0,
+      "lift": 0.2,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "power-interest-grid": {
+          "verdict": "pass",
+          "why": "Explicitly uses a Power \u00d7 Interest grid with all four standard quadrants (Manage closely, Keep satisfied, Keep informed, Monitor) and places named stakeholders in each."
+        },
+        "tailored-engagement": {
+          "verdict": "pass",
+          "why": "The detailed engagement table provides per-stakeholder breakdown of what they care about, what they need, cadence, and channel \u2014 clearly differentiated across stakeholders rather than a uniform approach."
+        },
+        "champions-blockers": {
+          "verdict": "pass",
+          "why": "Dedicated sections identify specific champions and blockers with explicit reasons for each, plus concrete action plans to enlist champions and neutralize blockers."
+        },
+        "distinct-axes": {
+          "verdict": "pass",
+          "why": "The output demonstrates awareness of the distinction \u2014 e.g., CEO/COO placed in Keep satisfied (high power, lower interest) vs. Design Lead in Manage closely (high power, high interest), and Monitor quadrant contains low-power/low-interest external parties."
+        },
+        "revisit": {
+          "verdict": "pass",
+          "why": "A dedicated 'Revisit' section explicitly notes that stakeholder positions can shift, lists specific triggers for each stakeholder, and describes the likely directional shift in quadrant placement."
+        }
+      }
+    }
+  ]
+}

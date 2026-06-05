@@ -1,0 +1,41 @@
+{
+  "criteria": [
+    {
+      "id": "action-to-oversight-map",
+      "description": "Maps each AI action (approve / reject / flag) to an oversight level based on risk and reversibility, rather than a single global automate-or-not decision.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "confidence-routing",
+      "description": "Uses model confidence (or risk thresholds) to route between automatic action, asking/confirming, and deferring to a human.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "review-surface",
+      "description": "Designs what the human reviewer sees to decide quickly (evidence, confidence, the reason) and the approve/edit/reject actions — not just 'a human checks it'.",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "undo-and-escalation",
+      "description": "Provides a reversal/undo path and an escalation route for uncertain or out-of-scope cases with context.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "asymmetric-error-handling",
+      "description": "Recognizes the asymmetry between false approvals and false rejections and adjusts oversight accordingly (e.g. stricter gate on the higher-harm error).",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "trust-ramp-or-fatigue",
+      "description": "Addresses loosening oversight over time as trust builds, and/or avoiding reviewer/oversight fatigue (not approve-everything).",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

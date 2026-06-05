@@ -1,7 +1,6 @@
-# Tessl eval artifacts
-/evals/
-.tessl/
-*.eval.json
+# Local env / secrets
+.env
+*.local
 
 # OS / editor
 .DS_Store

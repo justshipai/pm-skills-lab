@@ -1,0 +1,1 @@
+Prioritizing a backlog with RICE applied rigorously — Reach as a real count over a consistent window, the standard Impact and Confidence scales, Effort across all functions, the computed score and ranking — plus a sanity-check that flags low-confidence items and notes what RICE misses (strategy, dependencies), rather than an unstructured opinion.

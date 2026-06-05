@@ -1,0 +1,53 @@
+{
+  "criteria": [
+    {
+      "id": "model-card",
+      "description": "Includes a model-card-style section stating intended use, capabilities, and EXPLICIT limitations of the AI — not just features.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "prohibited-uses",
+      "description": "Names out-of-scope or prohibited behaviours the assistant must not do (e.g. claims it can't substantiate, regulated content).",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "data-strategy",
+      "description": "Specifies what data the capability needs, where it comes from, and addresses rights/privacy/consent and/or the feedback data captured to improve it.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "evaluation-strategy",
+      "description": "Defines what 'good enough to ship' means and how quality will be measured offline and/or online — not just 'we'll track engagement'.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "buy-vs-build",
+      "description": "Makes an explicit approach decision (API model / fine-tune / own model, or RAG vs. fine-tune) with a rationale.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "trust-ux",
+      "description": "Addresses how users understand, verify, edit, or recover from the AI output (human-in-the-loop / trust).",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "risk-compliance",
+      "description": "Identifies AI-specific risks (failure, misuse) and any regulatory/compliance exposure with mitigations.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "guardrail-metrics",
+      "description": "Success metrics include at least one quality measure plus a cost or latency guardrail that must not regress.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

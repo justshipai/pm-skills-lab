@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "power-interest-grid",
+      "description": "Places stakeholders on a Power × Interest grid (or equivalent two-axis model) with the four engagement quadrants, not a flat list.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "tailored-engagement",
+      "description": "Gives a tailored plan per stakeholder/quadrant — what they care about, what they need, cadence, and channel — rather than one approach for all.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "champions-blockers",
+      "description": "Identifies likely champions and blockers (with reasons) and a plan to enlist or address them.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "distinct-axes",
+      "description": "Treats power and interest as distinct (e.g. recognizes a high-power/low-interest exec vs a low-power/high-interest contributor).",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "revisit",
+      "description": "Notes that stakeholder positions can shift and should be revisited as the initiative evolves.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

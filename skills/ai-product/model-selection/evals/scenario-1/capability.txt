@@ -1,0 +1,1 @@
+Producing an eval-driven model-selection decision: defining the quality bar / latency budget / cost ceiling / hard constraints first, scoring candidates on the team's own eval set rather than a leaderboard, computing $/request and latency at real volume, and recommending the cheapest model that clears the bar with a sensitivity analysis.

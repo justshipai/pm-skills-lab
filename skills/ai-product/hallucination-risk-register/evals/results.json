@@ -1,0 +1,43 @@
+{
+  "skill": "skills/ai-product/hallucination-risk-register",
+  "run_at": "2026-06-05 09:00 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.955,
+      "treatment_score": 1.0,
+      "lift": 0.045,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "beyond-hallucination": {
+          "verdict": "pass",
+          "why": "Identifies at least 10 distinct failure modes beyond hallucination: omission, stale/outdated info, overconfidence, prompt injection, data/PII leakage, scope creep into diagnosis, wrong logistics, toxic output, bias/inequitable performance, and silent degradation."
+        },
+        "detection-and-mitigation": {
+          "verdict": "pass",
+          "why": "Every failure mode in the register has an explicit Detection column and a separate Mitigation column with concrete mechanisms (checklist diff, grounding checks, intent classifier, freshness timestamps, tenant isolation, regression eval suites, etc.)."
+        },
+        "prioritized": {
+          "verdict": "pass",
+          "why": "Uses a Severity \u00d7 Likelihood scoring matrix (scores 6\u201320), ranks modes explicitly, and a summary priority table is provided. Justification for why overconfident-but-wrong outranks visible failure is also stated."
+        },
+        "domain-specific": {
+          "verdict": "pass",
+          "why": "Includes healthcare-specific failure modes: critical prep omission (NPO/aspiration risk), scope creep into diagnosis/treatment advice, procedure-specific hallucinated instructions (blood thinners before biopsy), and procedure cancellation consequences."
+        },
+        "residual-risk": {
+          "verdict": "pass",
+          "why": "Every row has a dedicated Residual Risk column with specific post-mitigation risks named (e.g., edge-case classifier misses, family account session complexity, novel injection patterns, gradual drift not triggering thresholds)."
+        },
+        "verifiable-controls": {
+          "verdict": "pass",
+          "why": "Strongly prefers verifiable controls throughout: structured checklist diffs, RAG with citation requirements, allow-lists, hard tenant isolation by authenticated patient ID, automated regression eval suites, canary deployments, input sanitization layers, and schema-driven retrieval \u2014 not just prompt instructions."
+        }
+      }
+    }
+  ]
+}

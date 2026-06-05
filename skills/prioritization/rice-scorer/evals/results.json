@@ -1,0 +1,43 @@
+{
+  "skill": "skills/prioritization/rice-scorer",
+  "run_at": "2026-06-05 09:12 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.2,
+      "treatment_score": 1.0,
+      "lift": 0.8,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "four-factors-scored": {
+          "verdict": "pass",
+          "why": "Every item has explicit Reach, Impact, Confidence, and Effort values with a computed RICE score shown as formula and result."
+        },
+        "reach-as-count": {
+          "verdict": "pass",
+          "why": "Reach is expressed as a user count per quarter (e.g., 15,000, 50,000, 20,000) with a consistent 1-quarter window. Impact and Confidence use the defined scales, not arbitrary 1-10 ratings."
+        },
+        "effort-all-functions": {
+          "verdict": "pass",
+          "why": "Effort is stated in person-weeks and explicitly covers multiple functions (design, eng, QA, GTM) in the assumptions table and item descriptions. Used consistently as denominator in all five calculations."
+        },
+        "ranked-output": {
+          "verdict": "pass",
+          "why": "A clear ranked table and numbered list (1\u20135) is produced directly from the computed scores."
+        },
+        "sanity-check": {
+          "verdict": "pass",
+          "why": "Dedicated Sanity Check section flags Mobile App's low confidence as unreliable score, flags 2FA as mechanically inflated relative to strategic growth intent, and notes the need for discovery before committing to Mobile App."
+        },
+        "confidence-as-flag": {
+          "verdict": "pass",
+          "why": "Mobile App's 50% confidence is explicitly called out with a recommendation to run a discovery sprint (survey churned users, check analytics, sales-call notes) before committing, rather than treating the score as definitive."
+        }
+      }
+    }
+  ]
+}

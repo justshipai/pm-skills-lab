@@ -1,0 +1,47 @@
+{
+  "skill": "skills/prioritization/okr-drafting",
+  "run_at": "2026-06-05 09:10 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.542,
+      "treatment_score": 0.875,
+      "lift": 0.333,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "objective-qualitative": {
+          "verdict": "pass",
+          "why": "Both objectives are qualitative, directional destinations ('daily habit users choose to return to', 'turn push notifications from noise into a reason to come back') with clear Q3 2025 time-bounding. Neither is a metric or a task list."
+        },
+        "krs-are-outcomes": {
+          "verdict": "pass",
+          "why": "All KRs measure user behaviour outcomes: sessions per user, DAU, habitual user %, opt-in rate, CTR, re-engagement rate. Features to ship are explicitly relegated to 'likely initiatives' and the rejected list explicitly calls out 'ship the home feed' as a task."
+        },
+        "baseline-to-target": {
+          "verdict": "partial",
+          "why": "Most KRs have explicit baseline\u2192target pairs. However, Objective 2 KR2 and KR3 have no real baselines ('measure in week 1'), only directional targets. The author acknowledges this and plans to lock by week 3, but as written these two KRs fail the baseline requirement."
+        },
+        "laddering": {
+          "verdict": "pass",
+          "why": "There is an explicit 'Ladders up to' section linking both objectives to the company goal of growing engagement, and the Objective 1 description calls it 'the core engagement bet for the quarter.'"
+        },
+        "guardrail": {
+          "verdict": "pass",
+          "why": "Both objectives have thoughtful guardrails: session duration floor (\u22653:45 min) prevents hollow session inflation, and weekly opt-out rate cap (<2%) prevents burning the subscriber base to hit opt-in numbers."
+        },
+        "not-vanity-not-sandbagged": {
+          "verdict": "pass",
+          "why": "Raw totals like downloads and send volume were explicitly rejected. Percentage and ratio metrics dominate. Targets appear stretch-but-plausible: ~35% lift in sessions/week, ~29% lift in DAU, 12-point jump in habitual users, 16-point jump in opt-in rate \u2014 ambitious but not fantasy."
+        },
+        "focused": {
+          "verdict": "pass",
+          "why": "Exactly 2 objectives with 3 KRs each, plus one guardrail each. Well within the 1-3 objective / 3-5 KR guidance and not padded with extra items."
+        }
+      }
+    }
+  ]
+}

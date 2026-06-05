@@ -1,0 +1,47 @@
+{
+  "criteria": [
+    {
+      "id": "distinct-staged-plan",
+      "description": "Lays out multiple distinct rollout stages (e.g. offline eval, shadow, dogfood, canary, staged GA) rather than a single launch or a plain percentage ramp.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "entry-gates-per-stage",
+      "description": "Each stage has an explicit entry gate / promotion criterion based on what the previous stage measured.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "kill-switch-with-fallback",
+      "description": "Specifies a kill switch AND the defined fallback experience users get when the AI is disabled (not an error).",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "precommitted-rollback-triggers",
+      "description": "Pre-commits the specific (ideally numeric) metric breaches that trigger rollback, rather than deciding during an incident.",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "shadow-mode",
+      "description": "Includes a shadow / silent stage where output is generated on real traffic but not shown, to compare against baseline with no user risk.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "multi-dimensional-gates",
+      "description": "Gates / monitoring cover quality AND cost AND latency, not quality alone.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "drift-monitoring",
+      "description": "Includes steady-state monitoring after GA and watches for gradual drift, plus an eval cadence — not just launch-day metrics.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

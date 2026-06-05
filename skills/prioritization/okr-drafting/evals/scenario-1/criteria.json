@@ -1,0 +1,47 @@
+{
+  "criteria": [
+    {
+      "id": "objective-qualitative",
+      "description": "The objective(s) are qualitative, ambitious, and time-bound — a destination, not a metric or a task.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "krs-are-outcomes",
+      "description": "Key results are measurable OUTCOMES (metrics that move with user behaviour), not a list of features to ship.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "baseline-to-target",
+      "description": "Each key result has a baseline and a target (from X to Y).",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "laddering",
+      "description": "Explicitly connects the objective to the company goal (engagement).",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "guardrail",
+      "description": "Includes a guardrail/health metric so a KR can't be hit by breaking something else.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "not-vanity-not-sandbagged",
+      "description": "Avoids vanity metrics (raw totals that only go up) and avoids obviously sandbagged or fantasy targets; targets are stretch-but-plausible vs the baseline.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "focused",
+      "description": "Keeps to a focused set (roughly 1-3 objectives, 3-5 KRs each) rather than an unfocused pile.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

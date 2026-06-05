@@ -1,0 +1,47 @@
+{
+  "criteria": [
+    {
+      "id": "bar-and-constraints-first",
+      "description": "Defines the decision criteria up front — minimum quality bar, latency budget, cost ceiling, and any hard constraints — before comparing models.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "eval-driven-not-leaderboard",
+      "description": "Recommends judging candidate models on the team's own task/eval set rather than relying solely on public benchmarks or general reputation.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "quantified-cost-latency",
+      "description": "Treats cost and latency quantitatively (e.g. $/request and p50/p95) at the stated volume, not as vague adjectives.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "cheapest-that-clears",
+      "description": "Applies the principle of choosing the cheapest/fastest model that clears the quality bar, rather than defaulting to the most capable model.",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "multiple-candidates",
+      "description": "Compares candidates across tiers (e.g. frontier vs mid vs small, or considers a cascade/routing approach) rather than evaluating one option.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "sensitivity",
+      "description": "Includes a sensitivity analysis or re-evaluation trigger — what would change the recommendation (volume, price, quality bar).",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "lock-in-portability",
+      "description": "Considers lock-in / portability or the need to re-decide as models change.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

@@ -1,0 +1,41 @@
+{
+  "criteria": [
+    {
+      "id": "evidenced-themes",
+      "description": "Organizes findings into themes, each supported by specific verbatim quotes or observed behaviors from the notes — not a generic narrative summary.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "evidence-strength",
+      "description": "States how strongly each theme is supported (e.g. source count and/or a strong/moderate/weak rating), rather than asserting all findings with equal confidence.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "behavior-vs-opinion",
+      "description": "Distinguishes what users DID (e.g. missed a deadline, gave up on QuickBooks, photographs receipts) from what they SAID they'd want (e.g. 'I'd use anything that connects to my bank'), weighting behavior as stronger.",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "job-not-feature",
+      "description": "Frames the underlying job-to-be-done / pain rather than jumping straight to features.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "limits-and-bias",
+      "description": "Acknowledges sample size / bias / what the data cannot yet tell us.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "next-steps",
+      "description": "Recommends next research questions or cheap experiments, not a build plan.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

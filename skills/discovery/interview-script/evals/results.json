@@ -1,0 +1,43 @@
+{
+  "skill": "skills/discovery/interview-script",
+  "run_at": "2026-06-05 11:32 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.682,
+      "treatment_score": 1.0,
+      "lift": 0.318,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "past-behavior-anchored": {
+          "verdict": "pass",
+          "why": "The core of the interview is anchored to specific recent instances ('think back to the last time\u2026', 'walk me through that day'). Questions 3-9 all ask about what actually happened in that specific episode, not opinions or hypotheticals."
+        },
+        "non-leading": {
+          "verdict": "pass",
+          "why": "Questions are open-ended and chronological. The script explicitly lists phrases to avoid ('would you use something that\u2026', 'do you wish your email could just\u2026', 'how often do you feel overwhelmed') and warns interviewers against nodding or confirming hypotheses. No questions smuggle in the proposed solution."
+        },
+        "stated-learning-goal": {
+          "verdict": "pass",
+          "why": "The script opens with an explicit 'Learning goal' section stating the decision it informs (whether to build AI auto-reply) and four specific things to learn. The questions clearly ladder to those goals."
+        },
+        "probes": {
+          "verdict": "pass",
+          "why": "A dedicated probes table maps specific interview moments to follow-up questions. Standard follow-ups ('what happened next?', 'why did that matter?') are provided as a back-pocket list. The instruction to use probes throughout rather than at the end is explicit."
+        },
+        "no-pitching": {
+          "verdict": "pass",
+          "why": "Solution reactions are explicitly fenced to a final section with a warning not to introduce it early. The script prohibits describing the feature before asking, bans AI/auto/draft vocabulary until that section, and states clearly the interview is not validating a solution."
+        },
+        "workarounds-and-emotion": {
+          "verdict": "pass",
+          "why": "Question 8 directly asks about workarounds. The probe table includes rows for strong emotion ('say more about that') and workarounds ('how long have you been doing it that way?'). Interviewer notes explicitly flag workarounds as 'clearest signal about real pain' and ask who they feel accountable to."
+        }
+      }
+    }
+  ]
+}

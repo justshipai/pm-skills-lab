@@ -1,0 +1,41 @@
+{
+  "criteria": [
+    {
+      "id": "four-risks-covered",
+      "description": "Surfaces assumptions across all four product risks — Value, Usability, Feasibility, AND Viability — not just whether it can be built.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "falsifiable-assumptions",
+      "description": "Writes assumptions as specific, falsifiable 'we assume that…' statements rather than vague risks.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "impact-evidence-prioritization",
+      "description": "Prioritizes assumptions by impact × evidence (or equivalent) to identify the riskiest leap-of-faith assumptions, rather than a flat list.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "cheapest-tests",
+      "description": "Pairs the riskiest assumptions with cheap tests (interview, fake-door, concierge, landing page, data analysis) to validate before building — not 'build the MVP'.",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "value-viability-emphasis",
+      "description": "Gives real weight to Value and Viability risks (e.g. will users actually engage/share; does it fit the business) rather than over-indexing on feasibility.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "test-sequence",
+      "description": "Recommends an order to test assumptions (what to check first and why) rather than treating them equally.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

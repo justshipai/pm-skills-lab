@@ -1,0 +1,41 @@
+{
+  "criteria": [
+    {
+      "id": "single-outcome-root",
+      "description": "Anchors the tree on a single, measurable outcome (grow paid conversions) as the root, not a feature or a list of goals.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "opportunity-layer",
+      "description": "Inserts an opportunity layer of user needs/pains phrased in the user's voice (derived from the quotes) BETWEEN the outcome and the solutions, rather than going straight to features.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "solutions-attach-to-opportunities",
+      "description": "Maps solutions (incl. the team's existing ideas) to specific opportunities, rather than listing features against the outcome directly.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "experiments",
+      "description": "Attaches a cheap experiment/test to promising solutions to validate them before building.",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "evidence-grounding",
+      "description": "Grounds opportunities in the provided evidence and/or flags which are assumptions to validate.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "recommended-path",
+      "description": "Recommends which opportunity to pursue first with a rationale (impact on the outcome × evidence), rather than treating all ideas equally.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

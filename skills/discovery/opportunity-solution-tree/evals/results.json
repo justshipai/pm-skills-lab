@@ -1,0 +1,43 @@
+{
+  "skill": "skills/discovery/opportunity-solution-tree",
+  "run_at": "2026-06-05 11:36 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.318,
+      "treatment_score": 1.0,
+      "lift": 0.682,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "single-outcome-root": {
+          "verdict": "pass",
+          "why": "Tree is explicitly anchored on a single measurable outcome \u2014 free-to-paid conversion rate \u2014 stated as the root with supporting metrics defined. Not a feature or list of goals."
+        },
+        "opportunity-layer": {
+          "verdict": "pass",
+          "why": "Four distinct opportunities are inserted between the outcome and solutions, all phrased in first-person user voice ('I don't understand why paying is worth it', 'The features I'd pay for are hard to find', etc.), clearly derived from the provided quotes."
+        },
+        "solutions-attach-to-opportunities": {
+          "verdict": "pass",
+          "why": "Every solution (including team ideas like onboarding tutorial, AI background removal, referral program, cheaper tier) is nested under a specific opportunity node, not listed directly against the outcome."
+        },
+        "experiments": {
+          "verdict": "pass",
+          "why": "Every solution has an explicit, cheap experiment attached \u2014 A/B tests, fake-door tests, prototype tests, manual email cohorts \u2014 with metrics and scope specified."
+        },
+        "evidence-grounding": {
+          "verdict": "pass",
+          "why": "Each opportunity is tagged with either a direct quote or flagged as an assumption with \u26a0 symbol. Opportunity 4 is explicitly called out as having no quote support, demonstrating disciplined evidence hygiene."
+        },
+        "recommended-path": {
+          "verdict": "pass",
+          "why": "Clear recommendation to start with Opportunity 1a / Solution 1a-1, with explicit rationale table covering evidence strength, impact, cost, and reversibility. Sequencing guidance for subsequent opportunities is also provided."
+        }
+      }
+    }
+  ]
+}

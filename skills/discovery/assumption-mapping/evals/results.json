@@ -1,0 +1,43 @@
+{
+  "skill": "skills/discovery/assumption-mapping",
+  "run_at": "2026-06-05 11:38 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.667,
+      "treatment_score": 1.0,
+      "lift": 0.333,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "four-risks-covered": {
+          "verdict": "pass",
+          "why": "The output explicitly addresses all four product risks \u2014 Value (V1\u2013V5), Usability (U1\u2013U3), Feasibility (F1\u2013F4), and Viability (Vi1\u2013Vi5) \u2014 with dedicated sections and multiple assumptions under each."
+        },
+        "falsifiable-assumptions": {
+          "verdict": "pass",
+          "why": "Every assumption is written as 'We assume that\u2026' with specific, testable conditions. The leap-of-faith table even includes explicit 'what would change our mind' thresholds (e.g., <15% tap rate, <20% users with 3+ friends, \u226530% negative reactions)."
+        },
+        "impact-evidence-prioritization": {
+          "verdict": "pass",
+          "why": "Each assumption is tagged with impact (H/M) \u00d7 evidence (L/M) ratings, and the leap-of-faith table explicitly filters to high-impact \u00d7 low-evidence assumptions, ranking them and explaining why they are the riskiest."
+        },
+        "cheapest-tests": {
+          "verdict": "pass",
+          "why": "Every riskiest assumption is paired with a specific cheap test: cohort data pull + churned user interviews, fake-door CTA A/B test, Figma mockup interviews, analytics query, 2-hour legal review, half-day internal audit, and a financial model. No 'build the MVP' suggestions."
+        },
+        "value-viability-emphasis": {
+          "verdict": "pass",
+          "why": "Value assumptions dominate the leap-of-faith list (4 of 7 top assumptions), and Viability gets three dedicated high-impact assumptions including unit economics, legal exposure, and social collapse risk. Feasibility is relatively de-emphasized, correctly so."
+        },
+        "test-sequence": {
+          "verdict": "pass",
+          "why": "A detailed weekly test sequence is provided with explicit ordering rationale: 'speed to kill the idea if wrong \u2192 cost to run \u2192 dependencies between tests,' with kill signals at each stage and clear logic for why V4 and V3 must come first."
+        }
+      }
+    }
+  ]
+}

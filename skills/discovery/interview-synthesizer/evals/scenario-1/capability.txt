@@ -1,0 +1,1 @@
+Synthesizing interviews into evidence-backed themes (each with verbatim quotes, source counts, and an honest strong/moderate/weak evidence-strength rating), separating behavior from opinion, extracting the underlying job/pains, flagging surprises and sample limits, and recommending next questions/experiments rather than jumping to features — instead of a flat summary.

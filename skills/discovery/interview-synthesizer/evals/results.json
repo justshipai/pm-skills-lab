@@ -1,0 +1,43 @@
+{
+  "skill": "skills/discovery/interview-synthesizer",
+  "run_at": "2026-06-05 11:34 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.727,
+      "treatment_score": 1.0,
+      "lift": 0.273,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "evidenced-themes": {
+          "verdict": "pass",
+          "why": "Each theme is anchored to specific verbatim quotes with source identifiers (O1-O6) and the behavioral observation is noted inline. Themes are organized by pattern, not generic narrative."
+        },
+        "evidence-strength": {
+          "verdict": "pass",
+          "why": "Every theme explicitly states source count (e.g., '3 of 5', '1 of 5') and a rated strength (Strong/Moderate/Weak) with reasoning. Weak themes are flagged as hypotheses."
+        },
+        "behavior-vs-opinion": {
+          "verdict": "pass",
+          "why": "Consistently distinguishes behaviors (batching, abandonment, outsourcing, fine incurred, photo-taking) from stated opinions ('I'd use anything...'), explicitly labeling the latter as weaker and calling out the hypothetical nature of O3's statement."
+        },
+        "job-not-feature": {
+          "verdict": "pass",
+          "why": "Jobs table frames underlying needs ('Stay compliant without thinking about it', 'Close out the week without it ruining it') rather than feature requests. Explicitly notes owners want the input problem solved, not dashboards."
+        },
+        "limits-and-bias": {
+          "verdict": "pass",
+          "why": "Dedicated sections on caveats and unknowns address N=5 limitations, unknown recruiting source, possible leading questions, missing demographic context, and unresolved follow-up stories."
+        },
+        "next-steps": {
+          "verdict": "pass",
+          "why": "Five specific next steps recommended\u2014shadowing, behavioral validation over intent surveys, follow-up interviews on specific stories\u2014none of which are build plans. Each is a research action or cheap experiment."
+        }
+      }
+    }
+  ]
+}

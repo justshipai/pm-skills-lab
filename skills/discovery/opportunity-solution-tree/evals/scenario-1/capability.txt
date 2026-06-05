@@ -1,0 +1,1 @@
+Building an Opportunity Solution Tree that inserts an evidence-grounded opportunity layer (user needs in the user's voice) between a single measurable outcome and the solutions, attaches the team's feature ideas to specific opportunities, ties solutions to cheap experiments, and recommends which opportunity to tackle first — rather than prioritizing the raw feature list directly.

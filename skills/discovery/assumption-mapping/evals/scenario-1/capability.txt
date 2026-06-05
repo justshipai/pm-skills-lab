@@ -1,0 +1,1 @@
+Surfacing an idea's assumptions across all four product risks (Value, Usability, Feasibility, Viability) as falsifiable statements, rating them by impact × evidence to identify the leap-of-faith assumptions, and pairing each with the cheapest test to run before building — rather than a generic risk list or jumping to build.

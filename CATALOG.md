@@ -26,13 +26,13 @@ The full roadmap — ~160 skills across 14 categories. `[x]` = authored & eval-r
 - [ ] `data-flywheel-design` — Feedback loops that improve the model
 - [ ] `responsible-ai-checklist` — Responsible-AI / red-team checklist
 
-## Discovery & customer research (0 / 20)
+## Discovery & customer research (4 / 20)
 
-- [ ] `interview-script` — Customer interview script (JTBD probing)
-- [ ] `interview-synthesizer` — Transcript → themes, JTBD, signal strength
-- [ ] `opportunity-solution-tree` — Build an OST (Teresa Torres)
+- [x] `interview-script` — Customer interview script (JTBD probing)
+- [x] `interview-synthesizer` — Transcript → themes, JTBD, signal strength
+- [x] `opportunity-solution-tree` — Build an OST (Teresa Torres)
 - [ ] `discovery-cadence-planner` — Continuous discovery cadence
-- [ ] `assumption-mapping` — Value / Usability / Feasibility / Viability
+- [x] `assumption-mapping` — Value / Usability / Feasibility / Viability
 - [ ] `assumption-prioritizer` — Impact × Risk → experiments
 - [ ] `survey-designer` — Question bank + bias checks
 - [ ] `survey-analyzer` — NPS/survey responses → sentiment + themes

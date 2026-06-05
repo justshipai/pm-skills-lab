@@ -1,0 +1,41 @@
+{
+  "criteria": [
+    {
+      "id": "past-behavior-anchored",
+      "description": "The bulk of the questions ask about specific PAST behavior (e.g. 'tell me about the last time you…') anchored to a real recent instance, rather than opinions or hypotheticals.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "non-leading",
+      "description": "Questions are open and non-leading — they do NOT smuggle in the proposed solution or invite agreement (no 'would you use…', 'do you think X would help', 'how often do you wish').",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "stated-learning-goal",
+      "description": "States what the research is trying to learn / the decision it informs, and the questions ladder to it.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "probes",
+      "description": "Includes follow-up probes to go deeper (e.g. 'what did you do next?', 'why did that matter?') rather than a flat one-pass list.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "no-pitching",
+      "description": "Avoids pitching/validating the AI auto-reply solution during discovery; any solution reaction is deferred/fenced to the end, not mixed into the behavioral questions.",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "workarounds-and-emotion",
+      "description": "Seeks the user's current workarounds and the emotional/trigger context, not just surface facts.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

@@ -1,0 +1,1 @@
+Producing a discovery interview script built on non-leading, past-behavior (JTBD/story-based) questions anchored to a specific recent experience, with a stated learning goal and probes — while avoiding leading, hypothetical, and solution-pitching questions — rather than a generic list that asks "would you use it?".

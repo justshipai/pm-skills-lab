@@ -1,0 +1,39 @@
+{
+  "skill": "skills/gtm/beachhead-segment",
+  "run_at": "2026-06-06 11:07 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": false,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 1.0,
+      "treatment_score": 1.0,
+      "lift": 0.0,
+      "treatment_passed": true,
+      "earns_place": false,
+      "treatment_verdicts": {
+        "rejects-broad": {
+          "verdict": "pass",
+          "why": "Explicitly and forcefully pushes back on the 'everyone' framing with four specific reasons (messaging, CAC, competition, word-of-mouth) and calls it 'a trap.' Scores it lowest in the table and dedicates a full section to rejecting it."
+        },
+        "criteria-based-choice": {
+          "verdict": "pass",
+          "why": "Uses a scored matrix with six explicit beachhead criteria (urgent pain, reachable, referenceable, big enough, winnable, leads to adjacent) applied consistently to all candidate segments, with rationale for each score and written justification for the winner on every criterion."
+        },
+        "concrete-segment": {
+          "verdict": "pass",
+          "why": "Picks 'Operations managers / BizOps leads at Series A\u2013C SaaS companies (50\u2013300 employees, US) building internal tools' \u2014 specific who (BizOps/RevOps lead), specific situation (3+ month engineering backlog of internal tool requests), specific company stage and size."
+        },
+        "expansion-path": {
+          "verdict": "pass",
+          "why": "Names two explicit next pins: mid-market ops teams (300\u20132,000 employees) and franchise/multi-location operators, with explanation of why each follows naturally from the beachhead win."
+        },
+        "says-no": {
+          "verdict": "pass",
+          "why": "Explicitly de-prioritizes all four runner-up segments (franchise operators, insurance agencies, enterprise IT, freelance designers) with specific reasons for each, and separately rejects the broad horizontal option with detailed reasoning."
+        }
+      }
+    }
+  ]
+}

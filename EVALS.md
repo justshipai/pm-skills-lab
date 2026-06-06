@@ -4,7 +4,7 @@ Every skill ships with a scenario eval. The harness (`scripts/run_evals.py`) run
 
 **Status key:** ✅ **verified** = the skill passes the rubric *and* beats the baseline. ➖ **no measurable lift** = the skill passes, but a strong base model already aces this scenario unaided — not a failure, just a task where one-shot lift can't show the skill's value (consistency across varied inputs). ❌ **not verified** = the with-skill output didn't pass the rubric.
 
-**38 verified · 13 no-lift (strong baseline) · 0 not verified · 51/56 run.**
+**41 verified · 15 no-lift (strong baseline) · 0 not verified · 56/56 run.**
 
 | Skill | Status | Baseline | With skill | Last run |
 |---|---|---|---|---|
@@ -45,11 +45,11 @@ Every skill ships with a scenario eval. The harness (`scripts/run_evals.py`) run
 | `growth-loop` | ✅ verified | 0.85 | 1.0 | 2026-06-05 16:23 UTC |
 | `referral-mechanic` | ✅ verified | 0.85 | 1.0 | 2026-06-05 16:27 UTC |
 | `retention-lifecycle` | ✅ verified | 0.8 | 1.0 | 2026-06-05 16:29 UTC |
-| `beachhead-segment` | ⏳ not yet run | – | – | – |
-| `gtm-strategy` | ⏳ not yet run | – | – | – |
-| `launch-tiering` | ⏳ not yet run | – | – | – |
-| `messaging-house` | ⏳ not yet run | – | – | – |
-| `pricing-packaging` | ⏳ not yet run | – | – | – |
+| `beachhead-segment` | ➖ no measurable lift (strong baseline) | 1.0 | 1.0 | 2026-06-06 11:07 UTC |
+| `gtm-strategy` | ➖ no measurable lift (strong baseline) | 1.0 | 1.0 | 2026-06-06 11:12 UTC |
+| `launch-tiering` | ✅ verified | 0.95 | 1.0 | 2026-06-06 11:09 UTC |
+| `messaging-house` | ✅ verified | 0.75 | 1.0 | 2026-06-06 11:14 UTC |
+| `pricing-packaging` | ✅ verified | 0.944 | 1.0 | 2026-06-06 11:05 UTC |
 | `competitive-battlecard` | ✅ verified | 0.95 | 1.0 | 2026-06-05 14:18 UTC |
 | `competitor-teardown` | ✅ verified | 0.95 | 1.0 | 2026-06-05 14:16 UTC |
 | `market-sizing` | ✅ verified | 0.9 | 1.0 | 2026-06-05 14:12 UTC |

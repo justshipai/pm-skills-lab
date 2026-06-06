@@ -1,0 +1,39 @@
+{
+  "skill": "skills/gtm/pricing-packaging",
+  "run_at": "2026-06-06 11:05 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.944,
+      "treatment_score": 1.0,
+      "lift": 0.056,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "value-based-not-cost-plus": {
+          "verdict": "pass",
+          "why": "Explicitly anchors pricing to recruiter labor saved ($300\u2013$800/role, $1,500\u2013$12,000/month), calls out the $3 infrastructure cost as the floor not the price, and directly argues against the $20 round-number with a detailed ROI framing and trust/signaling argument."
+        },
+        "value-metric": {
+          "verdict": "pass",
+          "why": "Systematically evaluates per-posting, flat, per-applicant, and per-seat options with a clear rationale table, selects per recruiter seat with explicit reasoning: scales with team size, expands naturally, intuitive to buyers."
+        },
+        "packaging-tiers": {
+          "verdict": "pass",
+          "why": "Designs three distinct tiers (Starter, Growth, Enterprise) with clearly named target buyers, feature differentiation, and seat-count boundaries for each. Includes who each tier is for and what features separate them."
+        },
+        "fences-anchoring": {
+          "verdict": "pass",
+          "why": "Provides a detailed fences table showing specific upgrade triggers (role caps, seat thresholds, integrations, compliance, SLA), explains anchoring via Enterprise-first positioning, and describes the natural expansion mechanic as teams grow."
+        },
+        "wtp-check": {
+          "verdict": "pass",
+          "why": "Explicitly recommends Van Westendorp survey with specific questions, flags competitor benchmarks as reference points, prescribes win/loss tracking with a target 20\u201330% pushback rate, and suggests annual vs. monthly uptake as a pricing signal."
+        }
+      }
+    }
+  ]
+}

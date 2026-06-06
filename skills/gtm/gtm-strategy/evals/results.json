@@ -1,0 +1,39 @@
+{
+  "skill": "skills/gtm/gtm-strategy",
+  "run_at": "2026-06-06 11:12 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": false,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 1.0,
+      "treatment_score": 1.0,
+      "lift": 0.0,
+      "treatment_passed": true,
+      "earns_place": false,
+      "treatment_verdicts": {
+        "motion-fit": {
+          "verdict": "pass",
+          "why": "Explicitly flags freemium/self-serve/TikTok as a mismatch with detailed reasoning tied to $120k ACV, multi-month implementation, and multi-stakeholder buying group. Recommends enterprise/field sales with structured POC and explains why each product signal demands it."
+        },
+        "channels-fit-motion": {
+          "verdict": "pass",
+          "why": "Recommends outbound ABM-style sales, industry events (ACAMS/ABA), compliance-focused content on LinkedIn/email, partnerships with consultants/integrators/law firms, and customer referrals. Explicitly excludes TikTok and viral channels. All channels align with reaching CCOs in enterprise context."
+        },
+        "icp-and-buying-group": {
+          "verdict": "pass",
+          "why": "Defines beachhead ICP as U.S. regional banks $5B\u2013$50B AUM with specific firmographic filters. Clearly identifies the 4-stakeholder buying group (CCO as champion, IT/CISO, Legal, Procurement) and distinguishes economic buyer from daily users. Recognizes no single self-serve user can drive a purchase."
+        },
+        "economics-check": {
+          "verdict": "pass",
+          "why": "Calculates allowable CAC ($30k\u2013$48k) from LTV:CAC ratio, estimates blended CAC at $14k\u2013$19k for a 2-AE team at 15\u201320 deals/year, confirms math works. Explicitly shows why PLG/freemium unit economics fail at this price point."
+        },
+        "message-and-metric": {
+          "verdict": "pass",
+          "why": "Provides explicit positioning statement anchored on exam readiness and regulatory change management. Defines primary GTM metric as sales-qualified pipeline per month with a milestone table (M1\u2013M6) including first POC by month 3, CAC payback, and supporting conversion metrics."
+        }
+      }
+    }
+  ]
+}

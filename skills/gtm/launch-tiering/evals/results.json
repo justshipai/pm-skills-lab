@@ -1,0 +1,39 @@
+{
+  "skill": "skills/gtm/launch-tiering",
+  "run_at": "2026-06-06 11:09 UTC",
+  "model": "claude-sonnet-4-6",
+  "judge_model": "claude-sonnet-4-6",
+  "verified": true,
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.95,
+      "treatment_score": 1.0,
+      "lift": 0.05,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "assigns-tier": {
+          "verdict": "pass",
+          "why": "Explicitly assigns T2 with a dedicated section, justifies why not T1 (no new capability, no UI, no pricing change) and why not T3 (fixes a top complaint, warrants real announcement)."
+        },
+        "tier-by-impact-not-effort-or-visibility": {
+          "verdict": "pass",
+          "why": "Directly flags the engineering-pride trap ('mismatch flag'), rejects T1 because there's no new user capability not because of effort, and rejects T3 explicitly because it fixes a top complaint at scale \u2014 impact-based reasoning throughout."
+        },
+        "right-sized-activities": {
+          "verdict": "pass",
+          "why": "Activities are proportionate to T2: in-app banner, short email, blog post, social posts, internal enablement. Explicitly lists what is NOT being done (press release, launch event, paid campaign, feature tour), avoiding both over- and under-launch."
+        },
+        "communicates-the-benefit": {
+          "verdict": "pass",
+          "why": "Consistently frames around user outcome ('data now updates in near-real time,' 'was 5 min, now instant,' 'You asked for faster sync. We listened.') and explicitly warns against leading with architecture jargon."
+        },
+        "owners-or-risk": {
+          "verdict": "pass",
+          "why": "Provides a detailed owners/timeline table with named roles and days-relative timing, plus a thorough risk overlay covering staged rollout, rollback plan, support pre-brief as blocker, copy honesty, and post-launch retention monitoring."
+        }
+      }
+    }
+  ]
+}

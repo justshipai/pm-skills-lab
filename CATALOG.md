@@ -145,19 +145,19 @@ The full roadmap — ~160 skills across 14 categories. `[x]` = authored & eval-r
 - [x] `metric-drop-diagnoser` — Anomaly diagnosis
 - [ ] `willingness-to-pay` — Van Westendorp WTP analysis
 
-## Go-to-market & launch (0 / 11)
+## Go-to-market & launch (5 / 10)
 
-- [ ] `gtm-strategy` — Channels, messaging, motion
-- [ ] `launch-tiering` — T1/T2/T3 + plan
+- [x] `gtm-strategy` — Motion-fit GTM (PLG / sales-led), ICP, channels, message
+- [x] `pricing-packaging` — Value-based pricing & good-better-best packaging
+- [x] `beachhead-segment` — Pick one narrow, winnable beachhead market
+- [x] `launch-tiering` — Tier the launch (T1/T2/T3) and right-size effort
+- [x] `messaging-house` — Core message + benefit pillars + proof + per-audience
 - [ ] `launch-checklist` — Launch readiness checklist
-- [ ] `beachhead-segment` — Beachhead segment selection
 - [ ] `icp-definition` — Ideal customer profile
-- [ ] `positioning-statement` — April Dunford style
-- [ ] `messaging-house` — Value-prop ladder
 - [ ] `release-notes` — Release notes / changelog
 - [ ] `enablement-kit` — Internal launch brief / enablement
-- [ ] `press-release-faq` — Working-backwards PR + FAQ
-- [ ] `pricing-packaging` — Pricing & packaging design
+
+_Related, built elsewhere: `positioning-statement` (Market & competitive); `working-backwards` PR/FAQ (Strategy & vision)._
 
 ## Growth (5 / 7)
 

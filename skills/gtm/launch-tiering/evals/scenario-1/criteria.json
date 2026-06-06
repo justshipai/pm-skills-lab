@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "assigns-tier",
+      "description": "Assigns a launch tier (T1/T2/T3 or equivalent) rather than just describing activities, and justifies it.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "tier-by-impact-not-effort-or-visibility",
+      "description": "Tiers by user/business IMPACT (fixes a top complaint, makes the product feel faster) rather than by engineering effort/pride or by the fact that it's invisible — i.e. recognizes it warrants a real announcement despite no new UI.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "right-sized-activities",
+      "description": "Right-sizes the launch activities/channels to the chosen tier rather than a generic or full-blown plan.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "communicates-the-benefit",
+      "description": "Frames the launch around the user benefit (faster, near-real-time, the complaint resolved) so an invisible change is made visible — not just 'we re-architected sync'.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "owners-or-risk",
+      "description": "Notes owners/timeline appropriate to the tier and/or a rollback/risk consideration for an infra change.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "single-core-message",
+      "description": "Defines one core message (roof) in customer-benefit terms, not a tagline/slogan or multiple competing 'main' messages.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "benefit-pillars-not-features",
+      "description": "Provides 2-4 benefit-led pillars that support the core message, rather than feature names as pillars.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "proof-per-pillar",
+      "description": "Backs each pillar with proof/evidence (the construction features — Gantt, RFIs, daily logs, etc. — appear here as proof, not as the message).",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "per-audience",
+      "description": "Translates the messaging for different audiences (e.g. project manager, foreman/field, owner/exec) rather than one-size-fits-all.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "usable-architecture",
+      "description": "Produces a reusable architecture the whole company can pull from, not just a single new tagline.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

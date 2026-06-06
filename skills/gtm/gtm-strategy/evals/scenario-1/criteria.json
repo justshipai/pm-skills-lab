@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "motion-fit",
+      "description": "Selects a sales motion that fits the product economics (high ACV, long implementation, multi-stakeholder → enterprise/field sales) and explicitly flags the proposed freemium/self-serve/TikTok approach as a mismatch.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "channels-fit-motion",
+      "description": "Recommends channels that fit the enterprise motion (ABM, outbound, partnerships, events, analyst relations) rather than the contradictory viral/TikTok channels.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "icp-and-buying-group",
+      "description": "Defines the ICP and recognizes the multi-stakeholder buying group (compliance, IT, legal, procurement), not a single self-serve user.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "economics-check",
+      "description": "Sanity-checks CAC vs. the $120k ACV / sales-cycle economics rather than ignoring acquisition cost.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "message-and-metric",
+      "description": "Anchors on a core message/positioning and a GTM metric/first milestone appropriate to the motion.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

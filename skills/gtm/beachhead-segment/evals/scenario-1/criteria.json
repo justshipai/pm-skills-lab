@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "rejects-broad",
+      "description": "Pushes back on the 'everyone / huge horizontal market' framing and argues for narrowing, rather than endorsing the broad market.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "criteria-based-choice",
+      "description": "Evaluates candidate segments against beachhead criteria (urgent pain, reachable, referenceable, size, winnability, leads-to-adjacent) rather than picking arbitrarily.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "concrete-segment",
+      "description": "Picks ONE concrete segment (specific who × situation), not a vague label like 'small businesses' or 'developers'.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "expansion-path",
+      "description": "Names the adjacent segments the beachhead unlocks next (the expansion/bowling-pin path).",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "says-no",
+      "description": "Explicitly de-prioritizes the broad option and/or runner-up segments with reasons, rather than listing options without choosing.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

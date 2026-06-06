@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "id": "value-based-not-cost-plus",
+      "description": "Anchors pricing to the value delivered / the cost of the alternative (recruiter hours saved), explicitly pushing back on the cost-plus 'beats our $3 cost' / round-number reasoning.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "value-metric",
+      "description": "Chooses a value metric that scales price with value (e.g. seats, roles/jobs, applicants screened) rather than one flat fee for all.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "packaging-tiers",
+      "description": "Designs good-better-best (or similar) packaging with who each tier targets, rather than a single price.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "fences-anchoring",
+      "description": "Defines fences between tiers and/or uses anchoring (premium/enterprise tier) deliberately, and considers expansion.",
+      "weight": 1,
+      "required": false
+    },
+    {
+      "id": "wtp-check",
+      "description": "Checks or flags willingness-to-pay (survey/benchmark/validation) rather than assuming the numbers.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.7
+}

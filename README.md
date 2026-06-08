@@ -19,7 +19,7 @@ This is a **curated, maintained library** — the skills here are authored and h
 Two more commitments:
 
 - **Vendor-neutral and open.** No upsell, no paywall, no newsletter gate. MIT-licensed.
-- **Portable by default.** Built on the open [Agent Skills](https://agentskills.io/) standard, so skills work in Claude Code, Claude Cowork, Gemini CLI, Cursor, and Codex — not just one tool.
+- **Portable by default.** Built on the open [Agent Skills](https://agentskills.io/) standard, so skills work in Claude Code, Claude Cowork, Gemini CLI, Bolt, Cursor, and Codex — not just one tool.
 
 ## Launch wedge: skills for building AI products
 
@@ -63,15 +63,13 @@ skills/<category>/<skill-name>/
 
 The proof lives in the repo, not in a claim. [`scripts/run_evals.py`](./scripts/run_evals.py) runs each scenario **twice** — once with no skill (baseline) and once with `SKILL.md` supplied as the system prompt (treatment) — then an LLM judge scores both against `criteria.json`. A skill is **verified** when the treatment passes the rubric *and* beats the baseline on every scenario. Per-skill detail lands in `evals/RESULTS.md`; the roll-up is in [`EVALS.md`](./EVALS.md).
 
-It's deliberately simple — no Tessl, no service, no install. Just:
+It's deliberately simple. Just:
 
 ```sh
 export ANTHROPIC_API_KEY=sk-ant-...
 python3 scripts/run_evals.py                       # all skills
 python3 scripts/run_evals.py skills/specs/prd-generator   # one skill
 ```
-
-(The scenario format is inspired by [Tessl's scenario evals](https://docs.tessl.io/improving-your-skills/evaluate-skill-quality-using-scenarios), but you never need Tessl to use this repo.)
 
 ## Install (use a skill)
 
@@ -84,7 +82,7 @@ cp -r skills/ai-product/ai-feature-spec ~/.claude/skills/
 # Gemini CLI → ~/.gemini/skills/ · Cursor → .cursor/skills/ · Codex → .codex/skills/
 ```
 
-Claude then loads the skill automatically when your request matches its description, or you can invoke it explicitly. (No marketplace or plugin install required — grab exactly the skills you want.)
+Your chosen agent then loads the skill automatically when your request matches its description, or you can invoke it explicitly. (No marketplace or plugin install required — grab exactly the skills you want.)
 
 ## The skill catalog
 
@@ -109,10 +107,6 @@ The full roadmap lives in [`CATALOG.md`](./CATALOG.md) — ~160 skills across 14
 ## Contributing
 
 The library is actively maintained, but good skills from the community are very welcome — held to exactly the same eval bar as first-party ones. Read [CONTRIBUTING.md](./CONTRIBUTING.md). The short version: pick a skill from the catalog, scaffold it with `scripts/new-skill.sh`, write the `SKILL.md`, add a worked `EXAMPLE.md`, write a scenario eval, then run `python3 scripts/run_evals.py <skill>` and commit the `RESULTS.md` showing it beats the no-skill baseline. CI checks structure; the result file is the proof.
-
-## Credits & prior art
-
-Standing on the shoulders of the people who proved PM skills were worth packaging — [Paweł Huryn](https://github.com/phuryn/pm-skills), [Niko Vijayaratnam](https://github.com/nikovijay/pm-ai-skills-kit), and [Aman Khan](https://github.com/amanaiproduct/amans-skills) — and the PM thinkers whose frameworks these skills encode (Cagan, Torres, Martin, Savoia, Dunford, Biddle, Ulwick, and others). Design & AI-UX skills drew inspiration from the [AI UX Playground](https://www.aiuxplayground.com/). Eval format adapted from [Tessl](https://docs.tessl.io/).
 
 ## License
 

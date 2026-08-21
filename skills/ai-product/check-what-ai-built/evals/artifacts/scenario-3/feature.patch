@@ -1,0 +1,98 @@
+diff --git a/BRIEF.md b/BRIEF.md
+new file mode 100644
+index 0000000..1a7929a
+--- /dev/null
++++ b/BRIEF.md
+@@ -0,0 +1,5 @@
++# Feature request
++
++Improve global search performance by caching repeated searches. Search must include projects and documents from the current workspace only. When someone opens a result and returns, preserve their query and selected result type.
++
++Review the AI-generated feature commit against this request. Inspect the diff and implementation, run any useful checks and produce an evidence-backed ship decision for the product manager.
+diff --git a/demo.js b/demo.js
+new file mode 100644
+index 0000000..27827f3
+--- /dev/null
++++ b/demo.js
+@@ -0,0 +1,10 @@
++const { searchDocuments, clearCache } = require('./src/search');
++
++const documents = [
++  { id: 'b1', workspaceId: 'beacon', title: 'Renewal plan' },
++  { id: 'a1', workspaceId: 'acme', title: 'Renewal forecast' }
++];
++
++clearCache();
++console.log('Beacon:', searchDocuments(documents, 'beacon', 'renewal'));
++console.log('Acme:', searchDocuments(documents, 'acme', 'renewal'));
+diff --git a/package.json b/package.json
+new file mode 100644
+index 0000000..6f2b255
+--- /dev/null
++++ b/package.json
+@@ -0,0 +1 @@
++{"name":"tenant-search-fixture","private":true,"scripts":{"test":"node --test","demo":"node demo.js"}}
+diff --git a/src/search.js b/src/search.js
+new file mode 100644
+index 0000000..caeaefd
+--- /dev/null
++++ b/src/search.js
+@@ -0,0 +1,19 @@
++const cache = new Map();
++
++function searchDocuments(documents, workspaceId, query) {
++  const cacheKey = query.toLowerCase();
++  if (cache.has(cacheKey)) return cache.get(cacheKey);
++
++  const results = documents.filter(document =>
++    document.workspaceId === workspaceId &&
++    document.title.toLowerCase().includes(query.toLowerCase())
++  );
++  cache.set(cacheKey, results);
++  return results;
++}
++
++function clearCache() {
++  cache.clear();
++}
++
++module.exports = { searchDocuments, clearCache };
+diff --git a/src/searchNavigation.js b/src/searchNavigation.js
+new file mode 100644
+index 0000000..e4df537
+--- /dev/null
++++ b/src/searchNavigation.js
+@@ -0,0 +1,9 @@
++function openResult(state, resultId) {
++  return { page: 'result', resultId, previous: state };
++}
++
++function returnToSearch(openedResult) {
++  return { page: 'search', query: '', type: 'all' };
++}
++
++module.exports = { openResult, returnToSearch };
+diff --git a/test/search.test.js b/test/search.test.js
+new file mode 100644
+index 0000000..a1cded9
+--- /dev/null
++++ b/test/search.test.js
+@@ -0,0 +1,18 @@
++const test = require('node:test');
++const assert = require('node:assert/strict');
++const { searchDocuments, clearCache } = require('../src/search');
++const { openResult } = require('../src/searchNavigation');
++
++test('searches documents in the current workspace', () => {
++  clearCache();
++  const docs = [
++    { id: '1', workspaceId: 'beacon', title: 'Renewal plan' },
++    { id: '2', workspaceId: 'acme', title: 'Renewal forecast' }
++  ];
++  assert.deepEqual(searchDocuments(docs, 'beacon', 'renewal').map(x => x.id), ['1']);
++});
++
++test('opening a result records the previous search state', () => {
++  const state = { page: 'search', query: 'renewal', type: 'documents' };
++  assert.deepEqual(openResult(state, '1').previous, state);
++});

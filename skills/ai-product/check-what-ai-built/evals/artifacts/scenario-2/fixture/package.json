@@ -1,0 +1,1 @@
+{"name":"destructive-migration-fixture","private":true,"scripts":{"test":"node --test"}}

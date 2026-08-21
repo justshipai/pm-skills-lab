@@ -1,0 +1,11 @@
+{
+  "criteria": [
+    {"id":"correct-verdict","description":"Leads with Cannot verify because the artefacts required for a meaningful review are inaccessible.","weight":3,"required":true},
+    {"id":"intent-contract","description":"Extracts admin-only access, 50-address limit, invalid-entry review and duplicate/existing-member suppression.","weight":3,"required":true},
+    {"id":"claim-scepticism","description":"Does not treat the agent's completion or green-test claims as evidence.","weight":3,"required":true},
+    {"id":"unverified-ledger","description":"Marks all material behaviours Unverified rather than Pass or Fail.","weight":3,"required":true},
+    {"id":"minimal-evidence-request","description":"Requests the smallest useful artefacts: accessible diff or PR, preview and actual focused test results, prioritising authorisation and duplicates.","weight":2,"required":false},
+    {"id":"no-speculation","description":"Does not invent implementation defects from missing evidence.","weight":1,"required":false}
+  ],
+  "pass_threshold": 0.8
+}

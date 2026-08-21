@@ -1,0 +1,1 @@
+{"name":"safe-export-fixture","private":true,"scripts":{"test":"node --test"}}

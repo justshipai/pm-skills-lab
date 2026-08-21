@@ -4,12 +4,12 @@ Every skill ships with a scenario eval. The harness (`scripts/run_evals.py`) run
 
 **Status key:** ✅ **verified** = the skill passes the rubric *and* beats the baseline. ➖ **no measurable lift** = the skill passes, but a strong base model already aces this scenario unaided — not a failure, just a task where one-shot lift can't show the skill's value (consistency across varied inputs). ❌ **not verified** = the with-skill output didn't pass the rubric.
 
-**41 verified · 15 no-lift (strong baseline) · 0 not verified · 56/56 run.**
+**42 verified · 15 no-lift (strong baseline) · 0 not verified · 57/57 run.**
 
 | Skill | Status | Baseline | With skill | Last run |
 |---|---|---|---|---|
 | `agent-capability-spec` | ➖ no measurable lift (strong baseline) | 1.0 | 1.0 | 2026-06-05 10:30 UTC |
-| `ai-feature-spec` | ✅ verified | 0.893 | 1.0 | 2026-06-05 10:33 UTC |
+| `ai-feature-spec` | ✅ verified | 0.893 | 1.0 | 2026-06-05 10:33 UTC |\n| `check-what-ai-built` | ✅ verified | 0.7647 | 1.0 | 2026-08-21 11:27 UTC |
 | `ai-prd` | ✅ verified | 0.731 | 1.0 | 2026-06-05 10:39 UTC |
 | `ai-pricing-model` | ✅ verified | 0.955 | 1.0 | 2026-06-05 10:42 UTC |
 | `eval-rubric-designer` | ✅ verified | 0.773 | 1.0 | 2026-06-05 10:44 UTC |

@@ -1,0 +1,50 @@
+{
+  "skill": "skills/ai-product/check-what-ai-built",
+  "run_at": "2026-08-21 11:27 UTC",
+  "model": "codex-session-default",
+  "judge_model": "codex-session-default",
+  "runner": "codex-forward-test",
+  "verified": true,
+  "methodology": "Fresh isolated agents received the same raw scenario. The baseline was instructed to use only the scenario; the treatment was explicitly given SKILL.md. A third agent judged anonymized outputs against criteria.json.",
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "baseline_score": 0.7647,
+      "treatment_score": 1.0,
+      "lift": 0.2353,
+      "baseline_passed": false,
+      "treatment_passed": true,
+      "earns_place": true,
+      "treatment_verdicts": {
+        "decisive-verdict": {
+          "verdict": "pass",
+          "why": "Leads with Not ready and directly ties the verdict to the observed active-project failure and destructive migration risk."
+        },
+        "intent-contract": {
+          "verdict": "pass",
+          "why": "Defines observable contract items for admin success, member denial, active-project and invoice eligibility, confirmation and cancellation, data preservation, tenant boundaries, and restore compatibility."
+        },
+        "evidence-ledger": {
+          "verdict": "pass",
+          "why": "Provides a complete Pass, Fail, and Unverified ledger, cites direct preview and test evidence, and does not treat absent tests or green CI as proof."
+        },
+        "permission-uncertainty": {
+          "verdict": "pass",
+          "why": "Explicitly distinguishes hiding the member action from server-side authorisation and marks endpoint enforcement unverified."
+        },
+        "migration-blast-radius": {
+          "verdict": "pass",
+          "why": "Identifies the migration as high-blast-radius scope drift that could archive all existing projects and highlights the absence of a rollback."
+        },
+        "minimal-next-actions": {
+          "verdict": "pass",
+          "why": "Gives a short ordered action list covering eligibility enforcement, migration correction and rollback, endpoint authorisation, non-deletion, cancellation, and restore verification."
+        },
+        "pm-readable": {
+          "verdict": "pass",
+          "why": "Presents the product consequences and decision-relevant evidence clearly without narrating files or dumping a generic checklist."
+        }
+      }
+    }
+  ]
+}

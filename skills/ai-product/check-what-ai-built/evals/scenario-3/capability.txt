@@ -1,0 +1,1 @@
+Makes a proportionate Ready with conditions decision with a bounded gap, owner and rollout boundary.

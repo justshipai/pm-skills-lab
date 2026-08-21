@@ -1,0 +1,1 @@
+Cross-checks a real database migration against archive and restore write semantics.

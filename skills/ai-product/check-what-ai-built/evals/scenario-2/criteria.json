@@ -1,0 +1,11 @@
+{
+  "criteria": [
+    {"id":"correct-verdict","description":"Leads with Ready to ship; direct evidence covers every critical contract item and no material unresolved risk is present.","weight":3,"required":true},
+    {"id":"intent-contract","description":"Covers optional categories, immutable transactional categories, persistence and current-user isolation.","weight":3,"required":true},
+    {"id":"evidence-ledger","description":"Maps each material contract item to Pass with the relevant preview, API or test evidence.","weight":3,"required":true},
+    {"id":"no-invented-blockers","description":"Does not manufacture requirements, demand generic extra testing or downgrade the verdict merely because absolute certainty is impossible.","weight":3,"required":true},
+    {"id":"risk-proportionality","description":"Recognises that tenant isolation, immutable transactional categories and persistence have been directly tested and treats the remaining risk as bounded.","weight":2,"required":false},
+    {"id":"pm-readable","description":"Explains the decision in concise product language rather than narrating code files.","weight":1,"required":false}
+  ],
+  "pass_threshold": 0.8
+}

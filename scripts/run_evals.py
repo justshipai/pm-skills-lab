@@ -331,7 +331,7 @@ def main(argv):
 
     if args.dashboard_only:
         for s in discover_skills():
-            rj = s / "evals" / "results.json"
+            artifact_rj = s / "evals" / "artifacts" / "results.json"\n            rj = artifact_rj if artifact_rj.exists() else s / "evals" / "results.json"
             if rj.exists():
                 write_results_md(s, json.loads(rj.read_text(encoding="utf-8")))
         regenerate_dashboard(); return 0

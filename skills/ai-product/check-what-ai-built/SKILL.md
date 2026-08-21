@@ -81,6 +81,8 @@ Review adjacent risks proportional to the change:
 - responsive, loading, empty, error and accessibility states
 - monitoring, failure visibility and rollback
 
+For migrations and data-state changes, cross-check the schema against every application write path. Compare nullability, defaults and backfills with create, update, archive, delete and restore behaviour. A helper-level test does not prove database compatibility if it never executes the real constraint or migration. When feasible, run the migration against representative existing data and exercise the reverse or restore path.
+
 Prioritise plausible material failures. Avoid dumping a generic QA checklist.
 
 ## Make the decision

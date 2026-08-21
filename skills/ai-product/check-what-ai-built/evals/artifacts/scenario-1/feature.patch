@@ -1,0 +1,94 @@
+diff --git a/BRIEF.md b/BRIEF.md
+new file mode 100644
+index 0000000..6353c5d
+--- /dev/null
++++ b/BRIEF.md
+@@ -0,0 +1,5 @@
++# Feature request
++
++Workspace admins can select several inactive projects and archive them after confirmation. Members must not be able to archive projects. Active projects and projects with unpaid invoices cannot be archived. Archiving must not delete project data and the existing single-project archive behaviour must remain unchanged.
++
++Review the AI-generated feature commit against this request. Inspect the diff and implementation, run any useful checks and produce an evidence-backed ship decision for the product manager.
+diff --git a/package.json b/package.json
+new file mode 100644
+index 0000000..207c3bd
+--- /dev/null
++++ b/package.json
+@@ -0,0 +1 @@
++{"name":"permission-bug-fixture","private":true,"scripts":{"test":"node --test"}}
+diff --git a/src/bulkArchiveUi.js b/src/bulkArchiveUi.js
+new file mode 100644
+index 0000000..87ad52b
+--- /dev/null
++++ b/src/bulkArchiveUi.js
+@@ -0,0 +1,5 @@
++function canSeeBulkArchive(actor) {
++  return actor.role === 'admin';
++}
++
++module.exports = { canSeeBulkArchive };
+diff --git a/src/projects.js b/src/projects.js
+new file mode 100644
+index 0000000..e31ad15
+--- /dev/null
++++ b/src/projects.js
+@@ -0,0 +1,22 @@
++function archiveProject(actor, project) {
++  if (actor.role !== 'admin') throw new Error('forbidden');
++  if (project.status === 'active') throw new Error('active_project');
++  if (project.unpaidInvoice) throw new Error('unpaid_invoice');
++  return { ...project, archivedAt: '2026-08-21T00:00:00Z' };
++}
++
++function bulkArchiveProjects(actor, projects, selectedIds, confirmed) {
++  if (!confirmed) return projects;
++
++  const selected = projects.filter(project => selectedIds.includes(project.id));
++  if (selected.some(project => project.unpaidInvoice)) {
++    throw new Error('unpaid_invoice');
++  }
++
++  const archivedAt = '2026-08-21T00:00:00Z';
++  return projects.map(project =>
++    selectedIds.includes(project.id) ? { ...project, archivedAt } : project
++  );
++}
++
++module.exports = { archiveProject, bulkArchiveProjects };
+diff --git a/test/projects.test.js b/test/projects.test.js
+new file mode 100644
+index 0000000..bc05ef1
+--- /dev/null
++++ b/test/projects.test.js
+@@ -0,0 +1,31 @@
++const test = require('node:test');
++const assert = require('node:assert/strict');
++const { archiveProject, bulkArchiveProjects } = require('../src/projects');
++
++test('an admin can archive an inactive project', () => {
++  const project = { id: 'p1', status: 'inactive', unpaidInvoice: false };
++  assert.ok(archiveProject({ role: 'admin' }, project).archivedAt);
++});
++
++test('a member cannot archive a project', () => {
++  const project = { id: 'p1', status: 'inactive', unpaidInvoice: false };
++  assert.throws(() => archiveProject({ role: 'member' }, project), /forbidden/);
++});
++
++test('an admin can bulk archive inactive projects after confirmation', () => {
++  const projects = [
++    { id: 'p1', status: 'inactive', unpaidInvoice: false, name: 'Alpha' },
++    { id: 'p2', status: 'inactive', unpaidInvoice: false, name: 'Beta' }
++  ];
++  const result = bulkArchiveProjects({ role: 'admin' }, projects, ['p1', 'p2'], true);
++  assert.ok(result.every(project => project.archivedAt));
++  assert.equal(result[0].name, 'Alpha');
++});
++
++test('bulk archive rejects projects with unpaid invoices', () => {
++  const projects = [{ id: 'p1', status: 'inactive', unpaidInvoice: true }];
++  assert.throws(
++    () => bulkArchiveProjects({ role: 'admin' }, projects, ['p1'], true),
++    /unpaid_invoice/
++  );
++});

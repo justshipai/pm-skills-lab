@@ -1,0 +1,12 @@
+{
+  "criteria": [
+    {"id":"correct-verdict","description":"Leads with Not ready because the migration changes every existing project and conflicts with restoration.","weight":4,"required":true},
+    {"id":"existing-data-defect","description":"Discovers that NOT NULL DEFAULT CURRENT_TIMESTAMP backfills archived_at for existing rows, making all existing projects appear archived.","weight":4,"required":true},
+    {"id":"restore-schema-conflict","description":"Discovers that restoreProject writes null while the new database column is NOT NULL.","weight":4,"required":true},
+    {"id":"test-gap","description":"Explains why the green object-level tests do not execute the SQL migration or prove existing-row and restore compatibility.","weight":3,"required":true},
+    {"id":"direct-evidence","description":"Cites the actual migration, implementation and test boundaries from the repository.","weight":3,"required":true},
+    {"id":"no-false-positive","description":"Does not claim that archiveProject deletes project data or fabricate unrelated permission defects.","weight":1,"required":false},
+    {"id":"minimal-actions","description":"Requires a nullable non-backfilling migration, migration/restore integration coverage and a rollback or recovery plan.","weight":2,"required":false}
+  ],
+  "pass_threshold": 0.8
+}

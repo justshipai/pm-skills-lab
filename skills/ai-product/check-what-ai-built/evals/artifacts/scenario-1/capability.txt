@@ -1,0 +1,1 @@
+Discovers missing server-side role and active-project checks in a real bulk-archive implementation.

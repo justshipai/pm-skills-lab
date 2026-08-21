@@ -1,0 +1,11 @@
+{
+  "criteria": [
+    {"id":"correct-verdict","description":"Leads with Ready to ship because direct evidence covers the behavioural invariants and no material unresolved risk exists.","weight":3,"required":true},
+    {"id":"intent-contract","description":"Covers ranges, disabled dates, locale formatting, keyboard behaviour, mobile layout and UTC storage.","weight":3,"required":true},
+    {"id":"evidence-ledger","description":"Maps every material invariant to the relevant preview, keyboard or integration-test evidence.","weight":3,"required":true},
+    {"id":"diff-size-discipline","description":"Does not treat 914 changed lines as a failure or blocker when the footprint is explained and product behaviour is evidenced.","weight":3,"required":true},
+    {"id":"regression-scope","description":"Recognises booking edit/cancellation coverage, dependency removal and absence of unrelated high-risk changes.","weight":2,"required":false},
+    {"id":"no-generic-checklist","description":"Avoids inventing broad extra QA requirements unrelated to the evidence.","weight":1,"required":false}
+  ],
+  "pass_threshold": 0.8
+}

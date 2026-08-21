@@ -1,5 +1,16 @@
 # Eval results — `check-what-ai-built`
 
+## Evaluation layers
+
+| Suite | What the agent receives | Baseline | With skill | Result |
+|---|---|---:|---:|---|
+| [End-to-end artifact](./artifacts/RESULTS.md) | Original brief plus executable AI-generated implementation | 0.9822 | 1.0000 | ✅ 4/4 pass |
+| Supplied-evidence reasoning | Brief plus an implementation evidence packet | 0.9344 | 1.0000 | ✅ 8/8 pass |
+
+The artifact suite is the stronger product proof: the agent must create the evidence by inspecting and running the implementation. The reasoning suite isolates the quality of the final acceptance decision once evidence is available.
+
+## Supplied-evidence reasoning results
+
 - **Run:** 2026-08-21 15:13 UTC
 - **Model under test:** Codex session default
 - **Judging:** two independent blinded Codex judges

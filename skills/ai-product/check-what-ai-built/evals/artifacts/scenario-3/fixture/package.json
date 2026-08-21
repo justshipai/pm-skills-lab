@@ -1,0 +1,1 @@
+{"name":"tenant-search-fixture","private":true,"scripts":{"test":"node --test","demo":"node demo.js"}}

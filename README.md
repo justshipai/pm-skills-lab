@@ -10,7 +10,7 @@
 
 Most PM skill libraries are *"trust me, here's a markdown file."* You can't tell which skills actually help and which just add words.
 
-**pm-skills-lab takes the opposite stance: every skill ships with a scenario eval that compares the task _with and without_ the skill, then grades both against a rubric.** The default in-repo harness automates the comparison; alternative controlled runners must document their method in the skill’s results. A skill earns the **verified** mark only when the with-skill run beats the no-skill baseline. Results are published in [`EVALS.md`](./EVALS.md) — so "it works" is a number you can check, not a claim you have to trust.
+**pm-skills-lab takes the opposite stance: every skill ships with a scenario eval that compares the task _with and without_ the skill, then grades both against a rubric.** The default in-repo harness automates the comparison; alternative controlled runners must document their method in the skill’s results. A skill earns the **verified** mark only when the with-skill run passes every scenario and improves the aggregate score over the no-skill baseline. Results are published in [`EVALS.md`](./EVALS.md) — so "it works" is a number you can check, not a claim you have to trust.
 
 > **Status:** 57 skills authored across 11 categories. All 57 have been evaluated: **42 verified, 15 no measurable lift (strong baseline), 0 failed**. Live status and per-criterion detail are in [`EVALS.md`](./EVALS.md).
 
@@ -28,7 +28,7 @@ The deepest, most battle-tested category in the lab is **AI-product PM** — the
 | Skill | What it does |
 |---|---|
 | [`ai-feature-spec`](./skills/ai-product/ai-feature-spec/) | Specs an AI feature with an eval plan, guardrails, and graceful fallbacks baked in |
-| [`check-what-ai-built`](./skills/ai-product/check-what-ai-built/) | Checks whether an AI-built feature matches the product intent and is safe to ship |
+| [`check-what-ai-built`](./skills/ai-product/check-what-ai-built/) | Checks whether an AI-built feature matches the product intent and is safe to ship; validated on executable code fixtures |
 | [`ai-prd`](./skills/ai-product/ai-prd/) | Full AI PRD anchored on a model card, data strategy, and evaluation strategy |
 | [`llm-eval-set-designer`](./skills/ai-product/llm-eval-set-designer/) | Designs a runnable eval set (stratified cases + graders + bars), Hamel-style |
 | [`model-selection`](./skills/ai-product/model-selection/) | Eval-driven model/cost/latency/quality trade-off and recommendation |
@@ -62,7 +62,7 @@ skills/<category>/<skill-name>/
 
 ## Eval results
 
-The proof lives in the repo, not in a claim. The default runner, [`scripts/run_evals.py`](./scripts/run_evals.py), runs each scenario **twice** — once with no skill (baseline) and once with `SKILL.md` supplied as the system prompt (treatment) — then an LLM judge scores both against `criteria.json`. A skill is **verified** when the treatment passes the rubric *and* beats the baseline on every scenario. Per-skill detail, including the runner and method used, lands in `evals/RESULTS.md`; the roll-up is in [`EVALS.md`](./EVALS.md).
+The proof lives in the repo, not in a claim. `check-what-ai-built` also includes end-to-end artifact evals where agents receive an executable implementation rather than a pre-written evidence summary. The default runner, [`scripts/run_evals.py`](./scripts/run_evals.py), runs each scenario **twice** — once with no skill (baseline) and once with `SKILL.md` supplied as the system prompt (treatment) — then an LLM judge scores both against `criteria.json`. A skill is **verified** when the treatment passes every scenario and improves the aggregate score over the baseline. Per-skill detail, including the runner and method used, lands in `evals/RESULTS.md`; the roll-up is in [`EVALS.md`](./EVALS.md).
 
 It's deliberately simple. Just:
 

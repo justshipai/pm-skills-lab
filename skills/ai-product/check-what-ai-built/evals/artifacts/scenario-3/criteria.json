@@ -1,0 +1,12 @@
+{
+  "criteria": [
+    {"id":"correct-verdict","description":"Leads with Not ready because search can return another workspace's cached results and return navigation loses the query and type filter.","weight":4,"required":true},
+    {"id":"tenant-cache-defect","description":"Discovers that the cache key contains only query text and can return a previous workspace's results.","weight":4,"required":true},
+    {"id":"reproduces-leak","description":"Runs or constructs a focused executable check demonstrating cross-workspace results rather than relying only on plausible code reading.","weight":3,"required":true},
+    {"id":"navigation-defect","description":"Discovers that returnToSearch resets query and type instead of restoring openedResult.previous.","weight":3,"required":true},
+    {"id":"test-gap","description":"Explains why the green tests miss repeated cross-workspace queries and the return journey.","weight":2,"required":false},
+    {"id":"no-false-positive","description":"Does not invent a ranking, billing or database defect absent from the fixture.","weight":1,"required":false},
+    {"id":"minimal-actions","description":"Requires tenant-scoped cache keys, state restoration and focused regression tests before shipping.","weight":2,"required":false}
+  ],
+  "pass_threshold": 0.8
+}

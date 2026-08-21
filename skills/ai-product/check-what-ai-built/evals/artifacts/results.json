@@ -1,0 +1,238 @@
+{
+  "skill": "skills/ai-product/check-what-ai-built",
+  "suite": "end-to-end-artifact",
+  "run_at": "2026-08-21 16:28 UTC",
+  "model": "codex-session-default",
+  "judge_model": "two independent codex-session-default judges",
+  "runner": "blinded-codex-artifact-forward-test",
+  "verified": true,
+  "methodology": "Four executable fixture repositories contained an original brief and AI-generated implementation. Candidate agents inspected the actual commit and code and ran local checks; no evidence summary was supplied. Baselines used no skill. Treatments used the revised SKILL.md. Outputs were alternately blinded as A/B and scored by two judges against pre-authored rubrics.",
+  "limitations": [
+    "One model family was tested.",
+    "The fixtures are controlled and synthetic rather than production pull requests.",
+    "Candidate and judge threads were reused after unrelated tasks because the environment thread limit had been reached; none had access to these hidden rubrics or fixture-specific prior outputs.",
+    "Both judges were from the same model family as the candidates."
+  ],
+  "iteration": {
+    "finding": "The first treatment run missed that restoreProject writes null into a newly NOT NULL archived_at column.",
+    "change": "Added an explicit migration consistency check covering nullability, defaults, backfills and application write and restore paths.",
+    "outcome": "The revised skill passed all four artifact scenarios."
+  },
+  "summary": {
+    "scenarios": 4,
+    "baseline_average": 0.9822,
+    "treatment_average": 1,
+    "average_lift": 0.0178,
+    "baseline_pass_rate": 1,
+    "treatment_pass_rate": 1,
+    "critical_defects_found_with_skill": "5/5",
+    "correct_verdicts_with_skill": "4/4",
+    "judges": 2
+  },
+  "scenarios": [
+    {
+      "scenario": "scenario-1",
+      "description": "Bulk archive permission and eligibility defects",
+      "expected_verdict": "Not ready",
+      "baseline_score": 1,
+      "treatment_score": 1,
+      "lift": 0,
+      "baseline_passed": true,
+      "treatment_passed": true,
+      "earns_place": false,
+      "judge_scores": {
+        "judge-1": {
+          "baseline": 1,
+          "treatment": 1
+        },
+        "judge-2": {
+          "baseline": 1,
+          "treatment": 1
+        }
+      },
+      "treatment_verdicts": {
+        "correct-verdict": {
+          "verdict": "pass",
+          "why": "Leads Not ready because executable checks show both member bypass and active-project bulk archiving."
+        },
+        "permission-defect": {
+          "verdict": "pass",
+          "why": "Finds that bulkArchiveProjects ignores actor and distinguishes UI hiding from operation-level authorization."
+        },
+        "active-project-defect": {
+          "verdict": "pass",
+          "why": "Correctly identifies invoice-only bulk validation and reproduces archiving an active project."
+        },
+        "working-behaviour": {
+          "verdict": "pass",
+          "why": "Credits cancellation, invoice rejection, field preservation, and current single-project guard evidence while noting the absent baseline."
+        },
+        "direct-evidence": {
+          "verdict": "pass",
+          "why": "Uses the actual commit, code paths, four passing tests, and focused runtime probes."
+        },
+        "no-false-positive": {
+          "verdict": "pass",
+          "why": "Does not invent migration, deletion, or unrelated defects absent from the fixture."
+        },
+        "minimal-actions": {
+          "verdict": "pass",
+          "why": "Requires bulk role and active-state enforcement plus member, active, mixed-selection, and cancellation regressions."
+        }
+      }
+    },
+    {
+      "scenario": "scenario-2",
+      "description": "Destructive migration and restore-schema conflict",
+      "expected_verdict": "Not ready",
+      "baseline_score": 0.9286,
+      "treatment_score": 1,
+      "lift": 0.0714,
+      "baseline_passed": true,
+      "treatment_passed": true,
+      "earns_place": true,
+      "judge_scores": {
+        "judge-1": {
+          "baseline": 0.9524,
+          "treatment": 1
+        },
+        "judge-2": {
+          "baseline": 0.9048,
+          "treatment": 1
+        }
+      },
+      "treatment_verdicts": {
+        "correct-verdict": {
+          "verdict": "pass",
+          "why": "Leads Not ready because existing rows are endangered and the NOT NULL schema conflicts with restoration."
+        },
+        "existing-data-defect": {
+          "verdict": "pass",
+          "why": "Uses the exact DDL and a populated SQLite run to explain deployment failure or implicit archive timestamps."
+        },
+        "restore-schema-conflict": {
+          "verdict": "pass",
+          "why": "Explicitly marks restore as failing because the helper clears the timestamp while the schema forbids null."
+        },
+        "test-gap": {
+          "verdict": "pass",
+          "why": "Clearly explains that green object tests omit SQL migration, persistence, existing rows, and restored writes."
+        },
+        "direct-evidence": {
+          "verdict": "pass",
+          "why": "Grounds findings in the migration, helper code, unit-test boundary, SQLite execution, and focused probes."
+        },
+        "no-false-positive": {
+          "verdict": "pass",
+          "why": "Does not claim deletion and carefully labels authorization semantics while reporting the actual absent boundary."
+        },
+        "minimal-actions": {
+          "verdict": "pass",
+          "why": "Requires a nullable non-backfilling migration, real database archive/restore tests, and safe reverse or recovery testing."
+        }
+      }
+    },
+    {
+      "scenario": "scenario-3",
+      "description": "Cross-workspace search cache leak and lost state",
+      "expected_verdict": "Not ready",
+      "baseline_score": 1,
+      "treatment_score": 1,
+      "lift": 0,
+      "baseline_passed": true,
+      "treatment_passed": true,
+      "earns_place": false,
+      "judge_scores": {
+        "judge-1": {
+          "baseline": 1,
+          "treatment": 1
+        },
+        "judge-2": {
+          "baseline": 1,
+          "treatment": 1
+        }
+      },
+      "treatment_verdicts": {
+        "correct-verdict": {
+          "verdict": "pass",
+          "why": "Leads Not ready for the reproduced cross-workspace cache leak and discarded query and type state."
+        },
+        "tenant-cache-defect": {
+          "verdict": "pass",
+          "why": "Finds the normalized-query-only shared key and explains why workspace filtering occurs only on a miss."
+        },
+        "reproduces-leak": {
+          "verdict": "pass",
+          "why": "Runs the committed demo and focused reverse-order checks demonstrating cross-workspace results."
+        },
+        "navigation-defect": {
+          "verdict": "pass",
+          "why": "Shows returnToSearch ignores the stored previous state and resets query and type."
+        },
+        "test-gap": {
+          "verdict": "pass",
+          "why": "Explains that two green tests cover only a cold search and openResult, not tenant cache reuse or return."
+        },
+        "no-false-positive": {
+          "verdict": "pass",
+          "why": "Does not invent ranking, billing, or database defects; additional cache risks are accurately bounded as unspecified."
+        },
+        "minimal-actions": {
+          "verdict": "pass",
+          "why": "Requires workspace-scoped cache entries, authorization on hits, state restoration, and focused regression tests."
+        }
+      }
+    },
+    {
+      "scenario": "scenario-4",
+      "description": "Safe filtered CSV export",
+      "expected_verdict": "Ready to ship",
+      "baseline_score": 1,
+      "treatment_score": 1,
+      "lift": 0,
+      "baseline_passed": true,
+      "treatment_passed": true,
+      "earns_place": false,
+      "judge_scores": {
+        "judge-1": {
+          "baseline": 1,
+          "treatment": 1
+        },
+        "judge-2": {
+          "baseline": 1,
+          "treatment": 1
+        }
+      },
+      "treatment_verdicts": {
+        "correct-verdict": {
+          "verdict": "pass",
+          "why": "Leads Ready to ship and ties it to complete direct evidence with no material scope drift."
+        },
+        "complete-contract": {
+          "verdict": "pass",
+          "why": "Its contract and ledger cover every required permission, filtering, CSV, empty-result, and invariance item."
+        },
+        "direct-evidence": {
+          "verdict": "pass",
+          "why": "Cites the feature diff, implementation paths, all six passing tests, and focused checks."
+        },
+        "permission-and-filtering": {
+          "verdict": "pass",
+          "why": "Credits the early role guard and direct status/from/to filter evidence."
+        },
+        "csv-safety": {
+          "verdict": "pass",
+          "why": "Correctly recognizes structural CSV escaping and formula neutralization for direct and control-prefixed inputs."
+        },
+        "no-invented-blockers": {
+          "verdict": "pass",
+          "why": "Introduces no generic release gates or requirements outside the brief."
+        },
+        "no-false-positive": {
+          "verdict": "pass",
+          "why": "Accurately states the exporter does not mutate transactions or change filter behavior."
+        }
+      }
+    }
+  ]
+}

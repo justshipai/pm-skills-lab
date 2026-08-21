@@ -1,48 +1,403 @@
 {
   "skill": "skills/ai-product/check-what-ai-built",
-  "run_at": "2026-08-21 11:27 UTC",
+  "run_at": "2026-08-21 15:13 UTC",
   "model": "codex-session-default",
-  "judge_model": "codex-session-default",
-  "runner": "codex-forward-test",
+  "judge_model": "two independent codex-session-default judges",
+  "runner": "blinded-codex-forward-test",
   "verified": true,
-  "methodology": "Fresh isolated agents received the same raw scenario. The baseline was instructed to use only the scenario; the treatment was explicitly given SKILL.md. A third agent judged anonymized outputs against criteria.json.",
+  "methodology": "For each of eight pre-authored scenarios, fresh isolated agents received the same raw task. The baseline received no skill; the treatment was explicitly supplied SKILL.md. Outputs were relabelled A/B with alternating assignment and independently scored by two fresh judges against the pre-authored criteria. Per-scenario scores are the mean of both judges.",
+  "limitations": [
+    "One model family was tested.",
+    "The scenarios are synthetic, although designed around realistic product acceptance risks.",
+    "Both judges were from the same model family as the candidates."
+  ],
+  "summary": {
+    "scenarios": 8,
+    "baseline_average": 0.9344,
+    "treatment_average": 1,
+    "average_lift": 0.0656,
+    "treatment_pass_rate": 1,
+    "correct_verdicts_with_skill": "8/8",
+    "judges": 2
+  },
   "scenarios": [
     {
       "scenario": "scenario-1",
-      "baseline_score": 0.7647,
-      "treatment_score": 1.0,
-      "lift": 0.2353,
-      "baseline_passed": false,
+      "description": "Bulk archive: permission and migration defects",
+      "expected_verdict": "Not ready",
+      "baseline_score": 0.9118,
+      "treatment_score": 1,
+      "lift": 0.0882,
+      "baseline_passed": true,
       "treatment_passed": true,
       "earns_place": true,
+      "judge_scores": {
+        "judge-1": {
+          "baseline": 0.9118,
+          "treatment": 1
+        },
+        "judge-2": {
+          "baseline": 0.9118,
+          "treatment": 1
+        }
+      },
       "treatment_verdicts": {
         "decisive-verdict": {
           "verdict": "pass",
-          "why": "Leads with Not ready and directly ties the verdict to the observed active-project failure and destructive migration risk."
+          "why": "Leads Not ready and directly cites the active-project failure and mass-archiving migration."
         },
         "intent-contract": {
           "verdict": "pass",
-          "why": "Defines observable contract items for admin success, member denial, active-project and invoice eligibility, confirmation and cancellation, data preservation, tenant boundaries, and restore compatibility."
+          "why": "Enumerates admin, member, eligibility, confirmation, retention, and restore outcomes."
         },
         "evidence-ledger": {
           "verdict": "pass",
-          "why": "Provides a complete Pass, Fail, and Unverified ledger, cites direct preview and test evidence, and does not treat absent tests or green CI as proof."
+          "why": "Explicit ledger assigns Pass, Fail, or Unverified with the supplied evidence for every material item."
         },
         "permission-uncertainty": {
           "verdict": "pass",
-          "why": "Explicitly distinguishes hiding the member action from server-side authorisation and marks endpoint enforcement unverified."
+          "why": "Clearly says hidden UI is not server-side authorization and marks endpoint enforcement unverified."
         },
         "migration-blast-radius": {
           "verdict": "pass",
-          "why": "Identifies the migration as high-blast-radius scope drift that could archive all existing projects and highlights the absence of a rollback."
+          "why": "Explains that the non-null default would archive all existing projects and notes the absent rollback."
         },
         "minimal-next-actions": {
           "verdict": "pass",
-          "why": "Gives a short ordered action list covering eligibility enforcement, migration correction and rollback, endpoint authorisation, non-deletion, cancellation, and restore verification."
+          "why": "Provides an ordered blocker-focused list covering migration, eligibility, permissions, restore, and cancellation."
         },
         "pm-readable": {
           "verdict": "pass",
-          "why": "Presents the product consequences and decision-relevant evidence clearly without narrating files or dumping a generic checklist."
+          "why": "States customer and operational consequences plainly and decision-first."
+        }
+      }
+    },
+    {
+      "scenario": "scenario-2",
+      "description": "Notification preferences: complete safe implementation",
+      "expected_verdict": "Ready to ship",
+      "baseline_score": 1,
+      "treatment_score": 1,
+      "lift": 0,
+      "baseline_passed": true,
+      "treatment_passed": true,
+      "earns_place": false,
+      "judge_scores": {
+        "judge-1": {
+          "baseline": 1,
+          "treatment": 1
+        },
+        "judge-2": {
+          "baseline": 1,
+          "treatment": 1
+        }
+      },
+      "treatment_verdicts": {
+        "correct-verdict": {
+          "verdict": "pass",
+          "why": "Leads Ready to ship and accurately states that all critical behaviors have direct evidence."
+        },
+        "intent-contract": {
+          "verdict": "pass",
+          "why": "Fully states optional controls, immutable transactional messages, persistence, and current-user isolation."
+        },
+        "evidence-ledger": {
+          "verdict": "pass",
+          "why": "The ledger assigns Pass with relevant direct evidence to each material requirement."
+        },
+        "no-invented-blockers": {
+          "verdict": "pass",
+          "why": "Treats the nullable-default question as non-blocking rather than manufacturing a release gate."
+        },
+        "risk-proportionality": {
+          "verdict": "pass",
+          "why": "Correctly treats residual default-semantics risk as low and bounded."
+        },
+        "pm-readable": {
+          "verdict": "pass",
+          "why": "Decision and product consequences are clearly summarized."
+        }
+      }
+    },
+    {
+      "scenario": "scenario-3",
+      "description": "CSV export: bounded analytics condition",
+      "expected_verdict": "Ready with conditions",
+      "baseline_score": 0.9667,
+      "treatment_score": 1,
+      "lift": 0.0333,
+      "baseline_passed": true,
+      "treatment_passed": true,
+      "earns_place": true,
+      "judge_scores": {
+        "judge-1": {
+          "baseline": 0.9333,
+          "treatment": 1
+        },
+        "judge-2": {
+          "baseline": 1,
+          "treatment": 1
+        }
+      },
+      "treatment_verdicts": {
+        "correct-verdict": {
+          "verdict": "pass",
+          "why": "Leads Ready with conditions for the pilot and keeps analytics as the GA gate."
+        },
+        "scope-aware-contract": {
+          "verdict": "pass",
+          "why": "Covers filters, authorization, empty/escaping behavior, analytics, and flag boundary."
+        },
+        "evidence-ledger": {
+          "verdict": "pass",
+          "why": "Explicitly marks export and authorization Pass and analytics Fail with strong evidence."
+        },
+        "proportionality": {
+          "verdict": "pass",
+          "why": "Allows the bounded internal pilot without presenting the feature as GA-ready."
+        },
+        "condition-owner": {
+          "verdict": "pass",
+          "why": "Names export_started, the feature owner, and the before-GA boundary."
+        },
+        "pm-readable": {
+          "verdict": "pass",
+          "why": "Decision-oriented and concise despite a structured report format."
+        }
+      }
+    },
+    {
+      "scenario": "scenario-4",
+      "description": "Bulk invitations: inaccessible evidence",
+      "expected_verdict": "Cannot verify",
+      "baseline_score": 0.8333,
+      "treatment_score": 1,
+      "lift": 0.1667,
+      "baseline_passed": true,
+      "treatment_passed": true,
+      "earns_place": true,
+      "judge_scores": {
+        "judge-1": {
+          "baseline": 0.8333,
+          "treatment": 1
+        },
+        "judge-2": {
+          "baseline": 0.8333,
+          "treatment": 1
+        }
+      },
+      "treatment_verdicts": {
+        "correct-verdict": {
+          "verdict": "pass",
+          "why": "Leads Cannot verify and grounds it in inaccessible artifacts."
+        },
+        "intent-contract": {
+          "verdict": "pass",
+          "why": "Fully extracts the admin journey, boundary, validation review, authorization, and suppression rules."
+        },
+        "claim-scepticism": {
+          "verdict": "pass",
+          "why": "Explicitly calls completion statements and summaries claims rather than evidence."
+        },
+        "unverified-ledger": {
+          "verdict": "pass",
+          "why": "Marks every material behavior Unverified with the precise missing evidence."
+        },
+        "minimal-evidence-request": {
+          "verdict": "pass",
+          "why": "Asks for accessible diff, focused test output, runnable preview, and prioritizes permissions and duplicates."
+        },
+        "no-speculation": {
+          "verdict": "pass",
+          "why": "Separates possible consequences from established facts and avoids alleging defects."
+        }
+      }
+    },
+    {
+      "scenario": "scenario-5",
+      "description": "Global search: tenant data leak",
+      "expected_verdict": "Not ready",
+      "baseline_score": 0.9465,
+      "treatment_score": 1,
+      "lift": 0.0535,
+      "baseline_passed": true,
+      "treatment_passed": true,
+      "earns_place": true,
+      "judge_scores": {
+        "judge-1": {
+          "baseline": 1,
+          "treatment": 1
+        },
+        "judge-2": {
+          "baseline": 0.8929,
+          "treatment": 1
+        }
+      },
+      "treatment_verdicts": {
+        "correct-verdict": {
+          "verdict": "pass",
+          "why": "Leads Not ready and prioritizes the tenant leak while also citing lost state."
+        },
+        "intent-contract": {
+          "verdict": "pass",
+          "why": "Covers project/document scope, current-workspace isolation, and query/filter restoration."
+        },
+        "direct-evidence": {
+          "verdict": "pass",
+          "why": "Treats both preview failures as decisive despite green CI and happy-path coverage."
+        },
+        "root-risk": {
+          "verdict": "pass",
+          "why": "Connects the query-only cache key to a credible tenant-boundary risk without asserting certainty."
+        },
+        "minimal-actions": {
+          "verdict": "pass",
+          "why": "Requires tenant-aware caching and authorization, state restoration, and focused regressions."
+        },
+        "pm-readable": {
+          "verdict": "pass",
+          "why": "Clearly explains disclosure and user-experience consequences."
+        }
+      }
+    },
+    {
+      "scenario": "scenario-6",
+      "description": "Pricing copy: billing and entitlement drift",
+      "expected_verdict": "Not ready",
+      "baseline_score": 0.9,
+      "treatment_score": 1,
+      "lift": 0.1,
+      "baseline_passed": true,
+      "treatment_passed": true,
+      "earns_place": true,
+      "judge_scores": {
+        "judge-1": {
+          "baseline": 0.9,
+          "treatment": 1
+        },
+        "judge-2": {
+          "baseline": 0.9,
+          "treatment": 1
+        }
+      },
+      "treatment_verdicts": {
+        "correct-verdict": {
+          "verdict": "pass",
+          "why": "Leads Not ready and directly cites both invariant violations and absent behavioral evidence."
+        },
+        "intent-contract": {
+          "verdict": "pass",
+          "why": "Captures both copy changes and the full plans, prices, discounts, and entitlements invariant."
+        },
+        "orphan-changes": {
+          "verdict": "pass",
+          "why": "Labels the discount and SSO mapping as undisclosed, high-blast-radius scope drift."
+        },
+        "evidence-ledger": {
+          "verdict": "pass",
+          "why": "Explicit ledger marks copy Pass, discount and entitlement Fail, and affected flows Unverified."
+        },
+        "minimal-actions": {
+          "verdict": "pass",
+          "why": "Orders reversion, diff confirmation, and focused billing/entitlement regression checks."
+        },
+        "pm-readable": {
+          "verdict": "pass",
+          "why": "Commercial and customer-access consequences are plainly stated."
+        }
+      }
+    },
+    {
+      "scenario": "scenario-7",
+      "description": "Revenue sharing: ambiguous high-risk intent",
+      "expected_verdict": "Not ready",
+      "baseline_score": 0.9166,
+      "treatment_score": 1,
+      "lift": 0.0834,
+      "baseline_passed": true,
+      "treatment_passed": true,
+      "earns_place": true,
+      "judge_scores": {
+        "judge-1": {
+          "baseline": 0.8333,
+          "treatment": 1
+        },
+        "judge-2": {
+          "baseline": 1,
+          "treatment": 1
+        }
+      },
+      "treatment_verdicts": {
+        "correct-verdict": {
+          "verdict": "pass",
+          "why": "Leads Not ready because public access and disclosure choices were never authorized."
+        },
+        "assumption-discipline": {
+          "verdict": "pass",
+          "why": "Separates the explicit Share button from undefined audience, auth, fields, expiry, and revocation decisions."
+        },
+        "risk-recognition": {
+          "verdict": "pass",
+          "why": "Clearly explains the permanent public exposure and why noindex is not access control."
+        },
+        "evidence-ledger": {
+          "verdict": "pass",
+          "why": "Distinguishes observed rendering and exposure from undefined policy and unverified security properties."
+        },
+        "decision-changing-question": {
+          "verdict": "pass",
+          "why": "Asks for decisions on audience, data fields, authentication model, expiry, and revocation."
+        },
+        "minimal-actions": {
+          "verdict": "pass",
+          "why": "Withholds shipping until access policy is settled, implemented, and tested."
+        }
+      }
+    },
+    {
+      "scenario": "scenario-8",
+      "description": "Date picker: large but evidenced safe change",
+      "expected_verdict": "Ready to ship",
+      "baseline_score": 1,
+      "treatment_score": 1,
+      "lift": 0,
+      "baseline_passed": true,
+      "treatment_passed": true,
+      "earns_place": false,
+      "judge_scores": {
+        "judge-1": {
+          "baseline": 1,
+          "treatment": 1
+        },
+        "judge-2": {
+          "baseline": 1,
+          "treatment": 1
+        }
+      },
+      "treatment_verdicts": {
+        "correct-verdict": {
+          "verdict": "pass",
+          "why": "Leads Ready to ship and emphasizes complete direct behavioral evidence."
+        },
+        "intent-contract": {
+          "verdict": "pass",
+          "why": "States every requested preserved behavior, including unchanged UTC storage."
+        },
+        "evidence-ledger": {
+          "verdict": "pass",
+          "why": "A complete ledger maps every invariant to its strongest supplied evidence."
+        },
+        "diff-size-discipline": {
+          "verdict": "pass",
+          "why": "Treats the large explained generated footprint proportionally and finds no scope drift."
+        },
+        "regression-scope": {
+          "verdict": "pass",
+          "why": "Recognizes adjacent booking tests, dependency removal, and no high-risk unrelated changes."
+        },
+        "no-generic-checklist": {
+          "verdict": "pass",
+          "why": "Recommends only normal release flow and invents no extra acceptance work."
         }
       }
     }

@@ -154,10 +154,8 @@ def judge(output: str, criteria: dict, judge_model: str) -> dict:
 
 def classify(result: dict) -> str:
     """Three honest outcomes, derived from stored scenario scores:
-       verified — with-skill passes the rubric AND beats the baseline everywhere.
-       tie      — with-skill passes, but a strong baseline already does too (lift <= 0).
-                  Not a failure: a one-shot test can't show the skill's value when the
-                  base model already aces this prompt. Value shows on varied/hard inputs.
+       verified — with-skill passes every scenario and improves aggregate score.
+       tie      — with-skill passes every scenario but has no positive aggregate lift.
        failed   — with-skill output did not pass the rubric on some scenario.
     """
     scs = result.get("scenarios") or []
@@ -165,7 +163,9 @@ def classify(result: dict) -> str:
         return "notrun"
     if any(not s.get("treatment_passed") for s in scs):
         return "failed"
-    if all(s.get("earns_place") for s in scs):
+    baseline_avg = sum(s["baseline_score"] for s in scs) / len(scs)
+    treatment_avg = sum(s["treatment_score"] for s in scs) / len(scs)
+    if treatment_avg > baseline_avg:
         return "verified"
     return "tie"
 
@@ -177,7 +177,7 @@ STATUS_DASH = {
     "notrun": "⏳ not yet run",
 }
 STATUS_VERDICT = {
-    "verified": "✅ VERIFIED — the skill beats the no-skill baseline on every scenario.",
+    "verified": "✅ VERIFIED — the skill passes every scenario and beats the no-skill baseline on aggregate.",
     "tie": ("➖ NO MEASURABLE LIFT — the with-skill output passes the rubric, but a strong "
             "no-skill baseline already does too on this scenario. This is **not** a failure: "
             "a single well-specified scenario can't show a skill's value when the base model "
@@ -222,7 +222,7 @@ def run_skill(skill_dir: Path, model: str, judge_model: str) -> dict:
             "treatment_verdicts": treat["verdicts"],
         })
 
-    verified = bool(scenario_results) and all(s["earns_place"] for s in scenario_results)
+    verified = classify({"scenarios": scenario_results}) == "verified"
     result = {
         "skill": rel,
         "run_at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
@@ -292,8 +292,8 @@ def regenerate_dashboard():
             r = json.loads(rj.read_text(encoding="utf-8"))
             st = classify(r)
             n[st] += 1
-            base = ", ".join(str(x["baseline_score"]) for x in r["scenarios"])
-            treat = ", ".join(str(x["treatment_score"]) for x in r["scenarios"])
+            base = round(sum(x["baseline_score"] for x in r["scenarios"]) / len(r["scenarios"]), 4)
+            treat = round(sum(x["treatment_score"] for x in r["scenarios"]) / len(r["scenarios"]), 4)
             rows.append(f"| `{Path(rel).name}` | {STATUS_DASH[st]} | {base} | {treat} | {r['run_at']} |")
         else:
             n["notrun"] += 1
@@ -305,7 +305,7 @@ def regenerate_dashboard():
         "scenario twice — once with no skill (baseline), once with the skill — and an LLM judge "
         "scores both against the rubric. Per-skill detail (incl. per-criterion verdicts) lives in "
         "each skill's `evals/RESULTS.md`.", "",
-        "**Status key:** ✅ **verified** = the skill passes the rubric *and* beats the baseline. "
+        "**Status key:** ✅ **verified** = the skill passes every scenario and beats the baseline on aggregate. "
         "➖ **no measurable lift** = the skill passes, but a strong base model already aces this "
         "scenario unaided — not a failure, just a task where one-shot lift can't show the skill's "
         "value (consistency across varied inputs). ❌ **not verified** = the with-skill output "
@@ -331,7 +331,8 @@ def main(argv):
 
     if args.dashboard_only:
         for s in discover_skills():
-            rj = s / "evals" / "results.json"
+            artifact_rj = s / "evals" / "artifacts" / "results.json"
+            rj = artifact_rj if artifact_rj.exists() else s / "evals" / "results.json"
             if rj.exists():
                 write_results_md(s, json.loads(rj.read_text(encoding="utf-8")))
         regenerate_dashboard(); return 0

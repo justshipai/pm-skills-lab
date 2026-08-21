@@ -1,0 +1,93 @@
+diff --git a/BRIEF.md b/BRIEF.md
+new file mode 100644
+index 0000000..bded3b3
+--- /dev/null
++++ b/BRIEF.md
+@@ -0,0 +1,5 @@
++# Feature request
++
++Let workspace admins export the transactions matching the active status and date filters as CSV. Members must not be able to export. The CSV must include id, date, status and description, escape spreadsheet-breaking values correctly and return a header-only file when there are no matches. Do not change the transaction data or existing filtering behaviour.
++
++Review the AI-generated feature commit against this request. Inspect the diff and implementation, run any useful checks and produce an evidence-backed ship decision for the product manager.
+diff --git a/src/exportTransactions.js b/src/exportTransactions.js
+new file mode 100644
+index 0000000..57f98d2
+--- /dev/null
++++ b/src/exportTransactions.js
+@@ -0,0 +1,19 @@
++const { filterTransactions } = require('./transactions');
++
++function csvCell(value) {
++  const text = String(value ?? '');
++  const spreadsheetSafe = /^[\t\r\n ]*[=+\-@]/.test(text) ? `'${text}` : text;
++  return /[",\t\r\n]/.test(spreadsheetSafe)
++    ? `"${spreadsheetSafe.replaceAll('"', '""')}"`
++    : spreadsheetSafe;
++}
++
++function exportTransactions(actor, transactions, filters) {
++  if (actor.role !== 'admin') throw new Error('forbidden');
++  const columns = ['id', 'date', 'status', 'description'];
++  const matching = filterTransactions(transactions, filters);
++  const lines = matching.map(transaction => columns.map(column => csvCell(transaction[column])).join(','));
++  return [columns.join(','), ...lines].join('\n');
++}
++
++module.exports = { csvCell, exportTransactions };
+diff --git a/test/transactions.test.js b/test/transactions.test.js
+index 545ec42..09c0f05 100644
+--- a/test/transactions.test.js
++++ b/test/transactions.test.js
+@@ -1,8 +1,52 @@
+ const test = require('node:test');
+ const assert = require('node:assert/strict');
+ const { filterTransactions } = require('../src/transactions');
++const { exportTransactions } = require('../src/exportTransactions');
+ 
+ test('filters transactions by status', () => {
+   const rows = [{ id: '1', status: 'paid', date: '2026-08-01' }, { id: '2', status: 'failed', date: '2026-08-02' }];
+   assert.deepEqual(filterTransactions(rows, { status: 'paid' }).map(x => x.id), ['1']);
+ });
++
++const rows = [
++  { id: '1', status: 'paid', date: '2026-08-01', description: 'Standard' },
++  { id: '2', status: 'failed', date: '2026-08-02', description: 'Needs, review' },
++  { id: '3', status: 'paid', date: '2026-09-01', description: 'Said "hello"' },
++  { id: '4', status: 'paid', date: '2026-09-02', description: '=IMPORTDATA("bad")' }
++];
++
++test('exports only transactions matching active status and date filters', () => {
++  const csv = exportTransactions({ role: 'admin' }, rows, { status: 'paid', to: '2026-08-31' });
++  assert.equal(csv, 'id,date,status,description\n1,2026-08-01,paid,Standard');
++});
++
++test('members cannot export', () => {
++  assert.throws(() => exportTransactions({ role: 'member' }, rows, {}), /forbidden/);
++});
++
++test('escapes commas, quotes and formula values', () => {
++  const csv = exportTransactions({ role: 'admin' }, rows, {});
++  assert.match(csv, /"Needs, review"/);
++  assert.match(csv, /"Said ""hello"""/);
++  assert.match(csv, /"'=IMPORTDATA\(""bad""\)"/);
++});
++
++test('neutralises control-prefixed formulas and quotes carriage returns', () => {
++  const csv = exportTransactions(
++    { role: 'admin' },
++    [
++      { id: '5', status: 'paid', date: '2026-09-03', description: '\t=1+1' },
++      { id: '6', status: 'paid', date: '2026-09-04', description: 'left\rright' }
++    ],
++    {}
++  );
++  assert.match(csv, /"'\t=1\+1"/);
++  assert.match(csv, /"left\rright"/);
++});
++
++test('returns headers when no rows match', () => {
++  assert.equal(
++    exportTransactions({ role: 'admin' }, rows, { status: 'refunded' }),
++    'id,date,status,description'
++  );
++});

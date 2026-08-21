@@ -1,0 +1,64 @@
+diff --git a/BRIEF.md b/BRIEF.md
+new file mode 100644
+index 0000000..1d637d3
+--- /dev/null
++++ b/BRIEF.md
+@@ -0,0 +1,5 @@
++# Feature request
++
++Add soft archiving for projects. Existing projects must remain active. An admin can archive an inactive project without deleting its data, and the project can later be restored. Do not change project visibility until a project is explicitly archived.
++
++Review the AI-generated feature commit against this request. Inspect the diff and implementation, run any useful checks and produce an evidence-backed ship decision for the product manager.
+diff --git a/db/002_project_archiving.sql b/db/002_project_archiving.sql
+new file mode 100644
+index 0000000..355a4a9
+--- /dev/null
++++ b/db/002_project_archiving.sql
+@@ -0,0 +1,2 @@
++ALTER TABLE projects
++  ADD COLUMN archived_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
+diff --git a/src/projects.js b/src/projects.js
+index a5b6af7..f3425fd 100644
+--- a/src/projects.js
++++ b/src/projects.js
+@@ -1,5 +1,17 @@
+ function createProject(id, name) {
+-  return { id, name };
++  return { id, name, archivedAt: null };
+ }
+ 
+-module.exports = { createProject };
++function archiveProject(project, now = '2026-08-21T00:00:00Z') {
++  return { ...project, archivedAt: now };
++}
++
++function restoreProject(project) {
++  return { ...project, archivedAt: null };
++}
++
++function visibleProjects(projects) {
++  return projects.filter(project => !project.archivedAt);
++}
++
++module.exports = { createProject, archiveProject, restoreProject, visibleProjects };
+diff --git a/test/projects.test.js b/test/projects.test.js
+index 0dce0aa..6cfaea3 100644
+--- a/test/projects.test.js
++++ b/test/projects.test.js
+@@ -1,7 +1,14 @@
+ const test = require('node:test');
+ const assert = require('node:assert/strict');
+-const { createProject } = require('../src/projects');
++const { createProject, archiveProject, restoreProject, visibleProjects } = require('../src/projects');
+ 
+ test('creates a project', () => {
+-  assert.deepEqual(createProject('p1', 'Alpha'), { id: 'p1', name: 'Alpha' });
++  assert.deepEqual(createProject('p1', 'Alpha'), { id: 'p1', name: 'Alpha', archivedAt: null });
++});
++
++test('archives and restores a newly created project', () => {
++  const project = createProject('p1', 'Alpha');
++  const archived = archiveProject(project);
++  assert.deepEqual(visibleProjects([archived]), []);
++  assert.deepEqual(visibleProjects([restoreProject(archived)]).map(x => x.id), ['p1']);
+ });

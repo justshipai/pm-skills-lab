@@ -1,0 +1,11 @@
+{
+  "criteria": [
+    {"id":"correct-verdict","description":"Leads with Not ready because material billing and entitlement changes violate the explicit invariant and remain untested.","weight":3,"required":true},
+    {"id":"intent-contract","description":"Captures the requested copy changes and the explicit no-change invariant for plans, prices, discounts and entitlements.","weight":3,"required":true},
+    {"id":"orphan-changes","description":"Clearly identifies the discount and SSO mapping as unexpected high-blast-radius changes, not harmless implementation detail.","weight":3,"required":true},
+    {"id":"evidence-ledger","description":"Marks copy Pass and billing/entitlement invariants Fail, without treating snapshot tests as checkout evidence.","weight":3,"required":true},
+    {"id":"minimal-actions","description":"Requires reverting the two orphan changes and verifying affected billing/entitlement behaviour before shipping.","weight":2,"required":false},
+    {"id":"pm-readable","description":"Explains commercial and customer consequences in plain language.","weight":1,"required":false}
+  ],
+  "pass_threshold": 0.8
+}

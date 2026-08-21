@@ -1,0 +1,4 @@
+CREATE TABLE projects (
+  id TEXT PRIMARY KEY,
+  name TEXT NOT NULL
+);

@@ -1,0 +1,11 @@
+{
+  "criteria": [
+    {"id":"correct-verdict","description":"Leads with Ready with conditions for the internal pilot, with analytics as the explicit condition before general availability.","weight":3,"required":true},
+    {"id":"scope-aware-contract","description":"Covers filtered export, admin-only access, empty/escaping behaviour, analytics and the internal-only rollout boundary.","weight":3,"required":true},
+    {"id":"evidence-ledger","description":"Marks export and authorisation Pass, analytics Fail, and cites the strongest evidence for each.","weight":3,"required":true},
+    {"id":"proportionality","description":"Does not block the internal pilot for the bounded analytics gap and does not incorrectly call the feature fully Ready to ship for general availability.","weight":3,"required":true},
+    {"id":"condition-owner","description":"Names the analytics event, owner and GA boundary as the concrete condition.","weight":2,"required":false},
+    {"id":"pm-readable","description":"Keeps the review concise and decision-oriented.","weight":1,"required":false}
+  ],
+  "pass_threshold": 0.8
+}

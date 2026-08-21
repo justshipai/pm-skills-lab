@@ -2,9 +2,9 @@
 
 The full roadmap — ~160 skills across 14 categories. `[x]` = authored & eval-ready, `[ ]` = open for contribution. Whether an authored skill is **verified** (beats its baseline on a real eval run) is tracked separately in [`EVALS.md`](./EVALS.md). Want to build one? Open an issue to claim it, then follow [CONTRIBUTING.md](./CONTRIBUTING.md).
 
-## AI-product PM — launch wedge (10 / 21)
+## AI-product PM — launch wedge (11 / 22)
 
-- [x] `ai-feature-spec` — Spec an AI feature with eval plan, guardrails, and fallbacks
+- [x] `ai-feature-spec` — Spec an AI feature with eval plan, guardrails, and fallbacks\n- [x] `check-what-ai-built` — Evidence-backed acceptance review for features produced by AI coding tools
 - [x] `ai-prd` — PRD for an AI feature (model card, data requirements, success criteria)
 - [x] `llm-eval-set-designer` — Design an eval set (cases + rubric) for an AI feature
 - [x] `eval-rubric-designer` — Build an LLM-as-judge rubric that discriminates good from bad

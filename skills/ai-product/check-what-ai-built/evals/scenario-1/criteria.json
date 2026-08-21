@@ -1,0 +1,47 @@
+{
+  "criteria": [
+    {
+      "id": "decisive-verdict",
+      "description": "Leads with a Not ready verdict and ties it to the observed active-project failure and destructive migration risk.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "intent-contract",
+      "description": "Translates the request into observable contract items covering admin success, member denial, active-project and unpaid-invoice constraints, non-deletion, confirmation and restore invariants.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "evidence-ledger",
+      "description": "Maps contract items to Pass, Fail or Unverified and cites the strongest available evidence without treating green CI or missing tests as proof.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "permission-uncertainty",
+      "description": "Distinguishes hiding the member UI action from proving server-side authorisation and marks endpoint enforcement unverified.",
+      "weight": 2,
+      "required": true
+    },
+    {
+      "id": "migration-blast-radius",
+      "description": "Flags the non-null default migration as an orphan or high-blast-radius change that would archive existing projects and notes the missing rollback.",
+      "weight": 3,
+      "required": true
+    },
+    {
+      "id": "minimal-next-actions",
+      "description": "Provides a short ordered set of actions that would change the verdict, prioritising migration correction, active-project enforcement, endpoint permission testing and restore verification.",
+      "weight": 2,
+      "required": false
+    },
+    {
+      "id": "pm-readable",
+      "description": "Summarises product consequences in plain language without narrating files line by line or dumping a generic QA checklist.",
+      "weight": 1,
+      "required": false
+    }
+  ],
+  "pass_threshold": 0.8
+}

@@ -1,0 +1,14 @@
+interface:
+  display_name: Check What AI Built
+  short_description: Check whether an AI-built feature is safe to ship
+  default_prompt: Use $check-what-ai-built to check whether this AI-built feature
+    matches the intent and is safe to ship.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

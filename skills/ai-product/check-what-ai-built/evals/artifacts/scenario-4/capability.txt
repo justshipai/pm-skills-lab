@@ -1,0 +1,1 @@
+Approves a safe, well-evidenced CSV export without inventing blockers.

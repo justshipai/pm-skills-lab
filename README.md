@@ -10,9 +10,9 @@
 
 Most PM skill libraries are *"trust me, here's a markdown file."* You can't tell which skills actually help and which just add words.
 
-**pm-skills-lab takes the opposite stance: every skill ships with a scenario eval and an in-repo harness that runs the task _with and without_ the skill, then grades both against a rubric.** A skill earns the **verified** mark only when the with-skill run beats the no-skill baseline. Results are published in [`EVALS.md`](./EVALS.md) — so "it works" is a number you can check, not a claim you have to trust. Running evals needs only an LLM API key; no external eval service required.
+**pm-skills-lab takes the opposite stance: every skill ships with a scenario eval that compares the task _with and without_ the skill, then grades both against a rubric.** The default in-repo harness automates the comparison; alternative controlled runners must document their method in the skill’s results. A skill earns the **verified** mark only when the with-skill run beats the no-skill baseline. Results are published in [`EVALS.md`](./EVALS.md) — so "it works" is a number you can check, not a claim you have to trust.
 
-> **Status:** 56 skills authored across 11 categories. 51 have been run through the harness so far — **38 verified, 13 no-measurable-lift (strong baseline), 0 failed**; the 5 newest (GTM & launch) are eval-ready and awaiting their run. Live status and per-criterion detail are in [`EVALS.md`](./EVALS.md). Running the evals also surfaced (and fixed) a real measurement bug along the way — which is exactly what evals are for.
+> **Status:** 57 skills authored across 11 categories. All 57 have been evaluated: **42 verified, 15 no measurable lift (strong baseline), 0 failed**. Live status and per-criterion detail are in [`EVALS.md`](./EVALS.md).
 
 This is a **curated, maintained library** — the skills here are authored and held to the eval bar, so you can install the set and trust it. Contributions are welcome (see below) and held to the same bar, but the core is a deliberately-built collection, not a free-for-all.
 
@@ -28,6 +28,7 @@ The deepest, most battle-tested category in the lab is **AI-product PM** — the
 | Skill | What it does |
 |---|---|
 | [`ai-feature-spec`](./skills/ai-product/ai-feature-spec/) | Specs an AI feature with an eval plan, guardrails, and graceful fallbacks baked in |
+| [`check-what-ai-built`](./skills/ai-product/check-what-ai-built/) | Checks whether an AI-built feature matches the product intent and is safe to ship |
 | [`ai-prd`](./skills/ai-product/ai-prd/) | Full AI PRD anchored on a model card, data strategy, and evaluation strategy |
 | [`llm-eval-set-designer`](./skills/ai-product/llm-eval-set-designer/) | Designs a runnable eval set (stratified cases + graders + bars), Hamel-style |
 | [`model-selection`](./skills/ai-product/model-selection/) | Eval-driven model/cost/latency/quality trade-off and recommendation |
@@ -38,9 +39,9 @@ The deepest, most battle-tested category in the lab is **AI-product PM** — the
 | [`human-in-the-loop-design`](./skills/ai-product/human-in-the-loop-design/) | Maps each action to the right human oversight by risk and confidence |
 | [`ai-pricing-model`](./skills/ai-product/ai-pricing-model/) | Unit-economics-grounded pricing with margin guardrails |
 
-Live **verified status for every skill is tracked in [`EVALS.md`](./EVALS.md)** — currently 12/15 verified across the repo, with 3 marked *no measurable lift* (a strong base model already aces those scenarios unaided; see the status key in EVALS.md). The rest of the wedge (11 more) is catalogued in [`CATALOG.md`](./CATALOG.md) and **open for contribution**.
+Live **verified status for every skill is tracked in [`EVALS.md`](./EVALS.md)**. The AI-product PM wedge now has 11 authored skills: 8 verified and 3 marked *no measurable lift* because a strong base model already aces those scenarios unaided. The remaining 11 are catalogued in [`CATALOG.md`](./CATALOG.md) and **open for contribution**.
 
-Beyond the wedge, the generic library is underway too — `prd-generator`, `rice-scorer`, `okr-drafting`, `roadmap-builder`, and `stakeholder-map` are authored, with ~140 more catalogued.
+Beyond the wedge, the broader library includes `prd-generator`, `rice-scorer`, `okr-drafting`, `roadmap-builder`, and `stakeholder-map`, with 100+ more skills catalogued.
 
 ## How it works
 
@@ -61,7 +62,7 @@ skills/<category>/<skill-name>/
 
 ## Eval results
 
-The proof lives in the repo, not in a claim. [`scripts/run_evals.py`](./scripts/run_evals.py) runs each scenario **twice** — once with no skill (baseline) and once with `SKILL.md` supplied as the system prompt (treatment) — then an LLM judge scores both against `criteria.json`. A skill is **verified** when the treatment passes the rubric *and* beats the baseline on every scenario. Per-skill detail lands in `evals/RESULTS.md`; the roll-up is in [`EVALS.md`](./EVALS.md).
+The proof lives in the repo, not in a claim. The default runner, [`scripts/run_evals.py`](./scripts/run_evals.py), runs each scenario **twice** — once with no skill (baseline) and once with `SKILL.md` supplied as the system prompt (treatment) — then an LLM judge scores both against `criteria.json`. A skill is **verified** when the treatment passes the rubric *and* beats the baseline on every scenario. Per-skill detail, including the runner and method used, lands in `evals/RESULTS.md`; the roll-up is in [`EVALS.md`](./EVALS.md).
 
 It's deliberately simple. Just:
 
@@ -77,7 +78,7 @@ Skills follow the open [Agent Skills](https://agentskills.io/) standard — a fo
 
 ```sh
 # Claude Code / Claude Cowork
-cp -r skills/ai-product/ai-feature-spec ~/.claude/skills/
+cp -r skills/ai-product/check-what-ai-built ~/.claude/skills/
 
 # Gemini CLI → ~/.gemini/skills/ · Cursor → .cursor/skills/ · Codex → .codex/skills/
 ```
@@ -90,7 +91,7 @@ The full roadmap lives in [`CATALOG.md`](./CATALOG.md) — ~160 skills across 14
 
 | Category | Planned | Authored |
 |---|---|---|
-| AI-product PM *(launch wedge)* | 21 | 10 |
+| AI-product PM *(launch wedge)* | 22 | 11 |
 | Discovery & customer research | 20 | 4 |
 | Market & competitive | 12 | 5 |
 | Strategy & vision | 14 | 5 |

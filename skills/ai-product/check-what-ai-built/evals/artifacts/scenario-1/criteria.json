@@ -1,0 +1,12 @@
+{
+  "criteria": [
+    {"id":"correct-verdict","description":"Leads with Not ready because the bulk implementation lacks server-side member authorisation and allows active projects to be archived.","weight":4,"required":true},
+    {"id":"permission-defect","description":"Discovers from the actual implementation that bulkArchiveProjects never checks actor.role; does not confuse the separate UI visibility helper or legacy single-item check with bulk endpoint enforcement.","weight":4,"required":true},
+    {"id":"active-project-defect","description":"Discovers that bulkArchiveProjects checks unpaid invoices but never rejects active projects.","weight":3,"required":true},
+    {"id":"working-behaviour","description":"Correctly recognises that confirmation cancellation, unpaid-invoice rejection, data preservation and the unchanged single-project path have supporting code or test evidence.","weight":2,"required":false},
+    {"id":"direct-evidence","description":"Uses the real diff, tests, code paths or a focused probe as evidence rather than making unsupported claims.","weight":3,"required":true},
+    {"id":"no-false-positive","description":"Does not invent a destructive migration, deletion behaviour or other defect absent from the fixture.","weight":2,"required":false},
+    {"id":"minimal-actions","description":"Requires role enforcement and active-project validation in the bulk service plus focused regression tests before shipping.","weight":2,"required":false}
+  ],
+  "pass_threshold": 0.8
+}

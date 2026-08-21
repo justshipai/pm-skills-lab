@@ -1,0 +1,11 @@
+{
+  "criteria": [
+    {"id":"correct-verdict","description":"Leads with Not ready, prioritising the observed cross-workspace data exposure and also noting the failed state-preservation requirement.","weight":3,"required":true},
+    {"id":"intent-contract","description":"Covers search scope, tenant isolation and preservation of query and filters on return.","weight":3,"required":true},
+    {"id":"direct-evidence","description":"Treats the preview failures as stronger evidence than green CI and happy-path tests.","weight":3,"required":true},
+    {"id":"root-risk","description":"Connects the workspace-agnostic cache key to the tenant-boundary risk without claiming more than the evidence supports.","weight":2,"required":true},
+    {"id":"minimal-actions","description":"Requires tenant-safe cache scoping and tests, plus query/filter restoration and a focused regression test before shipping.","weight":2,"required":false},
+    {"id":"pm-readable","description":"Explains the customer and data consequence clearly.","weight":1,"required":false}
+  ],
+  "pass_threshold": 0.8
+}

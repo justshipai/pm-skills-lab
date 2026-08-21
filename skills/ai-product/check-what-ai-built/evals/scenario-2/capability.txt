@@ -1,0 +1,1 @@
+Recognises a fully evidenced, low-risk implementation as Ready to ship without inventing blockers.

@@ -10,7 +10,7 @@ Every skill ships with a scenario eval. The default harness (`scripts/run_evals.
 |---|---|---|---|---|
 | `agent-capability-spec` | ➖ no measurable lift (strong baseline) | 1.0 | 1.0 | 2026-06-05 10:30 UTC |
 | `ai-feature-spec` | ✅ verified | 0.893 | 1.0 | 2026-06-05 10:33 UTC |
-| `check-what-ai-built` | ✅ verified | 0.9344 avg (8 scenarios) | 1 avg (8/8 pass) | 2026-08-21 15:13 UTC |
+| `check-what-ai-built` | ✅ verified | 0.9822 artifact avg (4/4 pass) | 1.0000 artifact avg (4/4 pass) | 2026-08-21 16:28 UTC |
 | `ai-prd` | ✅ verified | 0.731 | 1.0 | 2026-06-05 10:39 UTC |
 | `ai-pricing-model` | ✅ verified | 0.955 | 1.0 | 2026-06-05 10:42 UTC |
 | `eval-rubric-designer` | ✅ verified | 0.773 | 1.0 | 2026-06-05 10:44 UTC |
